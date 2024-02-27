@@ -2,6 +2,8 @@
 
 # North Tattoo
 
+<img src="[https://www.sptech.school/assets/images/logos/sptech_logo_1.png](https://www.creativefabrica.com/wp-content/uploads/2021/11/16/The-North-with-Compass-Navigator-Logo-Graphics-20293668-1.jpg)"></img>
+
 # Como nos organizamos
 
 + Toda atividade em Backlog deve obedecer a seguinte premissa:
