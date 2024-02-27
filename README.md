@@ -2,7 +2,7 @@
 
 # North Tattoo
 
-<img src="[[https://www.creativefabrica.com/wp-content/uploads/2021/11/16/The-North-with-Compass-Navigator-Logo-Graphics-20293668-1.jpg](https://www.creativefabrica.com/wp-content/uploads/2021/11/16/The-North-with-Compass-Navigator-Logo-Graphics-20293668-1.jpg)](https://static.vecteezy.com/system/resources/previews/014/796/795/non_2x/letter-n-north-compass-logo-design-template-inspiration-vector.jpg)"></img>
+<img src="https://static.vecteezy.com/system/resources/previews/014/796/795/non_2x/letter-n-north-compass-logo-design-template-inspiration-vector.jpg"></img>
 
 # Como nos organizamos
 
