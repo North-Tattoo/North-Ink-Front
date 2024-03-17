@@ -8,6 +8,8 @@ public class Usuario {
 
     private Integer telefone;
 
+    private Double qtdExperiencia;
+
     public Integer getTelefone() {
         return telefone;
     }
@@ -57,5 +59,12 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public Double getQtdExperiencia() {
+        return qtdExperiencia;
+    }
+
+    public void setQtdExperiencia(Double qtdExperiencia) {
+        this.qtdExperiencia = qtdExperiencia;
+    }
 }
 

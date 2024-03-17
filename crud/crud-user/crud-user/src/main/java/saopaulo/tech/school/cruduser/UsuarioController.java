@@ -93,6 +93,8 @@ public class UsuarioController implements CrudInterface {
             usuarioAtualizado.setNome(usuario.getNome());
             usuarioAtualizado.setSenha(usuario.getSenha());
             usuarioAtualizado.setTelefone(usuario.getTelefone());
+            usuarioAtualizado.setEstilo(usuario.getEstilo());
+            usuarioAtualizado.setQtdExperiencia(usuario.getQtdExperiencia());
             return ResponseEntity.status(200).body(usuarioAtualizado);
         } else {
             return ResponseEntity.status(404).build();
