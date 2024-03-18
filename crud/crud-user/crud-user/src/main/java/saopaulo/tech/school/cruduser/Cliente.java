@@ -2,8 +2,8 @@ package saopaulo.tech.school.cruduser;
 
 public class Cliente {
     private Integer id;
-
     private String email, nome, senha;
+    private Long telefone;
 
     public Integer getId() {
         return id;
@@ -12,8 +12,6 @@ public class Cliente {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    private Long telefone;
 
     public String getEmail() {
         return email;

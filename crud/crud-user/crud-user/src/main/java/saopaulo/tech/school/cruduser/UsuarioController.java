@@ -46,6 +46,10 @@ public class UsuarioController implements CrudInterface {
 
     @PostMapping("/cadastrar")
     public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario) {
+        // EMAIL SEMPRE TRUE PARA TESTES
+        if (!emailValido(usuario.getEmail())) {
+            return ResponseEntity.status(400).build();
+        }
         if (emailCadastrado(usuario.getEmail())) {
             return ResponseEntity.status(409).build();
         }
