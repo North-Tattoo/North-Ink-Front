@@ -1,8 +1,8 @@
 > Status do projeto: Desenvolvimento
 
-# North Tattoo
+# North Ink.
 
-<img src="https://static.vecteezy.com/system/resources/previews/014/796/795/non_2x/letter-n-north-compass-logo-design-template-inspiration-vector.jpg"></img>
+
 
 # Como nos organizamos
 
