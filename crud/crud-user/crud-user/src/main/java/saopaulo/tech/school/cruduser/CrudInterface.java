@@ -9,11 +9,11 @@ public interface CrudInterface {
         return false;
     }
 
-    public default boolean telefoneValido(Integer telefone){
+    public default boolean telefoneValido(Long telefone){
         return false;
     }
 
-    public default boolean telefoneCadastrado(Integer telefone){
+    public default boolean telefoneCadastrado(Long telefone){
         return false;
     }
 

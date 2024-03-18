@@ -16,7 +16,7 @@ public class ClienteController implements CrudInterface {
     @Override
     public boolean emailValido(String email) {
         // Verifica se o e-mail possui pelo menos um caractere antes e depois do "@"
-        return email.matches(".+@.+");
+        return !email.matches(".+@.+");
     }
 
     @Override
@@ -30,13 +30,13 @@ public class ClienteController implements CrudInterface {
     }
 
     @Override
-    public boolean telefoneValido(Integer telefone) {
+    public boolean telefoneValido(Long telefone) {
         // Verifica se o telefone não é nulo
-        return telefone != null;
+        return telefone == null;
     }
 
     @Override
-    public boolean telefoneCadastrado(Integer telefone) {
+    public boolean telefoneCadastrado(Long telefone) {
         for (Cliente cliente : clientes) {
             if (cliente.getTelefone() != null && cliente.getTelefone().equals(telefone)) {
                 return true;
@@ -47,13 +47,13 @@ public class ClienteController implements CrudInterface {
 
     @PostMapping
     public ResponseEntity<Cliente> cadastrar(@RequestBody Cliente cliente) {
-        if (!emailValido(cliente.getEmail())) {
+        if (emailValido(cliente.getEmail())) {
             return ResponseEntity.status(400).build();
         }
         if (emailCadastrado(cliente.getEmail())) {
             return ResponseEntity.status(409).build();
         }
-        if (!telefoneValido(cliente.getTelefone())) {
+        if (telefoneValido(cliente.getTelefone())) {
             return ResponseEntity.status(400).build();
         }
         if (telefoneCadastrado(cliente.getTelefone())) {
@@ -77,13 +77,13 @@ public class ClienteController implements CrudInterface {
 
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> atualizar(@RequestBody Cliente cliente, @PathVariable int id) {
-        if (!emailValido(cliente.getEmail())) {
+        if (emailValido(cliente.getEmail())) {
             return ResponseEntity.status(400).build();
         }
         if (emailCadastrado(cliente.getEmail())) {
             return ResponseEntity.status(409).build();
         }
-        if (!telefoneValido(cliente.getTelefone())) {
+        if (telefoneValido(cliente.getTelefone())) {
             return ResponseEntity.status(400).build();
         }
 

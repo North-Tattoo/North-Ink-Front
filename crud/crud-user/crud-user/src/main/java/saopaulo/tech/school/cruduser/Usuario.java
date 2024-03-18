@@ -6,11 +6,11 @@ public class Usuario {
 
     private String email, nome, senha, estilo, cnpj, cep;
 
-    private Integer telefone;
+    private Long telefone;
 
     private Double qtdExperiencia;
 
-    public Integer getTelefone() {
+    public Long getTelefone() {
         return telefone;
     }
 
@@ -23,7 +23,7 @@ public class Usuario {
         this.estilo = estilo;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(Long telefone) {
         this.telefone = telefone;
     }
 
