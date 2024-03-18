@@ -61,7 +61,7 @@ public class UsuarioController implements CrudInterface {
         return ResponseEntity.status(201).body(usuario);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscarUsuarioId/{id}")
     public ResponseEntity<Usuario> buscarUsuarioId(@PathVariable int id) {
         Usuario usuario = buscarUsuarioPorId(id);
         if (usuario != null) {
@@ -71,11 +71,8 @@ public class UsuarioController implements CrudInterface {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/atualizar/{id}")
     public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario, @PathVariable int id) {
-        if (emailValido(usuario.getEmail())) {
-            return ResponseEntity.status(400).build();
-        }
         if (emailCadastrado(usuario.getEmail())) {
             return ResponseEntity.status(409).build();
         }
@@ -101,7 +98,7 @@ public class UsuarioController implements CrudInterface {
 
 
 
-    @GetMapping("/estilo/{estilo}")
+    @GetMapping("/buscarUsuariosPorEstilo/{estilo}")
     public ResponseEntity<List<Usuario>> buscarUsuariosPorEstilo(@PathVariable String estilo) {
         List<Usuario> usuariosPorEstilo = new ArrayList<>();
         for (Usuario usuario : usuarios) {
@@ -116,11 +113,13 @@ public class UsuarioController implements CrudInterface {
         }
     }
 
-    @PatchMapping("/estilo/{estilo}")
-    public ResponseEntity<Usuario> atualizarEstiloUsuario(@PathVariable String estilo, @RequestBody Usuario novoUsuario) {
-        Usuario usuarioExistente = buscarUsuarioPorEstilo(estilo);
+    @PatchMapping("/atualizarEstiloUsuarioId/{id}/{estilo}")
+    public ResponseEntity<Usuario> atualizarEstiloUsuarioId(@PathVariable String estilo,
+                                                            @PathVariable int id,
+                                                            @RequestBody Usuario novoUsuario) {
+        Usuario usuarioExistente = buscarUsuarioPorId(id);
         if (usuarioExistente != null) {
-            usuarioExistente.setEstilo(novoUsuario.getEstilo());
+            usuarioExistente.setEstilo(estilo);
             return ResponseEntity.status(200).body(usuarioExistente);
         } else {
             return ResponseEntity.status(404).build();
@@ -129,7 +128,7 @@ public class UsuarioController implements CrudInterface {
 
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     public ResponseEntity<Usuario> deletar(@PathVariable int id) {
         Usuario usuario = buscarUsuarioPorId(id);
         if (usuario != null) {
