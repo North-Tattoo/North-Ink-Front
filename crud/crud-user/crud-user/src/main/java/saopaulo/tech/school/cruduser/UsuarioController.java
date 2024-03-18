@@ -15,7 +15,7 @@ public class UsuarioController implements CrudInterface {
 
     @Override
     public boolean emailValido(String email) {
-        // Verifica se o e-mail possui pelo menos um caractere antes e depois do "@"
+       
         return email.matches(".+@.+");
     }
 
@@ -95,11 +95,14 @@ public class UsuarioController implements CrudInterface {
             usuarioAtualizado.setTelefone(usuario.getTelefone());
             usuarioAtualizado.setEstilo(usuario.getEstilo());
             usuarioAtualizado.setQtdExperiencia(usuario.getQtdExperiencia());
+            usuarioAtualizado.setCnpj(usuario.getCnpj());
+            usuarioAtualizado.setCep(usuario.getCep());
             return ResponseEntity.status(200).body(usuarioAtualizado);
         } else {
             return ResponseEntity.status(404).build();
         }
     }
+
 
 
     @GetMapping("/estilo/{estilo}")
@@ -157,5 +160,30 @@ public class UsuarioController implements CrudInterface {
             }
         }
         return null;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Usuario>> listarUsuarios() {
+        if (usuarios.isEmpty()) {
+            return ResponseEntity.status(404).build();
+        }
+        selectionSort(usuarios);
+        return ResponseEntity.status(200).body(usuarios);
+    }
+
+    private void selectionSort(List<Usuario> usuarios) {
+        int n = usuarios.size();
+
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (usuarios.get(j).getId() < usuarios.get(minIndex).getId()) {
+                    minIndex = j;
+                }
+            }
+            Usuario temp = usuarios.get(minIndex);
+            usuarios.set(minIndex, usuarios.get(i));
+            usuarios.set(i, temp);
+        }
     }
 }

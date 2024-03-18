@@ -4,7 +4,7 @@ public class Usuario {
 
     private int id;
 
-    private String email, nome, senha, estilo;
+    private String email, nome, senha, estilo, cnpj, cep;
 
     private Integer telefone;
 
@@ -66,5 +66,23 @@ public class Usuario {
     public void setQtdExperiencia(Double qtdExperiencia) {
         this.qtdExperiencia = qtdExperiencia;
     }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 }
+
+
 
