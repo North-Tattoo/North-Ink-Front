@@ -93,6 +93,7 @@ body {
     font-size: 15px;
     cursor: pointer;
     color: #FAF5FF;
+    border: none;
 }
 
 .botoes-inicio button:hover {
@@ -314,6 +315,7 @@ body {
     font-size: 35px;
     padding-top: 10%;
     padding-left: 12%;
+    font-weight: bold;
 }
 
 .secao-depoimentos > article:first-of-type{
@@ -321,6 +323,7 @@ body {
     color: #FAF5FF;
     font-size: 25px;
     padding-left: 12%;
+    font-weight: bold;
 }
 
 .secao-depoimentos img{
