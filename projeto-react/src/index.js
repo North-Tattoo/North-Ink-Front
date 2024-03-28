@@ -1,4 +1,4 @@
-import LandingPage from './LandingPage';
+import LandingPage from './LandingPage/LandingPage';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 

@@ -1,4 +1,4 @@
-import './LandingPage.css';
+import '../LandingPage/LandingPage.css';
 
 import SecaoInicio from './SecaoInicio.js';
 import SectionGradiente from './SectionGradiente.js';
