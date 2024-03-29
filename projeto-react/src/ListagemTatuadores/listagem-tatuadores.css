@@ -28,9 +28,19 @@ body {
     font-weight: 700;
 }
 .filtro{
+        display: flex;
         position: absolute;
-        left: 3%;
+        margin-top: 3%;
+        left: 4%;
 }
+.filtro a{
+    margin-left: 10%;
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Poppins';
+    font-size: 15px;
+}
+
 .inicio img {   
     display: block;
     width: 10%;
@@ -85,8 +95,21 @@ body {
     font-family: 'Poppins';
     font-size: 15px;
     cursor: pointer;
-    color: #FAF5FF;
+    /* color: #FAF5FF; */
     border: none;
+    padding-left: 30px;
+}
+.pesquisa{
+    background-image: url('../../public/assets/lupa.png');
+    background-size: 20px; /* Define o tamanho da imagem */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-position: 5px center; /* Posição da imagem dentro do input */
+}
+.onde{
+    background-image: url('../../public/assets/localização.png');
+    background-size: 20px; /* Define o tamanho da imagem */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-position: 5px center; /* Posição da imagem dentro do input */
 }
 
 /* CSS do grid de fotos*/
@@ -159,7 +182,6 @@ body {
     width: 100%;
     position: relative;
 }
-
 .wrapper i {
     top: 50%;
     height: 50px;
@@ -275,6 +297,50 @@ body {
     }
 }
 
+/* Listagem tatuadores */
+.grid-listagem {
+    margin-top: 10%;
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+.informacoes-grid{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%; 
+}
+
+.grid-listagem span {
+    text-decoration: none;
+    font-family: 'Poppins';
+    color: #000000;
+    display: block; /* Certifique-se de que cada linha seja tratada como um bloco */
+    line-height: 4; 
+}
+.titulo-studio{
+    font-weight: 600;
+    font-size: 20px
+}
+
+.botao-reserva {
+    margin-left: 20px; /* Espaçamento à esquerda do botão */
+    border: none;
+    background-color: #581C87;
+    color: #B2BAC5;
+    border-radius: 6px;
+    width: 122px;
+    height: 34px;
+    margin-top: 30%;
+    /* line-height: 4; */
+}
+.botoes-reserva{
+    display: flex;
+    flex-direction: column;
+    margin-top: 7%;
+}
+/* Footer */
 .logo-final-do-site{
     display: flex;
     justify-content: end;
@@ -324,10 +390,9 @@ body {
     float: right;
     padding-top: 2%;
     padding-right: 5%;
-    width: 245px;
-    height: 62px;
+    width: 280px;
+    height: 85px;
 }
-
 .mensagem-direitos{
     display: flex;
     justify-content: center;

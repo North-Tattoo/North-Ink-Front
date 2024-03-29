@@ -112,18 +112,18 @@ function SectionGradiente() {
                 </div>
                 <div className="row">
                     <div className="column">
-                        <img src='assets/um-homem-com-uma-tatuagem-no-braco.jpg' alt="Tatuador com tatuagem no braço" />
-                        <img src='assets/antebraco-colorida.jpg' alt="Antebraço colorida" />
-                        <img src='assets/tatuagem-mulher-costas.jpg' alt="Tatuagem mulher costas" />
+                        <img src='assets/imagens-comprimidas/um-homem-com-uma-tatuagem-no-braco-comprimido.jpg' alt="Tatuador com tatuagem no braço" />
+                        <img src='assets/imagens-comprimidas/antebraco-colorida-comprimida.jpg' alt="Antebraço colorida" />
+                        <img src='assets/imagens-comprimidas/tatuagem-mulher-costas-comprimida.jpg' alt="Tatuagem mulher costas" />
                     </div>
                     <div className="column">
-                        <img src='assets/tattoo-oriental.jpg' alt="Tattoo oriental" />
-                        <img src='assets/tattoo-horizontal.jpg' alt="Tattoo horizontal" />
+                        <img src='assets/imagens-comprimidas/tattoo-oriental-comprimida.jpg' alt="Tattoo oriental" />
+                        <img src='assets/imagens-comprimidas/tattoo-horizontal-comprimida.jpg' alt="Tattoo horizontal" />
                     </div>
                     <div className="column">
-                        <img src='assets/tattoo-antebraco.jpg' alt="Tattoo antebraço" />
-                        <img src='assets/pescoço.jpg' alt="Pescoço" />
-                        <img src='assets/ombro.jpg' alt="Ombro" />
+                        <img src='assets/imagens-comprimidas/tattoo-antebraco-comprimida.jpg' alt="Tattoo antebraço" />
+                        <img src='assets/imagens-comprimidas/pescoço-comprimido.jpg' alt="Pescoço" />
+                        <img src='assets/imagens-comprimidas/ombro-comprimido.jpg' alt="Ombro" />
                     </div>
                 </div>
             </section>

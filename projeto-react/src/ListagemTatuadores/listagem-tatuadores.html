@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
+
 <body>
     <section class="inicio">
         <div class="logo">
@@ -20,8 +22,9 @@
             <a href="#">Entrar</a>
         </div>
         <div class="inputs">
-            <input type="text" id="campo_texto" name="campo_texto" placeholder="Pesquise por tatuadores perto de você">
-            <input type="text" id="campo_texto" name="campo_texto" placeholder="Onde?">
+            <input type="text" id="campo_texto" placeholder="Pesquise por tatuadores perto de você" class="pesquisa">
+            <input type="text" id="campo_texto" placeholder="Onde?" class="onde">
+        
         </div>
     </section>
     <section class="fundo">
@@ -33,32 +36,38 @@
                 <i id="left" class="fa-solid fa-angle-left"></i>
                 <ul class="carousel">
                     <li class="card">
-                        <div class="img"><img src="assets/tatuador-carrossel.jpg" alt="img" draggable="false"></div>
+                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
+                                draggable="false"></div>
                         <h2>King Tattoo</h2>
                         <span>Rua das Rosas, 123</span>
                     </li>
                     <li class="card">
-                        <div class="img"><img src="assets/tatuador-carrossel.jpg" alt="img" draggable="false"></div>
+                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
+                                draggable="false"></div>
                         <h2>King Tattoo</h2>
                         <span>Rua das Rosas, 123</span>
                     </li>
                     <li class="card">
-                        <div class="img"><img src="assets/tatuador-carrossel.jpg" alt="img" draggable="false"></div>
+                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
+                                draggable="false"></div>
                         <h2>King Tattoo</h2>
                         <span>Rua das Rosas, 123</span>
                     </li>
                     <li class="card">
-                        <div class="img"><img src="assets/tatuador-carrossel.jpg" alt="img" draggable="false"></div>
+                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
+                                draggable="false"></div>
                         <h2>King Tattoo</h2>
                         <span>Rua das Rosas, 123</span>
                     </li>
                     <li class="card">
-                        <div class="img"><img src="assets/tatuador-carrossel.jpg" alt="img" draggable="false"></div>
+                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
+                                draggable="false"></div>
                         <h2>King Tattoo</h2>
                         <span>Rua das Rosas, 123</span>
                     </li>
                     <li class="card">
-                        <div class="img"><img src="assets/tatuador-carrossel.jpg" alt="img" draggable="false"></div>
+                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
+                                draggable="false"></div>
                         <h2>King Tattoo</h2>
                         <span>Rua das Rosas, 123</span>
                     </li>
@@ -70,9 +79,31 @@
             <img src="../../public/assets/filtro-icone.png" alt="">
             <a>Filtros</a>
         </div>
-        
+
         <div class="grid-listagem">
             <img src="../../public/assets/tatuador-grid.png " alt="">
+            <div class="informacoes-grid">
+                <span class="titulo-studio">
+                    King Tatto
+                </span>
+                <span class="endereço-studio">
+                    Rua Ficsticia, 123 - Ficção
+                </span>
+                <span>
+                    Tatto 10 cm
+                    R$ XX,XX
+                </span>
+                <div class="barra-roxa"></div>
+                <span>
+                    Tatto 10 cm
+                    R$ XX,XX
+                </span>
+            </div>
+            <div class="botoes-reserva">
+                <button class="botao-reserva">Reservar</button>
+                <button class="botao-reserva">Reservar</button>
+
+            </div>
         </div>
     </section>
     <footer class="footer">
@@ -94,20 +125,20 @@
 
     <!--Código do carrossel:
     https://www.codingnepalweb.com/draggable-card-slider-html-css-javascript/-->
-<script>
-    const wrapper = document.querySelector(".wrapper");
-    const carousel = document.querySelector(".carousel");
-    const firstCardWidth = carousel.querySelector(".card").offsetWidth;
-    const arrowBtns = document.querySelectorAll(".wrapper i");
-    const carouselChildrens = [...carousel.children];
+    <script>
+        const wrapper = document.querySelector(".wrapper");
+        const carousel = document.querySelector(".carousel");
+        const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+        const arrowBtns = document.querySelectorAll(".wrapper i");
+        const carouselChildrens = [...carousel.children];
 
-    let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
+        let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
 
         // Get the number of cards that can fit in the carousel at once
-    let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+        let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
 
         // Insert copies of the last few cards to beginning of carousel for infinite scrolling
-    carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+        carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
             carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
         });
 
@@ -181,4 +212,5 @@
         wrapper.addEventListener("mouseleave", autoPlay);
     </script>
 </body>
+
 </html>

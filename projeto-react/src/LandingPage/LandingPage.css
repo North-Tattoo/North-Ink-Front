@@ -377,19 +377,14 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 75%;
 }
 
 .links a{
     text-decoration: none;
     font-family: 'Poppins';
-    color: #FAF5FF;
-}
-
-.barrinha{
-    background-color: #FAF5FF;
-    height: 20px;
-    width: 1.9px;
-    margin: 5px;
+    color: #B2BAC5;
+    margin-left: 5%;
 }
 
 .barra-roxa{
