@@ -1,4 +1,4 @@
-package saopaulo.tech.school.cruduser;
+package saopaulo.tech.school.cruduser.entity;
 
 public class Usuario {
 

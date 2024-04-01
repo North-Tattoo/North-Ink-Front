@@ -1,7 +1,9 @@
-package saopaulo.tech.school.cruduser;
+package saopaulo.tech.school.cruduser.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import saopaulo.tech.school.cruduser.CrudInterface;
+import saopaulo.tech.school.cruduser.entity.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
