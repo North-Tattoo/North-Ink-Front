@@ -8,7 +8,7 @@ function Footer() {
                 <a href="#">Políticas e Privacidade</a>
             </nav>
             <div className="barra-roxa"></div>
-            <img id="google-play" src="assets/google-play-roxo.png" alt="Google Play" />
+            <img id="google-play" src="assets/google-play-badge.png" alt="Google Play" />
             <LogoImagem />
             <div className="mensagem-direitos">© 2024 North Ink. Todos os direitos reservados.</div>
         </footer>
