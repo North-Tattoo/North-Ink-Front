@@ -1,4 +1,5 @@
 import { FaRegUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function SecaoInicio() {
     return (
@@ -6,11 +7,10 @@ function SecaoInicio() {
             <section className="inicio">
                 <div className="logo">
                     <LogoImagem />
-                    {/* <img src='../public/assets/logo-branca.png' alt='bibcudn' /> */}
                 </div>
                 <div className="botao-entrar">
                     <FaRegUserCircle />
-                    <a href="#">Entrar</a>
+                    <Link to='/cadastro'>Entrar</Link>
                 </div>
                 <header className="frase-titulo">
                     ENCONTRE O SEU <span style={{ color: '#9333EA' }}>TATUADOR</span> IDEAL.
