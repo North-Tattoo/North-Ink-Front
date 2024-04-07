@@ -23,35 +23,61 @@
                 <div class="barra-progresso">
                     <div class="progresso"></div>
                 </div>
-                <span class="frase-inicial">Se torne um tatuador parceiro</span>
+                <span class="frase-inicial">Para as pessoas te conhecerem</span>
                 <div class="linha"></div>
-                <div class="nome-sobrenome">
-                    <div class="campo">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="nome">
+
+                <span class="msg-3-tela">Quais seus estilos preferidos para trabalhar?</span>
+
+                <div class="opcoes">
+                    <div class="coluna">
+                        <input type="checkbox" id="oldSchool" name="oldSchool" value="Old School">
+                        <label for="oldSchool">Old School</label><br>
+                
+                        <input type="checkbox" id="newSchool" name="newSchool" value="New School">
+                        <label for="newSchool">New School</label><br>
+                
+                        <input type="checkbox" id="realismo" name="realismo" value="Realismo">
+                        <label for="realismo">Realismo</label><br>
+                
+                        <input type="checkbox" id="aquarela" name="aquarela" value="Aquarela">
+                        <label for="aquarela">Aquarela</label><br>
                     </div>
-                    <div class="campo">
-                        <label for="sobrenome">Sobrenome</label>
-                        <input type="sobrenome" id="sobrenome" name="sobrenome">
+                    <div class="coluna">
+                        <input type="checkbox" id="blackwork" name="blackwork" value="Blackwork">
+                        <label for="blackwork">Blackwork</label><br>
+                
+                        <input type="checkbox" id="minimalismo" name="minimalismo" value="Minimalismo">
+                        <label for="minimalismo">Minimalismo</label><br>
+                
+                        <input type="checkbox" id="lettering" name="lettering" value="Lettering">
+                        <label for="lettering">Lettering</label><br>
+                
+                        <input type="checkbox" id="geometrico" name="geometrico" value="Geométrico">
+                        <label for="geometrico">Geométrico</label><br>
+                    </div>
+                    <div class="coluna">
+                        <input type="checkbox" id="pontilhismo" name="pontilhismo" value="Pontilhismo">
+                        <label for="pontilhismo">Pontilhismo</label><br>
+                
+                        <input type="checkbox" id="neoTraditional" name="neoTraditional" value="Neo Traditional">
+                        <label for="neoTraditional">Neo Traditional</label><br>
+                
+                        <input type="checkbox" id="oriental" name="oriental" value="Oriental">
+                        <label for="oriental">Oriental</label><br>
+                
+                        <input type="checkbox" id="trashPolka" name="trashPolka" value="Trash Polka">
+                        <label for="trashPolka">Trash Polka</label><br>
                     </div>
                 </div>
-                <div class="email">
-                    <div class="campo">
-                        <label for="email">E-mail</label>
-                        <input placeholder="exemplo@email.com" type="text" id="email" name="email">
-                    </div>
-                </div>
-                <div class="nome-sobrenome">
-                    <div class="campo">
-                        <label for="senha">Senha</label>
-                        <input placeholder="Mínimo 6 caracteres" type="password" id="senha" name="senha">
-                    </div>
-                    <div class="campo">
-                        <label for="telefone">Telefone</label>
-                        <input placeholder="(DDD) Telefone" type="text" id="telefone" name="telefone">
-                    </div>
-                </div>
-                <button onclick="avancar()" class="avancar">Avançar</button>
+                
+
+                <span class="msg-3-tela">Nos conte um pouco sobre você.</span>
+
+                <span class="label-textarea">Fale aqui sobre seu resumo profissional, tempo de atuação, história de vida...</span>
+                <textarea id="resumo" name="resumo" rows="6" cols="65"></textarea>
+
+                <button onclick="concluir()" class="concluir">Concluir</button>
+                <span id='voltar' onClick={voltar}>Voltar</span>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ body {
     justify-content: center;
 }
 
-.modal{
+.modal {
     height: 82%;
     width: 37%;
     background-color: #B2BAC5;
@@ -27,8 +27,9 @@ body {
 
 .conteudo-modal {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins';
 }
 
 .conteudo-modal input:focus {
@@ -56,26 +57,17 @@ body {
 
 .frase-inicial {
     margin-top: 20px;
-    font-family: 'Poppins';
     font-size: 25px;
     font-weight: bold;
 }
 
-.linha{
-    height: 1.5px;
-    width: 108%;
-    background-color: #581C87;
-    margin-top: 13px;
-    margin-bottom: 10px;
-}
-
-.nome-sobrenome{
+.nome-sobrenome {
     display: flex;
     flex-direction: row;
     margin-top: 30px;
 }
 
-.nome-sobrenome input{
+.nome-sobrenome input {
     margin-right: 15px;
     margin-left: 15px;
     height: 40px;
@@ -85,23 +77,22 @@ body {
     text-align: center;
 }
 
-.nome-sobrenome label{
-    font-family: 'Poppins';
+.nome-sobrenome label {
     margin-left: 17px;
 }
 
-.campo{
+.campo {
     display: flex;
     flex-direction: column;
 }
 
-.email{
+.email {
     margin-top: 15px;
     display: flex;
     align-items: start;
 }
 
-.email input{
+.email input {
     height: 40px;
     width: 430px;
     border-radius: 5px;
@@ -109,33 +100,31 @@ body {
     text-align: center;
 }
 
-.email label{
-    font-family: 'Poppins';
+.email label {
     margin-left: 1px;
 }
 
-.avancar{
+.avancar {
     margin-top: 60px;
     background-color: #581C87;
     border: none;
     border-radius: 7px;
     color: white;
     /* font-weight: bold; */
-    font-family: 'Poppins';
-    font-size: 16px;
+    font-size: 18px;
     height: 50px;
     width: 120px;
     cursor: pointer;
 }
 
-.avancar:hover{
+.avancar:hover {
     background-color: #421564;
     transition: ease-in 0.1s;
 }
 
 /* /////////////////////// SEGUNDA TELA /////////////////////// */
 
-.modal-2{
+.modal-2 {
     height: 95%;
     width: 37%;
     background-color: #B2BAC5;
@@ -162,15 +151,22 @@ body {
     border-radius: 8px;
 }
 
+.linha-2 {
+    height: 1.5px;
+    width: 108%;
+    background-color: #581C87;
+    margin-top: 13px;
+    margin-bottom: 10px;
+}
 
 .input-100 {
     margin-top: 15px;
-    display: flex; 
+    display: flex;
     /* align-items: start; */
     flex-direction: column;
 }
 
-.input-100 input{
+.input-100 input {
     height: 40px;
     width: 380px;
     border-radius: 5px;
@@ -179,34 +175,30 @@ body {
     font-size: 15px;
 }
 
-.input-100 label{
-    font-family: 'Poppins';
+.input-100 label {
     margin-left: 5px;
 }
 
-.endereco{
-    font-family: 'Poppins';
+.endereco {
     margin-top: 25px;
     margin-right: 212px;
     font-weight: bold;
 }
 
-.span-cep{
-    font-family: 'Poppins';
+.span-cep {
     margin-right: 340px;
     margin-top: 8px;
 }
 
-.ipt-cep{
-    font-family: 'Poppins';
+.ipt-cep {
     flex-direction: row;
     align-items: center;
     display: flex;
     /* margin-top: 8px; */
-    margin-right: 267px;
+    margin-right: 245px;
 }
 
-.ipt-cep input{
+.ipt-cep input {
     height: 40px;
     width: 90px;
     border-radius: 5px;
@@ -215,10 +207,15 @@ body {
     font-size: 15px;
 }
 
-ion-icon {
-    font-size: 23px;
-    margin-left: 10px;
+.ipt-cep svg {
+    font-size: 22px;
+    padding-left: 10px;
     cursor: pointer;
+    opacity: 0.7;
+}
+
+.ipt-cep svg:hover{
+    opacity: 1;
 }
 
 .estado-cidade {
@@ -230,20 +227,21 @@ ion-icon {
 
 .estado-cidade .estado,
 .estado-cidade .cidade {
-    flex-basis: 48%; /* Definindo a largura de cada entrada para ocupar aproximadamente metade do espaço */
+    flex-basis: 48%;
+    /* Definindo a largura de cada entrada para ocupar aproximadamente metade do espaço */
 }
 
 .estado-cidade .estado label,
 .estado-cidade .cidade label {
     display: block;
-    font-family: 'Poppins';
     margin-left: 2px;
 }
 
 .estado-cidade .estado input,
 .estado-cidade .cidade input {
     height: 40px;
-    width: 100%; /* Para que ocupem todo o espaço disponível */
+    width: 100%;
+    /* Para que ocupem todo o espaço disponível */
     border-radius: 5px;
     border: none;
     text-align: center;
@@ -266,20 +264,21 @@ ion-icon {
 
 .bairro-rua .bairro,
 .bairro-rua .rua {
-    flex-basis: 48%; /* Definindo a largura de cada entrada para ocupar aproximadamente metade do espaço */
+    flex-basis: 48%;
+    /* Definindo a largura de cada entrada para ocupar aproximadamente metade do espaço */
 }
 
 .bairro-rua .bairro label,
 .bairro-rua .rua label {
     display: block;
-    font-family: 'Poppins';
     margin-left: 2px;
 }
 
 .bairro-rua .bairro input,
 .bairro-rua .rua input {
     height: 40px;
-    width: 100%; /* Para que ocupem todo o espaço disponível */
+    width: 100%;
+    /* Para que ocupem todo o espaço disponível */
     border-radius: 5px;
     border: none;
     text-align: center;
@@ -300,17 +299,18 @@ ion-icon {
 }
 
 .numero-complemento .numero {
-    flex-basis: 25%; /* Definindo a largura da entrada de número */
+    flex-basis: 25%;
+    /* Definindo a largura da entrada de número */
 }
 
 .numero-complemento .complemento {
-    flex-basis: 73%; /* Definindo a largura da entrada de complemento */
+    flex-basis: 73%;
+    /* Definindo a largura da entrada de complemento */
 }
 
 .numero-complemento .numero label,
 .numero-complemento .complemento label {
     display: block;
-    font-family: 'Poppins';
     margin-bottom: 5px;
 }
 
@@ -324,11 +324,13 @@ ion-icon {
 }
 
 .numero-complemento .numero input {
-    width: calc(100% - 10px); /* Para que a entrada de número seja menor */
+    width: calc(100% - 10px);
+    /* Para que a entrada de número seja menor */
 }
 
 .numero-complemento .complemento input {
-    width: 100%; /* A entrada de complemento ocupa todo o espaço disponível */
+    width: 100%;
+    /* A entrada de complemento ocupa todo o espaço disponível */
 }
 
 /* Estilo de foco */
@@ -338,28 +340,105 @@ ion-icon {
     outline: none;
 }
 
-.avancar-2{
+.avancar-2 {
     margin-top: 20px;
     background-color: #581C87;
     border: none;
     border-radius: 7px;
     color: white;
     /* font-weight: bold; */
-    font-family: 'Poppins';
-    font-size: 16px;
+    font-size: 18px;
     height: 50px;
     width: 120px;
     cursor: pointer;
 }
 
-.avancar-2:hover{
+.avancar-2:hover {
     background-color: #421564;
     transition: ease-in 0.1s;
 }
 
-#voltar{
+#voltar {
     text-decoration: none;
     color: #747474;
-    font-family: 'Poppins';
     margin-top: 3px;
+    cursor: pointer;
+}
+
+.oculto {
+    display: none;
+}
+
+
+/* /////////////////////// TERCEIRA TELA /////////////////////// */
+
+
+.progresso-3 {
+    position: absolute;
+    z-index: 1;
+    height: 10px;
+    width: 100%;
+    background-color: #581C87;
+    border-radius: 8px;
+}
+
+
+.linha {
+    height: 1.5px;
+    width: 90%;
+    background-color: #581C87;
+    margin-top: 13px;
+    margin-bottom: 10px;
+}
+
+.msg-3-tela {
+    display: flex;
+    align-self: self-start;
+    margin-left: 13.5px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: row;
+}
+
+.coluna {
+    margin: 10px 20px 20px;
+}
+
+.coluna input {
+    /* margin: 10px; */
+    height: 20px;
+    width: 20px;
+}
+
+.coluna label {
+    margin-bottom: 55px;
+    font-size: medium;
+}
+
+.label-textarea {
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 12.2px;
+}
+
+.concluir {
+    margin-top: 20px;
+    background-color: #581C87;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    /* font-weight: bold; */
+    font-size: 18px;
+    height: 50px;
+    width: 120px;
+    cursor: pointer;
+}
+
+.concluir:hover {
+    background-color: #421564;
+    transition: ease-in 0.1s;
 }

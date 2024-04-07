@@ -29,6 +29,7 @@ body {
     display: flex;
     flex-direction: column; 
     align-items: center; 
+    font-family: 'Poppins';
 }
 
 .conteudo-modal input:focus {
@@ -362,4 +363,80 @@ ion-icon {
     color: #747474;
     font-family: 'Poppins';
     margin-top: 3px;
+}
+
+
+/* /////////////////////// TERCEIRA TELA /////////////////////// */
+
+
+.progresso {
+    position: absolute;
+    z-index: 1;
+    height: 10px;
+    width: 100%;
+    background-color: #581C87;
+    border-radius: 8px;
+}
+
+
+.linha{
+    height: 1.5px;
+    width: 90%;
+    background-color: #581C87;
+    margin-top: 13px;
+    margin-bottom: 10px;
+}
+
+.msg-3-tela{
+    display: flex;
+    align-self: self-start;
+    margin-left: 22px;
+    font-family: 'Poppins';
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.opcoes{
+    display: flex;
+    flex-direction: row;
+}
+
+.coluna{
+    margin: 10px 20px 20px;
+}
+
+.coluna input{
+    /* margin: 10px; */
+    height: 20px;
+    width: 20px;
+}
+
+.coluna label{
+    margin-bottom: 55px;
+    font-size: medium;
+}
+
+.label-textarea{
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 12.2px;
+}
+
+.concluir{
+    margin-top: 20px;
+    background-color: #581C87;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    /* font-weight: bold; */
+    font-family: 'Poppins';
+    font-size: 16px;
+    height: 50px;
+    width: 120px;
+    cursor: pointer;
+}
+
+.concluir:hover{
+    background-color: #421564;
+    transition: ease-in 0.1s;
 }
