@@ -1,0 +1,40 @@
+.navbar {
+    top: 0;
+    left: 0;
+    height: 10vh;
+    width: 100vw;
+    z-index: 999;
+    display: flex;
+    max-height: 9vh;
+    min-height: 8vh;
+    padding: 0.6rem;
+    align-items: center;
+    background-color: #1e1e1e;
+    justify-content: space-between;
+}
+
+.logo-inicio,
+.logo-fim {
+    outline: none;
+    display: flex;
+    margin: 0 6rem;
+    max-height: 90%;
+    align-items: center;
+}
+
+.logo-inicio {
+    cursor: pointer;
+}
+
+.active {
+    background-color: #E3073C !important;
+}
+.navbar button {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0.8rem 3.6rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
