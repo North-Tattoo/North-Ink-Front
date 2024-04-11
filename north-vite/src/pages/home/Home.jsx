@@ -1,41 +1,108 @@
-import logo from "../../utils/assets/logo.svg";
-import imagemFundo from "../../utils/assets/fundo-landing-page.png";
-import NavBar from "@/components/navbar/NavBar";
-import styles from "./Home.module.css";
-import { Button } from "@/components/ui/button";
+import Carrossel from '@/components/carrossel/carousel';
+import styles from '../home/Home.module.css';
+import { FaRegUserCircle } from "react-icons/fa";
+import Footer from '@/components/footer/footer';
+import { Link } from 'react-router-dom';
+
 
 function Home() {
     return (
         <>
-            <NavBar logoInicio={logo} />
-            <div>
+            <section className={styles["inicio"]}>
+                <div className={styles["logo"]}>
+                    <LogoImagem />
+                </div>
+                <div className={styles["botao-entrar"]}>
+                    <FaRegUserCircle />
+                    <Link to='/cadastro'>Entrar</Link>
+                </div>
+                <header className={styles["frase-titulo"]}>
+                    ENCONTRE O SEU <span style={{ color: '#9333EA' }}>TATUADOR</span> IDEAL.
+                </header>
+                <article className={styles["subtitulo"]}>
+                    Na nossa plataforma, <span style={{ color: '#9333EA' }}>TATUADOR</span> conectamos você aos melhores tatuadores em
+                    minutos, prontos para transformar suas
+                    ideias em tinta. Explore estilos únicos e faça da sua próxima tatuagem uma <span style={{ color: '#9333EA' }}>TATUADOR</span> inesquecível.
+                </article>
+                <div className={styles["botoes-inicio"]}>
+                    <button style={{ backgroundColor: '#9333EA' }}>SEJA UM PARCEIRO</button>
+                    <button style={{ backgroundColor: '#5B5B5B' }}>BUSCAR PROFISSIONAIS</button>
+                </div>
+            </section>
 
-                <div className={styles["background-image"]}>
-                    <img src={imagemFundo} alt="Imagem de fundo" />
-                    <div className={styles["titulo"]}>
-                        <div className="">
-                            <h1 className="text-slate-50 font-bold">
-                                ENCONTRE O SEU
-                                <span className="text-purple-600 font-extrabold">TATUADOR</span>
-                                IDEAL.
-                            </h1>
-                        </div>
-
-
-                        <p className="text-lg text-slate-200 w-5/6 mt-2">
-                            Na nossa plataforma, <span className="text-purple-600 font-extrabold">conectamos</span> você aos melhores tatuadores em minutos, prontos para transformar suas ideias em tinta.
-                            Explore estilos únicos e faça da sua próxima tatuagem uma <span className="text-purple-600 font-extrabold">experiência</span> inesquecível.
-                        </p>
-
-                        <div className="flex justify-center items-center mt-12">
-                            <Button className="bg-purple-600 text-white w--60 h-16 font-bold rounded-lg px-8 py-2 mr-24">Seja um Parceiro</Button>
-                            <Button className="bg-zinc-600 text-white w--60 h-16 font-bold rounded-lg px-8 py-2">Buscar Profissionais</Button>
-                        </div>
+            <section  className={styles["gradiente-site"]}>
+            <section  className={styles["fotos-tatuagens"]}>
+                <div  className={styles["frase-tatuagens"]}>
+                    Nós celebramos a <span style={{ color: '#581C87' }}>arte</span> que <br /> você veste. <br />
+                    <span style={{ color: '#581C87' }}>Descubra</span> a tatuagem que eleva sua essência.
+                </div>
+                <div  className={styles["row"]}>
+                    <div  className={styles["column"]}>
+                        <img src='\src\utils\assets\um-homem-com-uma-tatuagem-no-braco-comprimido.jpg' alt="Tatuador com tatuagem no braço" />
+                        <img src='\src\utils\assets\antebraco-colorida-comprimida.jpg' alt="Antebraço colorida" />
+                        <img src='\src\utils\assets\tatuagem-mulher-costas-comprimida.jpg' alt="Tatuagem mulher costas" />
+                    </div>
+                    <div  className={styles["column"]}>
+                        <img src='\src\utils\assets\tattoo-oriental-comprimida.jpg' alt="Tattoo oriental" />
+                        <img src='\src\utils\assets\tattoo-horizontal-comprimida.jpg' alt="Tattoo horizontal" />
+                    </div>
+                    <div  className={styles["column"]}>
+                        <img src='\src\utils\assets\tattoo-antebraco-comprimida.jpg' alt="Tattoo antebraço" />
+                        <img src='\src\utils\assets\pescoço-comprimido.jpg' alt="Pescoço" />
+                        <img src='\src\utils\assets\ombro-comprimido.jpg' alt="Ombro" />
                     </div>
                 </div>
+            </section>
+
+            <article  className={styles["frase-carrossel"]}>Descubra os <span style={{ color: '#34035a' }}>artistas</span> que não apenas ouvem,
+                <br />
+                mas entendem sua <span style={{ color: '#34035a' }}>história</span>.
+            </article>
+
+            <Carrossel />
+
+            <section  className={styles["secao-depoimentos"]}>
+                <header>Na <span style={{ color: '#9333EA' }}>North Ink.</span>, sua melhor escolha! <br />
+                    Profissionais, preço e proximidade em um só lugar.
+                </header>
+                <article>Depoimento de um dos nossos <span style={{ color: '#9333EA' }}>parceiros.</span></article>
+                <div  className={styles["depoimento-tatuador"]}>
+                    <img style={{ width: '684px', height: '608px' }} src='\src\utils\assets\foto-tatuador-depoimento.jpg' alt="Depoimento do tatuador" />
+                    <div  className={styles["texto-depoimento"]}>
+                        <header>Roberto Otávio de Paula, 45 anos</header>
+                        <article>Proprietário do <span style={{ color: '#9333EA' }}>Tattoo House</span> - Santa Cecilia</article>
+                        <span>
+                            "Desde que me juntei à North Ink, minha carreira decolou! Esta plataforma revolucionária não
+                            apenas
+                            me conectou a uma ampla base de clientes ávidos por minha arte, mas também simplificou todo o
+                            processo. Com a North Ink, tenho a liberdade de me concentrar no que faço de melhor - criar
+                            tatuagens memoráveis - enquanto a plataforma me me aproxima de maneira eficaz do público. É como
+                            ter
+                            um assistente pessoal 24 horas por dia, 7 dias por semana, direcionando clientes de qualidade
+                            até
+                            minha porta. Estou verdadeiramente grato por fazer parte desta comunidade vibrante e por todo o
+                            apoio que recebi da equipe da North Ink. Juntos, estamos transformando sonhos em tinta!"
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <div  className={styles["logo-final-do-site"]}>
+                <img src='\src\utils\assets\logo-sem-nome.png' alt="Logo final do site" />
             </div>
+        </section>
+
+        <Footer />
         </>
     );
+}
+
+// Nossa logo componentizada:
+
+function LogoImagem() {
+    return (
+        <img src="\src\utils\assets\logo-branca.png" alt="" />
+    )
 }
 
 export default Home;
