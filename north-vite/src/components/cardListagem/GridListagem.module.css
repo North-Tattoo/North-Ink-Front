@@ -1,0 +1,77 @@
+.gridListagem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cardStudio {
+  height: 487px;
+  width: 343px;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+}
+
+.fotosServicos {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.imagemWrapper {
+  margin-right: 2px;
+  flex-grow: 1;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.imagem {
+  height: 232px;
+  width: 135px;
+  object-fit: cover;
+  transition: width 0.5s ease;
+}
+
+.imagemWrapper:hover .imagem {
+  width: 250px;
+}
+
+.informacoesStudio {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.endereco {
+  margin-top: 15px;
+  font-family: 'Poppins';
+  flex-direction: column;
+}
+
+.endereco h5 {
+  margin: 0;
+}
+
+.fotoPerfil {
+  width: 84px;
+  height: 89px;
+  border-radius: 100%;
+}
+
+.botaoTenhoInteresse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.tenhoInteresse {
+  width: 122px;
+  height: 34px;
+  background-color: #581C87;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9px;
+}
