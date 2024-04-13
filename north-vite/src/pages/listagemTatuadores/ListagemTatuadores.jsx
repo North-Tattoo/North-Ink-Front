@@ -5,6 +5,8 @@ import filtroIcone from '../../utils/assets/filtro-icone.png';
 import fundoListagem from '../../utils/assets/fundo-listagem.png';
 import perfilTatuador from '../../utils/assets/perfil.png'
 import GridListagem from '@/components/cardListagem/GridListagem';
+import Footer from '@/components/footer/footer';
+
 import { Link } from 'react-router-dom';
 
 function ListagemTatuadores() {
@@ -35,17 +37,23 @@ function ListagemTatuadores() {
         <div className={styles.content}>
         {/* Exibindo os componentes GridListagem em grupos de três */}
         <div className={styles.cardRow}>
-          <GridListagem />
-          <GridListagem />
-          <GridListagem />
+          <GridListagem className={styles.cardListagem}/>
+          <GridListagem className={styles.cardListagem}/>
+          <GridListagem className={styles.cardListagem}/>
         </div>
         <div className={styles.cardRow}>
-          <GridListagem />
-          <GridListagem />
-          <GridListagem />
+          <GridListagem className={styles.cardListagem}/>
+          <GridListagem className={styles.cardListagem}/>
+          <GridListagem className={styles.cardListagem}/>
+        </div>
+        <div className={styles.cardRow}>
+          <GridListagem className={styles.cardListagem}/>
+          <GridListagem className={styles.cardListagem}/>
+          <GridListagem className={styles.cardListagem}/>
         </div>
         {/* Adicione mais grupos de três conforme necessário */}
       </div>
+      <Footer/>
     </div>
       
     

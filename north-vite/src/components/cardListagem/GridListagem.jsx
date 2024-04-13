@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './GridListagem.module.css';
 import studioTatuagens from '../../utils/assets/tatuagem-grid-card.jpg'
 import fotoPerfilGrid from '../../utils/assets/tatuador-grid.png' 
-
 function GridListagem() {
   return (
     <div className={styles.gridListagem}>
@@ -24,6 +23,17 @@ function GridListagem() {
             <h5>King Tatto</h5>
             <p>Rua Ficticia, 1234 - Ficção</p>
           </div>
+        </div>
+        <p className={styles.taxaHoraria}>Taxa Horária: R$ 100,00</p>
+        <div className={styles.iconeContainer}>
+          {/* Ícones com texto */}
+          <div className={styles.icone}>Traço Fino</div>
+          <div className={styles.icone}>Anime</div>
+          <div className={styles.icone}>Encobrimentos</div>
+          <div className={styles.icone}>Tinta Vegana</div>
+          {/* Adicione quantos ícones quiser */}
+          <div className={styles.icone}>Traço Fino</div>
+          <div className={styles.icone}>Anime</div>
         </div>
         <div className={styles.botaoTenhoInteresse}>
           <button className={styles.tenhoInteresse}>Tenho Interesse</button>

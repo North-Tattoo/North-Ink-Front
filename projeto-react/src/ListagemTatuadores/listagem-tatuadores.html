@@ -32,48 +32,6 @@
             Categoria: Mais Procurados
         </span>
         <section class="carrossel">
-            <div class="wrapper">
-                <i id="left" class="fa-solid fa-angle-left"></i>
-                <ul class="carousel">
-                    <li class="card">
-                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
-                                draggable="false"></div>
-                        <h2>King Tattoo</h2>
-                        <span>Rua das Rosas, 123</span>
-                    </li>
-                    <li class="card">
-                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
-                                draggable="false"></div>
-                        <h2>King Tattoo</h2>
-                        <span>Rua das Rosas, 123</span>
-                    </li>
-                    <li class="card">
-                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
-                                draggable="false"></div>
-                        <h2>King Tattoo</h2>
-                        <span>Rua das Rosas, 123</span>
-                    </li>
-                    <li class="card">
-                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
-                                draggable="false"></div>
-                        <h2>King Tattoo</h2>
-                        <span>Rua das Rosas, 123</span>
-                    </li>
-                    <li class="card">
-                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
-                                draggable="false"></div>
-                        <h2>King Tattoo</h2>
-                        <span>Rua das Rosas, 123</span>
-                    </li>
-                    <li class="card">
-                        <div class="img"><img src="../../public/assets/tatuador-carrossel.jpg" alt="img"
-                                draggable="false"></div>
-                        <h2>King Tattoo</h2>
-                        <span>Rua das Rosas, 123</span>
-                    </li>
-                </ul>
-                <i id="right" class="fa-solid fa-angle-right"></i>
-            </div>
         </section>
         <div class="filtro">
             <img src="../../public/assets/filtro-icone.png" alt="">
@@ -81,28 +39,52 @@
         </div>
 
         <div class="grid-listagem">
-            <img src="../../public/assets/tatuador-grid.png " alt="">
-            <div class="informacoes-grid">
-                <span class="titulo-studio">
-                    King Tatto
-                </span>
-                <span class="endereço-studio">
-                    Rua Ficsticia, 123 - Ficção
-                </span>
-                <span>
-                    Tatto 10 cm
-                    R$ XX,XX
-                </span>
-                <div class="barra-roxa"></div>
-                <span>
-                    Tatto 10 cm
-                    R$ XX,XX
-                </span>
-            </div>
-            <div class="botoes-reserva">
-                <button class="botao-reserva">Reservar</button>
-                <button class="botao-reserva">Reservar</button>
+            <div class="card-studio">
+                <div class="fotos-servicos">
+                    <div class="imagem-wrapper">
+                        <img class="imagem imagem1"
+                            src="../../../north-vite/src/utils/assets/medium-shot-smiley-woman-posing.jpg" alt="">
+                    </div>
+                    <div class="imagem-wrapper">
+                        <img class="imagem imagem2"
+                            src="https://img.freepik.com/fotos-gratis/jovem-tatuada-nas-costas-esbanja-sensualidade-e-elegancia-gerada-por-ia_188544-45479.jpg?t=st=1712934895~exp=1712938495~hmac=b03642e8852d26e7de06a8bb3e355dca2bd7a402afa6ac63aa782fefad03fa8d&w=1060"
+                            alt="">
+                    </div>
+                    <div class="imagem-wrapper">
+                        <img class="imagem imagem3"
+                            src="https://img.freepik.com/fotos-gratis/uma-mao-tatuada-de-mulher-segura-decoracao-de-flores-gerada-por-ia_188544-45554.jpg?t=st=1712936410~exp=1712940010~hmac=b6440133274260c03f7a2d3932e833553879dfe8c22c52e9b3f7262d1600e867&w=1060"
+                            alt="">
+                    </div>
+                </div>
+                <div class="informacoes-studio">
+                    <img class="foto-perfil" src="../../../north-vite/src/utils/assets/tatuador-grid.png">
+                    <div class="endereco">
+                        <h5>King Tatto</h5>
+                        <p>Rua Ficticia, 1234 - Ficção</p>
+                    </div>
+                </div>
+                
+                    <h5 class="taxa-horaria">Taxa Horária: R$ 100,00</h5>
+                    <div class="icone-container">
+                        <!-- Ícone com texto -->
+                        <div class="icone">Traço Fino</div>
+                        <!-- Ícone com texto -->
+                        <div class="icone">Anime</div>
+                        <!-- Ícone com texto -->
+                        <div class="icone">Encobrimentos</div>
+                        <!-- Ícone com texto -->
+                        <div class="icone">Tinta Vegana</div>
+                        <!-- Adicione quantos ícones quiser -->
+                        <div class="icone">Traço Fino</div>
+                        <!-- Ícone com texto -->
+                        <div class="icone">Anime</div>
+                      </div>
+                    </div>
 
+                
+                <div class="botao-tenho-interesse">
+                    <button class="tenho-interesse">Tenho Interesse</button>
+                </div>
             </div>
         </div>
     </section>
@@ -123,94 +105,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <!--Código do carrossel:
-    https://www.codingnepalweb.com/draggable-card-slider-html-css-javascript/-->
-    <script>
-        const wrapper = document.querySelector(".wrapper");
-        const carousel = document.querySelector(".carousel");
-        const firstCardWidth = carousel.querySelector(".card").offsetWidth;
-        const arrowBtns = document.querySelectorAll(".wrapper i");
-        const carouselChildrens = [...carousel.children];
 
-        let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
-
-        // Get the number of cards that can fit in the carousel at once
-        let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
-
-        // Insert copies of the last few cards to beginning of carousel for infinite scrolling
-        carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
-            carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
-        });
-
-        // Insert copies of the first few cards to end of carousel for infinite scrolling
-        carouselChildrens.slice(0, cardPerView).forEach(card => {
-            carousel.insertAdjacentHTML("beforeend", card.outerHTML);
-        });
-
-        // Scroll the carousel at appropriate postition to hide first few duplicate cards on Firefox
-        carousel.classList.add("no-transition");
-        carousel.scrollLeft = carousel.offsetWidth;
-        carousel.classList.remove("no-transition");
-
-        // Add event listeners for the arrow buttons to scroll the carousel left and right
-        arrowBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
-            });
-        });
-
-        const dragStart = (e) => {
-            isDragging = true;
-            carousel.classList.add("dragging");
-            // Records the initial cursor and scroll position of the carousel
-            startX = e.pageX;
-            startScrollLeft = carousel.scrollLeft;
-        }
-
-        const dragging = (e) => {
-            if (!isDragging) return; // if isDragging is false return from here
-            // Updates the scroll position of the carousel based on the cursor movement
-            carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
-        }
-
-        const dragStop = () => {
-            isDragging = false;
-            carousel.classList.remove("dragging");
-        }
-
-        const infiniteScroll = () => {
-            // If the carousel is at the beginning, scroll to the end
-            if (carousel.scrollLeft === 0) {
-                carousel.classList.add("no-transition");
-                carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
-                carousel.classList.remove("no-transition");
-            }
-            // If the carousel is at the end, scroll to the beginning
-            else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
-                carousel.classList.add("no-transition");
-                carousel.scrollLeft = carousel.offsetWidth;
-                carousel.classList.remove("no-transition");
-            }
-
-            // Clear existing timeout & start autoplay if mouse is not hovering over carousel
-            clearTimeout(timeoutId);
-            if (!wrapper.matches(":hover")) autoPlay();
-        }
-
-        const autoPlay = () => {
-            if (window.innerWidth < 800 || !isAutoPlay) return; // Return if window is smaller than 800 or isAutoPlay is false
-            // Autoplay the carousel after every 2500 ms
-            timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
-        }
-        autoPlay();
-
-        carousel.addEventListener("mousedown", dragStart);
-        carousel.addEventListener("mousemove", dragging);
-        document.addEventListener("mouseup", dragStop);
-        carousel.addEventListener("scroll", infiniteScroll);
-        wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
-        wrapper.addEventListener("mouseleave", autoPlay);
-    </script>
 </body>
 
 </html>
