@@ -11,6 +11,9 @@ public class UsuarioMapper {
         usuario.setEmail(usuarioCriacaoDto.getEmail());
         usuario.setNome(usuarioCriacaoDto.getNome());
         usuario.setSenha(usuarioCriacaoDto.getSenha());
+        usuario.setEstilo(usuarioCriacaoDto.getEstilo());
+        usuario.setCnpj(usuarioCriacaoDto.getCnpj());
+        usuario.setCep(usuarioCriacaoDto.getCep());
 
         return usuario;
     }

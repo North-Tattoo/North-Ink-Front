@@ -10,36 +10,24 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    private String email, nome, senha, estilo, cnpj, cep;
+    private String email;
+    private String nome;
+    private String senha;
+    private String estilo;
+    private String cnpj;
+    private String cep;
 
     private Long telefone;
 
     private Double qtdExperiencia;
 
-    public Long getTelefone() {
-        return telefone;
-    }
-
-
-    public String getEstilo() {
-        return estilo;
-    }
-
-    public void setEstilo(String estilo) {
-        this.estilo = estilo;
-    }
-
-    public void setTelefone(Long telefone) {
-        this.telefone = telefone;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,12 +55,12 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Double getQtdExperiencia() {
-        return qtdExperiencia;
+    public String getEstilo() {
+        return estilo;
     }
 
-    public void setQtdExperiencia(Double qtdExperiencia) {
-        this.qtdExperiencia = qtdExperiencia;
+    public void setEstilo(String estilo) {
+        this.estilo = estilo;
     }
 
     public String getCnpj() {
@@ -89,5 +77,21 @@ public class Usuario {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public Long getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Long telefone) {
+        this.telefone = telefone;
+    }
+
+    public Double getQtdExperiencia() {
+        return qtdExperiencia;
+    }
+
+    public void setQtdExperiencia(Double qtdExperiencia) {
+        this.qtdExperiencia = qtdExperiencia;
     }
 }

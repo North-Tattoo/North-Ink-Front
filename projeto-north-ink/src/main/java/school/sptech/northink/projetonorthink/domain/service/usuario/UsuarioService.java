@@ -8,8 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import school.projetotestejwtapi.api.configuration.security.jwt.GerenciadorTokenJwt;
-import school.sptech.northink.projetonorthink.api.configuration.security.jwt.GerenciadorToken;
+import school.sptech.northink.projetonorthink.api.configuration.security.jwt.GerenciadorTokenJWT;
 import school.sptech.northink.projetonorthink.domain.entity.Usuario;
 import school.sptech.northink.projetonorthink.domain.repository.UsuarioRepository;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioLoginDto;
@@ -27,7 +26,7 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private GerenciadorToken gerenciadorTokenJwt;
+    private GerenciadorTokenJWT gerenciadorTokenJwt;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -38,7 +37,6 @@ public class UsuarioService {
 
     public void criar(UsuarioCriacaoDto usuarioCriacaoDto){
         final Usuario novoUsuario = UsuarioMapper.of(usuarioCriacaoDto);
-
         String senhaCriptografada = passwordEncoder.encode(novoUsuario.getSenha());
         novoUsuario.setSenha(senhaCriptografada);
 
