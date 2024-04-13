@@ -20,8 +20,9 @@ public class AutenticacaoProvider implements AuthenticationProvider {
         this.passwordEncoder = passwordEncoder;
     }
 
+    // FALTOU O FINAL
     @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
         final String username = authentication.getName();
         final String password = authentication.getCredentials().toString();
 

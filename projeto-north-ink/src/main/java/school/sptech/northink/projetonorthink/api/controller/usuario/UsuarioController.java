@@ -13,7 +13,7 @@ import school.sptech.northink.projetonorthink.domain.service.usuario.autenticaca
 import school.sptech.northink.projetonorthink.domain.service.usuario.dto.UsuarioCriacaoDto;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 public class UsuarioController {
 
     @Autowired

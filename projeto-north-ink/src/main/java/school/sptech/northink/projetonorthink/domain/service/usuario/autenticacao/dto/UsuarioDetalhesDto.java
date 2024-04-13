@@ -11,39 +11,18 @@ public class UsuarioDetalhesDto implements UserDetails {
     private final String email;
     private final String nome;
     private final String senha;
-    private final String estilo;
-    private final String cnpj;
-    private final String cep;
 
 
     public UsuarioDetalhesDto(Usuario usuario) {
         this.nome = usuario.getNome();
         this.email = usuario.getEmail();
         this.senha = usuario.getSenha();
-        this.estilo = usuario.getEstilo();
-        this.cnpj = usuario.getCnpj();
-        this.cep = usuario.getCep();
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getEstilo() {
-        return estilo;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public String getCep() {
-        return cep;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
