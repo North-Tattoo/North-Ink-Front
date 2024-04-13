@@ -20,11 +20,14 @@ html {
   justify-content: center; /* Adicione algum espaço extra no final para a rolagem */
 }
 .cardRow {
+  margin-right: 30px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px; /* Espaçamento entre as linhas de cartões */
 }
-
+.cardListagem {
+  margin-right: 30px; /* Espaçamento entre os cartões */
+}
 
 .inicio {
   position: relative;
