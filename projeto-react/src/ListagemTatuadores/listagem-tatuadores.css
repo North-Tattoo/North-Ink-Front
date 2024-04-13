@@ -16,32 +16,35 @@ body {
     background-position: center;
     /* Centraliza a imagem */
 }
+
 .categoria {
-    position: absolute;
-    top: 100%;
-    left: 3%;
-    z-index: 1;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 60px;
+    display: flex;
+    justify-content: flex-start;
     text-decoration: none;
     color: #000000;
     font-family: 'Poppins';
     font-size: 25px;
     font-weight: 700;
 }
-.filtro{
-        display: flex;
-        position: absolute;
-        margin-top: 3%;
-        left: 4%;
+
+.filtro {
+    display: flex;
+    margin-top: 3%;
+    margin-left: 60px;
 }
-.filtro a{
-    margin-left: 10%;
+
+.filtro a {
+    margin-left: 5px;
     text-decoration: none;
     color: #000000;
     font-family: 'Poppins';
     font-size: 15px;
 }
 
-.inicio img {   
+.inicio img {
     display: block;
     width: 10%;
     height: 10%;
@@ -82,12 +85,14 @@ body {
     font-family: 'Poppins';
     font-size: 15px;
 }
-.inputs{
+
+.inputs {
     position: absolute;
     left: 20%;
     top: 30%;
 }
-.inputs input{
+
+.inputs input {
     height: 46px;
     width: 379px;
     margin-left: 60px;
@@ -99,292 +104,191 @@ body {
     border: none;
     padding-left: 30px;
 }
-.pesquisa{
+
+.pesquisa {
     background-image: url('../../public/assets/lupa.png');
-    background-size: 20px; /* Define o tamanho da imagem */
-    background-repeat: no-repeat; /* Evita a repetição da imagem */
-    background-position: 5px center; /* Posição da imagem dentro do input */
+    background-size: 20px;
+    /* Define o tamanho da imagem */
+    background-repeat: no-repeat;
+    /* Evita a repetição da imagem */
+    background-position: 5px center;
+    /* Posição da imagem dentro do input */
 }
-.onde{
+
+.onde {
     background-image: url('../../public/assets/localização.png');
-    background-size: 20px; /* Define o tamanho da imagem */
-    background-repeat: no-repeat; /* Evita a repetição da imagem */
-    background-position: 5px center; /* Posição da imagem dentro do input */
-}
-
-/* CSS do grid de fotos*/
-
-.row {
-    display: -ms-flexbox;
-    /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap;
-    /* IE10 */
-    flex-wrap: wrap;
-    padding: 0 4px;
-    justify-content: center;
-}
-
-/* Create four equal columns that sits next to each other */
-.column {
-    -ms-flex: 25%;
-    /* IE10 */
-    flex: 25%;
-    max-width: 25%;
-    padding: 0 4px;
-}
-
-.column img {
-    margin-top: 8px;
-    vertical-align: middle;
-    width: 100%;
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-    .column {
-        -ms-flex: 50%;
-        flex: 50%;
-        max-width: 50%;
-    }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .column {
-        -ms-flex: 100%;
-        flex: 100%;
-        max-width: 100%;
-    }
-}
-
-.frase-carrossel{
-    text-align: end;
-    font-family: 'Poppins';
-    color: #FAF5FF;
-    font-weight: bold;
-    font-size: 45px;
-    padding-top: 10%;
-    padding-right: 11%;
-    padding-bottom: 4%;
-}
-
-/* CSS do Carrossel*/
-
-.carrossel{
-    margin-top: 10%;
-    display: flex;
-    justify-content: center;
-}
-
-.wrapper {
-    max-width: 1100px;
-    width: 100%;
-    position: relative;
-}
-.wrapper i {
-    top: 50%;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-    font-size: 1.25rem;
-    position: absolute;
-    text-align: center;
-    line-height: 50px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
-    transform: translateY(-50%);
-    transition: transform 0.1s linear;
-}
-
-.wrapper i:active {
-    transform: translateY(-50%) scale(0.85);
-}
-
-.wrapper i:first-child {
-    left: -22px;
-}
-
-.wrapper i:last-child {
-    right: -22px;
-}
-
-.wrapper .carousel {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((100% / 3) - 12px);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 16px;
-    border-radius: 8px;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-
-.carousel::-webkit-scrollbar {
-    display: none;
-}
-
-.carousel.no-transition {
-    scroll-behavior: auto;
-}
-
-.carousel.dragging {
-    scroll-snap-type: none;
-    scroll-behavior: auto;
-}
-
-.carousel.dragging .card {
-    cursor: grab;
-    user-select: none;
-}
-
-.carousel :where(.card, .img) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel .card {
-    scroll-snap-align: start;
-    height: 342px;
-    list-style: none;
-    background: #adadadc2;
-    cursor: pointer;
-    padding-bottom: 15px;
-    flex-direction: column;
-    border-radius: 8px;
-}
-
-.carousel .card .img {
-    background: #9333EA;
-    height: 208px;
-    width: 208px;
-    border-radius: 50%;
-}
-
-.card .img img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff;
-}
-
-.carousel .card h2 {
-    font-family: 'Poppins';
-    font-weight: bold;
-    font-size: 1.56rem;
-    margin: 30px 0 5px;
-}
-
-.carousel .card span {
-    font-family: 'Poppins';
-    color: #383838;
-    font-size: 1.31rem;
-}
-
-@media screen and (max-width: 900px) {
-    .wrapper .carousel {
-        grid-auto-columns: calc((100% / 2) - 9px);
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .wrapper .carousel {
-        grid-auto-columns: 100%;
-    }
+    background-size: 20px;
+    /* Define o tamanho da imagem */
+    background-repeat: no-repeat;
+    /* Evita a repetição da imagem */
+    background-position: 5px center;
+    /* Posição da imagem dentro do input */
 }
 
 /* Listagem tatuadores */
 .grid-listagem {
-    margin-top: 10%;
     display: flex;
-    align-items:flex-start;
+    flex-direction: row;
     justify-content: center;
-    margin-bottom: 10%;
+     /* Adicionando rolagem horizontal */
+  padding-bottom: 10px; 
 }
 
-.informacoes-grid{
+.card-studio {
+    height: 487px;
+    width: 343px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+
+}
+
+.fotos-servicos {
     display: flex;
-    flex-direction: column;
-    margin-left: 10%; 
+    justify-content: center;
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-.grid-listagem span {
-    text-decoration: none;
+.imagem-wrapper {
+    margin-right: 2px;
+    flex-grow: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    /* esconde o conteúdo que ultrapassa o tamanho do wrapper */
+}
+
+.imagem {
+    height: 232px;
+    width: 135px;
+    object-fit: cover;
+    transition: width 0.5s ease;
+}
+
+.imagem-wrapper:hover .imagem {
+    width: 250px;
+}
+
+.informacoes-studio {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    align-items: center;
+
+}
+
+.endereco {
+    margin-top: 15px;
     font-family: 'Poppins';
-    color: #000000;
-    display: block; /* Certifique-se de que cada linha seja tratada como um bloco */
-    line-height: 4; 
-}
-.titulo-studio{
-    font-weight: 600;
-    font-size: 20px
+    flex-direction: column;
 }
 
-.botao-reserva {
-    margin-left: 20px; /* Espaçamento à esquerda do botão */
-    border: none;
-    background-color: #581C87;
-    color: #B2BAC5;
-    border-radius: 6px;
+.endereco h5 {
+    margin: 0;
+}
+
+.foto-perfil {
+    width: 84px;
+    height: 89px;
+    border-radius: 100%;
+}
+
+.botao-tenho-interesse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.tenho-interesse {
     width: 122px;
     height: 34px;
-    margin-top: 30%;
-    /* line-height: 4; */
+    background-color: #581C87;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9px;
 }
-.botoes-reserva{
+
+.icone-container {
     display: flex;
-    flex-direction: column;
-    margin-top: 7%;
+    max-width: calc(100% - 20px);
+}
+
+/* Estilo do ícone */
+.icone {
+    background-color: #E6E6E6;
+    /* Cor de fundo */
+    height: 16px;
+    /* Altura */
+    padding: 0 5px;
+    /* Espaçamento interno para o texto */
+    display: flex;
+    /* Alinhar texto verticalmente */
+    align-items: center;
+    /* Alinhar texto verticalmente */
+    white-space: nowrap;
+    /* Impedir que o texto quebre para a próxima linha */
+    margin-right: 5px;
+    /* Espaçamento entre os ícones */
+    font-family: 'Poppins';
+    /* Fonte do texto */
+    font-size: 8px;
+    /* Tamanho da fonte */
+    font-weight: normal;
+    /* Peso da fonte */
+    overflow: hidden;
+    /* Ocultar texto que excede o tamanho do ícone */
+    border-radius: 5px;
+}
+.taxa-horaria{
+    font-family: 'Poppins';
 }
 /* Footer */
-.logo-final-do-site{
+.logo-final-do-site {
     display: flex;
     justify-content: end;
 }
 
-.logo-final-do-site img{
+.logo-final-do-site img {
     padding-top: 3%;
 }
 
-.footer{
+.footer {
     /* background-color: #404040; */
     background-color: #353535;
     padding-top: 7%;
     padding-left: 5%;
 }
 
-.links{
+.links {
     display: flex;
     flex-direction: row;
-    align-items: center;    
+    align-items: center;
     font-size: 75%;
 }
 
-.links a{
+.links a {
     text-decoration: none;
     font-family: 'Poppins';
     color: #B2BAC5;
     margin-left: 5%;
 }
 
-.barra-roxa{
-    background: rgb(168,85,247);
-    background: linear-gradient(90deg, rgba(168,85,247,1) 0%, rgba(88,28,135,1) 82%);
+.barra-roxa {
+    background: rgb(168, 85, 247);
+    background: linear-gradient(90deg, rgba(168, 85, 247, 1) 0%, rgba(88, 28, 135, 1) 82%);
     height: 1.5px;
     width: 700px;
 }
 
-.footer #logo{
+.footer #logo {
     width: 320px;
     height: 85px;
     padding-top: 2%;
 }
 
-#google-play{
+#google-play {
     display: flex;
     justify-content: end;
     float: right;
@@ -393,7 +297,8 @@ body {
     width: 280px;
     height: 85px;
 }
-.mensagem-direitos{
+
+.mensagem-direitos {
     display: flex;
     justify-content: center;
     font-family: 'Poppins';

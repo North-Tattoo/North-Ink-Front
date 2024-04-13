@@ -4,6 +4,7 @@ import Cadastro from "./cadastro/Cadastro";
 import Detalhes from "./detalhes/Detalhes";
 import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
 
+
 function App(){
   return (
       <BrowserRouter>

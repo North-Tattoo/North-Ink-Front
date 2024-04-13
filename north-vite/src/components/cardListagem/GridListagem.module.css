@@ -1,0 +1,124 @@
+.gridListagem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cardStudio {
+  height: 487px;
+  width: 343px;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  margin-top: 70px;
+  margin-right: 70px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.pointerSombra{
+  height: 130px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+}
+.pointerSombra:hover{
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+.fotosServicos {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.imagemWrapper {
+  margin-right: 2px;
+  flex-grow: 1;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.imagem {
+  height: 232px;
+  width: 135px;
+  object-fit: cover;
+  transition: width 0.5s ease;
+}
+
+.imagemWrapper:hover .imagem {
+  width: 250px;
+}
+
+.informacoesStudio {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.endereco {
+  margin-top: 15px;
+  font-family: 'Poppins';
+  flex-direction: column;
+}
+
+.endereco h5 {
+  margin: 0;
+}
+
+.fotoPerfil {
+  margin-top: 10px;
+  width: 84px;
+  height: 89px;
+  border-radius: 100%;
+}
+
+.botaoTenhoInteresse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+.seta{
+  margin-top: 30px;
+  width: 15px;
+  height: 15px;
+}
+.tenhoInteresse {
+  width: 122px;
+  height: 34px;
+  background-color: #581C87;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9px;
+}
+.taxaHoraria {
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-size: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+.iconeContainer {
+  display: flex;
+  max-width: calc(100% - 20px);
+  overflow-x: auto;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.icone {
+  background-color: #E6E6E6;
+  height: 16px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  margin-right: 5px;
+  font-family: 'Poppins';
+  font-size: 8px;
+  font-weight: normal;
+  overflow: hidden;
+  border-radius: 5px;
+}
