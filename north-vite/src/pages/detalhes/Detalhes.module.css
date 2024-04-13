@@ -5,8 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    --tw-bg-opacity: 1;
-    background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+    background-color: #cbd5e1;
 }
 
 /* Seção de início */
