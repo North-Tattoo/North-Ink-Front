@@ -11,12 +11,22 @@
   background-color: #FFFFFF;
   margin-top: 70px;
   margin-right: 70px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
-
+.pointerSombra{
+  height: 130px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+}
+.pointerSombra:hover{
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
 .fotosServicos {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 6px;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -42,7 +52,7 @@
 .informacoesStudio {
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;
+  margin-top: 10px;
   align-items: center;
 }
 
@@ -57,6 +67,7 @@
 }
 
 .fotoPerfil {
+  margin-top: 10px;
   width: 84px;
   height: 89px;
   border-radius: 100%;
@@ -66,9 +77,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 25px;
 }
-
+.seta{
+  margin-top: 30px;
+  width: 15px;
+  height: 15px;
+}
 .tenhoInteresse {
   width: 122px;
   height: 34px;
@@ -90,6 +105,7 @@
   max-width: calc(100% - 20px);
   overflow-x: auto;
   margin-left: 10px;
+  margin-top: 15px;
 }
 
 .icone {
