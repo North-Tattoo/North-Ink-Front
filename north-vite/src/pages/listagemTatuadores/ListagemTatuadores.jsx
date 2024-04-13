@@ -15,12 +15,16 @@ function ListagemTatuadores() {
       <div className={styles.container}>
         <div className={styles["inicio"]}>
           <img src={fundoListagem} alt='Fundo Listagem'></img>
+          <Link to ='/'>
           <div className={styles["logo"]}>
             <img src={logoBranca} alt="Logo Branca" />
           </div>
+          </Link>
           <div className={styles["botao-entrar"]}>
             <img src={perfilTatuador}></img>
-            <a href="#">Sou um Tatuador</a>
+            <Link to='/cadastro'>
+            <a href="">Sou um Tatuador</a>
+            </Link>
           </div>
           <div className={styles["inputs"]}>
             <input type="text" id="campo_texto" placeholder="Pesquise por tatuadores perto de você" className={styles["pesquisa"]} />
