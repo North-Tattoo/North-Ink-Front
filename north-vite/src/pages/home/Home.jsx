@@ -3,6 +3,7 @@ import styles from '../home/Home.module.css';
 import { FaRegUserCircle } from "react-icons/fa";
 import Footer from '@/components/footer/footer';
 import { Link } from 'react-router-dom';
+import perfilTatuador from '../../utils/assets/perfil.png'
 
 
 function Home() {
@@ -13,8 +14,8 @@ function Home() {
                     <LogoImagem />
                 </div>
                 <div className={styles["botao-entrar"]}>
-                    <FaRegUserCircle />
-                    <Link to='/cadastro'>Entrar</Link>
+                    <img src={perfilTatuador}></img>
+                    <Link to='/cadastro'>Sou um Tatuador</Link>
                 </div>
                 <header className={styles["frase-titulo"]}>
                     ENCONTRE O SEU <span style={{ color: '#9333EA' }}>TATUADOR</span> IDEAL.
@@ -26,7 +27,9 @@ function Home() {
                 </article>
                 <div className={styles["botoes-inicio"]}>
                     <button style={{ backgroundColor: '#9333EA' }}>SEJA UM PARCEIRO</button>
+                    <Link to ='/listagem-tatuadores'>
                     <button style={{ backgroundColor: '#5B5B5B' }}>BUSCAR PROFISSIONAIS</button>
+                    </Link>
                 </div>
             </section>
 

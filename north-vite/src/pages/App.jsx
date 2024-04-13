@@ -3,7 +3,6 @@ import Home from "./home/Home";
 import Cadastro from "./cadastro/Cadastro";
 import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
 import Detalhes from "./detalhes/Detalhes";
-import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
 
 function App(){
   return (
@@ -12,8 +11,8 @@ function App(){
               <Route path="*" element={<h1>404 Not found</h1>}/>
               <Route path="/" element={<Home />}/>
               <Route path="/cadastro" element={<Cadastro />}/>
-              <Route path="/detalhes" element={<Detalhes />}/>
               <Route path="/listagem-tatuadores" element={<ListagemTatuadores/>}/>
+              <Route path="/detalhes" element={<Detalhes />}/>    
           </Routes>
       </BrowserRouter>
   )

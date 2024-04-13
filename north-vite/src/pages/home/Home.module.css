@@ -43,7 +43,13 @@ body {
     top: 5%;
     right: 5%;
 }
-
+.botao-entrar img {
+    width: 46px;
+    height: 44px;
+    color: #9333EA;
+    font-size: 56px;
+    margin-right: 10px;
+  }
 .botao-entrar svg {
     color: #9333EA;
     font-size: 40px;
@@ -54,7 +60,7 @@ body {
     text-decoration: none;
     color: #D9D9D9;
     font-family: 'Poppins';
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .frase-titulo {
