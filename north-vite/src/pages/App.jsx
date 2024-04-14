@@ -3,7 +3,6 @@ import Home from "./home/Home";
 import Cadastro from "./cadastro/Cadastro";
 import Detalhes from "./detalhes/Detalhes";
 import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
-import Detalhes from "./detalhes/Detalhes";
 
 function App(){
   return (
@@ -14,7 +13,6 @@ function App(){
               <Route path="/cadastro" element={<Cadastro />}/>
               <Route path="/detalhes" element={<Detalhes />}/>
               <Route path="/listagem-tatuadores" element={<ListagemTatuadores/>}/>
-              <Route path="/detalhes" element={<Detalhes />}/>    
           </Routes>
       </BrowserRouter>
   )
