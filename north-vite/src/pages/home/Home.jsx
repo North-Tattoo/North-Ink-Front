@@ -1,6 +1,6 @@
 import Carrossel from '@/components/carrossel/carousel';
 import styles from '../home/Home.module.css';
-import { FaRegUserCircle } from "react-icons/fa";
+import {PiUserCircleLight} from "react-icons/pi";
 import Footer from '@/components/footer/footer';
 import { Link } from 'react-router-dom';
 import perfilTatuador from '../../utils/assets/perfil.png'
@@ -14,7 +14,7 @@ function Home() {
                     <LogoImagem />
                 </div>
                 <div className={styles["botao-entrar"]}>
-                    <img src={perfilTatuador}></img>
+                <PiUserCircleLight />
                     <Link to='/cadastro'>Sou um Tatuador</Link>
                 </div>
                 <header className={styles["frase-titulo"]}>

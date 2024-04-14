@@ -6,6 +6,9 @@ import fundoListagem from '../../utils/assets/fundo-listagem.png';
 import perfilTatuador from '../../utils/assets/perfil.png'
 import GridListagem from '@/components/cardListagem/GridListagem';
 import Footer from '@/components/footer/footer';
+import Carousel from '@/components/carrosselListagem/carrosselListagem'
+
+import {PiUserCircleLight} from "react-icons/pi";
 
 import { Link } from 'react-router-dom';
 
@@ -21,10 +24,8 @@ function ListagemTatuadores() {
           </div>
           </Link>
           <div className={styles["botao-entrar"]}>
-            <img src={perfilTatuador}></img>
-            <Link to='/cadastro'>
-            <a href="">Sou um Tatuador</a>
-            </Link>
+          <PiUserCircleLight />
+            <Link to='/cadastro'>Sou um Tatuador</Link>
           </div>
           <div className={styles["inputs"]}>
             <input type="text" id="campo_texto" placeholder="Pesquise por tatuadores perto de você" className={styles["pesquisa"]} />
@@ -32,8 +33,9 @@ function ListagemTatuadores() {
           </div>
         </div>
         <span className={styles["categoria"]}>
-          Categoria: Mais Procurados
+          Navegue por estilo
         </span>
+        <Carousel/> 
         <div className={styles["filtro"]}>
           <img src={filtroIcone} alt="Filtro Icone" />
           <a>Filtros</a>

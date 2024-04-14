@@ -1,0 +1,29 @@
+/* styles.css */
+.carousel-image {
+    width: 336px;
+    height: 324px;
+    border-radius: 12px;
+    margin-top: 20px;
+  }
+
+  .carouselContainer {
+    margin: 0 100px; /* Define uma margem de 20 pixels nos lados do carrossel */
+  }
+
+/* carrosselListagem.css */
+.carousel-item {
+    position: relative;
+  }
+  
+  .carousel-text {
+    position: absolute;
+    bottom: 10px; /* Define a posição do texto em relação à parte inferior da imagem */
+    left: 0;
+    right: 0;
+    text-align: center; /* Centraliza o texto horizontalmente */
+    color: #000000; /* Define a cor do texto */
+    font-family: 'Poppins';
+    font-weight: medium;
+}
+
+
