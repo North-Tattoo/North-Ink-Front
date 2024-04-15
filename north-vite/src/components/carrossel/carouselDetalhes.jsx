@@ -30,7 +30,7 @@ const ManualCarousel = () => {
     <div className="relative w-full max-w-lg mx-auto">
       <FaRegArrowAltCircleLeft 
         onClick={prevSlide} 
-        className="absolute top-44 transform -translate-y-1/2 -translate-x-1/2 text-slate-500 hover:text-purple-950 size-16 py-1 px-3 cursor-pointer"
+        className="absolute top-44 -left-6 transform -translate-y-1/2 -translate-x-1/2 text-slate-800 hover:text-purple-950 size-16 py-1 px-3 cursor-pointer"
       />
       <img 
         src={images[currentIndex]} 
@@ -40,7 +40,7 @@ const ManualCarousel = () => {
       />
       <FaRegArrowAltCircleRight 
         onClick={nextSlide} 
-        className="absolute top-44 right-0 transform -translate-y-1/2 translate-x-1/2 text-slate-500 hover:text-purple-950 rounded size-16 py-1 px-3 cursor-pointer"
+        className="absolute top-44 -right-6 transform -translate-y-1/2 translate-x-1/2 text-slate-800 hover:text-purple-950 rounded size-16 py-1 px-3 cursor-pointer"
       />
     </div>
   );

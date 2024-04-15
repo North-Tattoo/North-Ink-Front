@@ -59,8 +59,8 @@ function Detalhes() {
 
                     <div className="flex justify-center mt-6">
                         <div className="w-5/6 flex justify-center">
-                            <div className="flex gap-12">
-                                <Carrossel2 className="" />
+                            <div className="flex gap-16">
+                                <Carrossel2 />
 
                                 <div className=" md:w-1/2 p-2">
                                     <div className="mb-4">
