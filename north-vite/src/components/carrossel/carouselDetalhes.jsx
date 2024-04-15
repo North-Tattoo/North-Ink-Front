@@ -1,54 +1,49 @@
-import React, { useEffect, useRef } from 'react';
-import styles from '../../pages/detalhes/Detalhes.module.css';
+import React, { useState, useEffect } from 'react';
+import img from "../../utils/assets/ombro-comprimido.jpg";
+import img2 from "../../utils/assets/tatuador-carrossel.jpg"; 
+import img3 from "../../utils/assets/tatuador-grid.png" 
+import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
 
-function Carrossel2() {
-  const wrapperRef = useRef(null);
-  const carouselRef = useRef(null);
-  const firstCardRef = useRef(null);
+const ManualCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = [img, img2, img3];
+  const imageHeight = 350; // Definir a altura desejada das imagens
+  const intervalTime = 3000; // Definir o intervalo de tempo em milissegundos
 
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const carousel = carouselRef.current;
-    const firstCard = firstCardRef.current;
-    const arrowBtns = wrapper.querySelectorAll("i");
+    const interval = setInterval(() => {
+      nextSlide();
+    }, intervalTime);
 
-    let timeoutId;
+    return () => clearInterval(interval);
+  }, [currentIndex]); // Reagir apenas quando currentIndex mudar
 
-    const autoPlay = () => {
-      // Desloca a imagem para a direita
-      carousel.scrollLeft += firstCard.offsetWidth;
-      // Configura o próximo movimento
-      timeoutId = setTimeout(autoPlay, 2500);
-    };
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-    autoPlay();
-
-    // Pára a reprodução automática quando o mouse entra no carrossel
-    wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
-    // Resumo da reprodução automática quando o mouse sai do carrossel
-    wrapper.addEventListener("mouseleave", autoPlay);
-
-    return () => {
-      // Remove os ouvintes de eventos quando o componente é desmontado
-      wrapper.removeEventListener("mouseenter", () => clearTimeout(timeoutId));
-      wrapper.removeEventListener("mouseleave", autoPlay);
-    };
-  }, []);
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
 
   return (
-    <section className={styles["carrossel"]}>
-      <div className={styles["wrapper"]} ref={wrapperRef}>
-        <ul className={styles["carousel"]} ref={carouselRef}>
-          {/* Repita apenas uma imagem */}
-          <li className={styles["card"]} ref={firstCardRef}>
-            <div className={styles["img"]}><img src="\src\utils\assets\tatuador-carrossel.jpg" alt="img" draggable="false"/></div>
-            <h2 className="text-zinc-700 font-bold">King Tattoo</h2>
-            <span className="text-zinc-600 font-semibold">Rua das Rosas, 123</span>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <div className="relative w-full max-w-lg mx-auto">
+      <FaRegArrowAltCircleLeft 
+        onClick={prevSlide} 
+        className="absolute top-44 transform -translate-y-1/2 -translate-x-1/2 text-slate-500 hover:text-purple-950 size-16 py-1 px-3 cursor-pointer"
+      />
+      <img 
+        src={images[currentIndex]} 
+        alt={`Imagem ${currentIndex + 1}`} 
+        className="w-full h-auto max-h-90 object-cover rounded-lg shadow-2xl shadow-slate-900 border border-slate-500" 
+        style={{ height: imageHeight }}
+      />
+      <FaRegArrowAltCircleRight 
+        onClick={nextSlide} 
+        className="absolute top-44 right-0 transform -translate-y-1/2 translate-x-1/2 text-slate-500 hover:text-purple-950 rounded size-16 py-1 px-3 cursor-pointer"
+      />
+    </div>
   );
-}
+};
 
-export default Carrossel2;
+export default ManualCarousel;

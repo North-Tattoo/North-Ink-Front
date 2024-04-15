@@ -4,8 +4,10 @@ import { FaRegUserCircle } from "react-icons/fa";
 import styles from './Detalhes.module.css';
 import { Button } from '@/components/ui/button';
 import Footer from '@/components/footer/footer';
-
-
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { FaWhatsapp } from "react-icons/fa6";
 
 function Detalhes() {
     return (
@@ -23,31 +25,58 @@ function Detalhes() {
                         </div>
 
                         <div className="flex items-center">
-                            <FaRegUserCircle className="size-8 text-purple-800" />
+                            <Sheet>
+                                <SheetTrigger asChild>
+                                    <FaRegUserCircle className="size-8 text-purple-800 cursor-pointer" />
+                                </SheetTrigger>
+
+                                <SheetContent>
+                                    <SheetHeader>
+                                        <SheetTitle>Editar Perfil</SheetTitle>
+                                        <SheetDescription>
+                                            Aqui é aonde o tatuador vai poder editar seu perfil, podendo alterar informações como nome, email, senha e foto de perfil.
+                                        </SheetDescription>
+                                    </SheetHeader>
+                                    <div className="grid gap-4 py-4 flex justify-start">
+                                        <div className="grid grid-cols-4 items-center gap-4">
+                                            <Label htmlFor="name" className="text-right">Nome</Label>
+                                            <Input id="name" value="Renato Silva" className="col-span-3" />
+                                        </div>
+                                        <div className="grid grid-cols-4 items-center gap-4">
+                                            <Label htmlFor="email" className="text-right">Email</Label>
+                                            <Input id="email" value="northink03@gmail.com" className="col-span-3" />
+                                        </div>
+                                    </div>
+                                    <SheetFooter className="flex justify-center items-center">
+                                        <SheetClose asChild>
+                                            <Button type="submit" className="mt-2">Salvar alterações</Button>
+                                        </SheetClose>
+                                    </SheetFooter>
+                                </SheetContent>
+                            </Sheet>
                         </div>
                     </div>
 
                     <div className="flex justify-center mt-6">
                         <div className="w-5/6 flex justify-center">
-                            <div className="flex">
-                                <Carrossel2 />
+                            <div className="flex gap-12">
+                                <Carrossel2 className="" />
 
                                 <div className=" md:w-1/2 p-2">
                                     <div className="mb-4">
                                         <iframe
-                                            className="rounded-lg"
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.462918447232!2d-47.18023222222222!3d-23.552431199999998!2m3!1f0!2d-47.1795644!3d-23.5524333!3m2!1i1024!2i768!4f13.1!3m3!1m2!1d-47.18023222222222!2d-23.552431199999998!5m2!1m1!1z13m1!2sBrasil"
-                                            width="450"
-                                            height="180"
-                                            style={{ border: 0 }}
-                                            allowFullScreen
+                                            className='rounded-lg shadow-2xl'
+                                            width="500"
+                                            height="250"
                                             loading="lazy"
-                                        ></iframe>
+                                            referrerpolicy="no-referrer-when-downgrade"
+                                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAbpa0IebAdWBRHj0g4NC_e1OcEktcVw3c">
+                                        </iframe>
                                     </div>
 
-                                    <div className="bg-purple-700 hover:bg-purple-600 p-4 rounded-lg">
+                                    <div className="bg-purple-700 hover:bg-purple-600 p-4 rounded-lg shadow-2xl shadow-violet-800">
                                         <h2 className="text-lg font-bold mb-2 text-zinc-200">Sobre nós:</h2>
-                                        <p className="text-lm text-zinc-200 ">
+                                        <p className="text-lm text-zinc-200">
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus minus quia minima numquam maiores!
                                             Sapiente iste velit, beatae aliquam officiis quae in quas dolor cum quia quod! Officiis, voluptatibus
                                             tempora.iste velit, beatae aliquam officiis quae in quas dolor cum quia quod! Officiis, voluptatibus
@@ -62,185 +91,62 @@ function Detalhes() {
 
 
             </div>
-            <div className="mt-14 container bg-slate-300 flex flex-col items-center">
+            <div className="mt-14 container bg-slate-300 flex flex-col items-center mb-16">
 
                 <h1 className="mt-6 mb-6 font-bold text-zinc-700 text-2xl">Serviços</h1>
 
                 <div>
                     <div className="flex flex-wrap justify-center w-10/11">
-
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
-
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
-
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
+                        {[...Array(6)].map((_, index) => (
+                            <div key={index} className="w-80 h-85 bg-violet-50 m-4 rounded-lg shadow-2xl shadow-slate-500">
+                                <div className="px-4 py-2 flex justify-center">
+                                    <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
                                 </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
 
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
+                                <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
 
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
-                                </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
+                                <div className="px-6 py-2 border-t">
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-gray-800 font-semibold">Preço</span>
+                                        <span className="text-gray-900 font-bold">R$ XX,XX</span>
+                                    </div>
+                                    <div className="flex justify-center mt-2 mb-2">
+                                        <Dialog>
+                                            <DialogTrigger asChild>
+                                                <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
+                                                    Realizar Orçamento
+                                                </Button>
+                                            </DialogTrigger>
 
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
+                                            <DialogContent>
+                                                <h1 className="font-bold text-lg text-center text-zinc-700">Encontre seu orçamento</h1>
 
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
-                                </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
+                                                <div className="flex gap-8 p-4">
+                                                    <img className="w-54 h-44 mx-auto my-auto rounded-md" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
+
+                                                    <div className="flex flex-col justify-center">
+                                                        <span className="font-semibold text-base">Tatto 3D</span>
+
+                                                        <ul className="list-disc mt-2">
+                                                            <li>Tatuagem 3D de Borboleta</li>
+                                                            <li>Tatto 30 Cm</li>
+                                                            <li>É possível realizar alterações</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex justify-center mt-4">
+                                                    <Button className="w-48 bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
+                                                        Fale com o Tatuador <FaWhatsapp className="ml-2 size-7" />
+                                                    </Button>
+                                                </div>
+                                            </DialogContent>
+
+                                        </Dialog>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
-
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
-
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
-                                </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
-
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
-
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
-                                </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
-
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
-
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
-                                    
-                                </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
-
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
-
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
-                                </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
-
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
-
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
-                                </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-80 h-85 bg-violet-50 m-4 rounded-lg">
-                            <div className="px-4 py-2 flex justify-center">
-                                <h2 className="text-lg font-semibold text-gray-800">Tatuagem</h2>
-                            </div>
-
-                            <img className="w-54 h-44 mx-auto my-auto rounded-lg" src="\src\utils\assets\ombro-comprimido.jpg" alt="Imagem" />
-
-                            <div className="px-6 py-2 border-t">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-800 font-semibold">Preço</span>
-                                    <span className="text-gray-900 font-bold">R$ XX,XX</span>
-                                </div>
-                                <div className="flex justify-center mt-2 mb-2">
-                                    <Button className="bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                                        Realizar Orçamento
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
 
                     </div>
                 </div>
@@ -268,14 +174,14 @@ function Detalhes() {
             </div>
 
 
-            <Footer className=""/>
+            <Footer className="" />
         </>
     );
 };
 
 function LogoImagem() {
     return (
-        <img src="\src\utils\assets\logo-branca.png" alt=""/>
+        <img src="\src\utils\assets\logo-branca.png" alt="" />
     )
 }
 
