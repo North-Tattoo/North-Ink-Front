@@ -384,7 +384,7 @@ body {
 .links a{
     text-decoration: none;
     font-family: 'Poppins';
-    color: #B2BAC5;
+    color: #FAF5FF;
     margin-left: 4%;
 }
 
@@ -407,8 +407,6 @@ body {
     float: right;
     padding-top: 2%;
     padding-right: 5%;
-    width: 300px;
-    height: 140px;
 }
 
 .mensagem-direitos{
@@ -416,8 +414,7 @@ body {
     justify-content: center;
     font-family: 'Poppins';
     font-size: 15px;
-    color: #757575;
+    color: #FAF5FF;
     padding-top: 3%;
-    padding-left: 20%;
     padding-bottom: 4%;
 }

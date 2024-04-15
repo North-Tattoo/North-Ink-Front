@@ -4,13 +4,14 @@ body,
 html {
   margin: 0;
   padding: 0;
-  background-color: #B2BAC5;
+  background-color: #FAF5FF;
   height: max-content;
 }
 
 .container {
   height: 100vh; /* Defina uma altura para ocupar a altura total da tela */
-  overflow-y: auto; /* Adicione rolagem vertical quando necessário */
+  overflow-y: auto;
+  background-color: #FAF5FF; /* Adicione rolagem vertical quando necessário */
 }
 
 .content {
@@ -113,26 +114,27 @@ html {
 .categoria {
   margin-top: 50px;
   margin-bottom: 50px;
-  margin-left: 60px;
+  margin-left: 100px;
   display: flex;
   justify-content: flex-start;
   text-decoration: none;
-  color: #000000;
+  color: #581C87;
   font-family: 'Poppins';
-  font-size: 25px;
-  font-weight: 700;
+  font-size: 30px;
 }
 
 .filtro {
   display: flex;
   margin-top: 3%;
-  margin-left: 60px;
+  margin-left: 100px;
+  color: #581C87;
+
 }
 
 .filtro a {
-  margin-left: 5px;
+  margin-left: 10px;
   text-decoration: none;
-  color: #000000;
+  color: #581C87;
   font-family: 'Poppins';
-  font-size: 15px;
+  font-size: 20px;
 }

@@ -3,14 +3,12 @@ import logoBranca from '../../utils/assets/logo-branca.png';
 import styles from './ListagemTatuadores.module.css'
 import filtroIcone from '../../utils/assets/filtro-icone.png';
 import fundoListagem from '../../utils/assets/fundo-listagem.png';
-import perfilTatuador from '../../utils/assets/perfil.png'
 import GridListagem from '@/components/cardListagem/GridListagem';
 import Footer from '@/components/footer/footer';
-import Carousel from '@/components/carrosselListagem/carrosselListagem'
-
+import Carousel from '@/components/carrosselListagem/carrosselListagem';
+import {GoFilter} from "react-icons/go";
 import {PiUserCircleLight} from "react-icons/pi";
-
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function ListagemTatuadores() {
   return (
@@ -37,7 +35,7 @@ function ListagemTatuadores() {
         </span>
         <Carousel/> 
         <div className={styles["filtro"]}>
-          <img src={filtroIcone} alt="Filtro Icone" />
+          <GoFilter className={styles.icon} size={32} />
           <a>Filtros</a>
         </div>
         <div className={styles.content}>
