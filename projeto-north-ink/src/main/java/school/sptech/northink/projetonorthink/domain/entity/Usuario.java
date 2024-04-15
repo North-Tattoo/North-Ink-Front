@@ -8,20 +8,19 @@ import jakarta.persistence.Id;
 @Entity
 public class Usuario {
 
+    /*Representa o tatuador cadastrado no sistema (unico)*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String email;
     private String nome;
-    private String senha;
-    private String estilo;
-    private String cnpj;
-    private String cep;
-
+    private String sobrenome;
     private Long telefone;
-
-    private Double qtdExperiencia;
+    private String email;
+    private String senha;
+    private String sobreMim;
+    private String estilo;
+    private String cep;
+    private Double anosExperiencia;
 
     public Long getId() {
         return id;
@@ -29,14 +28,6 @@ public class Usuario {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getNome() {
@@ -47,36 +38,12 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getEstilo() {
-        return estilo;
-    }
-
-    public void setEstilo(String estilo) {
-        this.estilo = estilo;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public Long getTelefone() {
@@ -87,11 +54,51 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public Double getQtdExperiencia() {
-        return qtdExperiencia;
+    public String getEmail() {
+        return email;
     }
 
-    public void setQtdExperiencia(Double qtdExperiencia) {
-        this.qtdExperiencia = qtdExperiencia;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getSobreMim() {
+        return sobreMim;
+    }
+
+    public void setSobreMim(String sobreMim) {
+        this.sobreMim = sobreMim;
+    }
+
+    public String getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(String estilo) {
+        this.estilo = estilo;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public Double getAnosExperiencia() {
+        return anosExperiencia;
+    }
+
+    public void setAnosExperiencia(Double anosExperiencia) {
+        this.anosExperiencia = anosExperiencia;
     }
 }

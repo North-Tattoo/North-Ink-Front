@@ -16,6 +16,7 @@ import school.sptech.northink.projetonorthink.domain.service.usuario.dto.Usuario
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
+    // Nessa classe está todas as requisições que o tatuador fará
     @Autowired
     private UsuarioService usuarioService;
 
@@ -30,5 +31,6 @@ public class UsuarioController {
         UsuarioTokenDto usuarioToken = this.usuarioService.autenticar(usuarioLoginDto);
         return ResponseEntity.status(200).body(usuarioToken);
     }
+
 
 }
