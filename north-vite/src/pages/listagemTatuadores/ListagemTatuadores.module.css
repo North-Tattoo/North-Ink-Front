@@ -33,7 +33,6 @@ html {
 .inicio {
   position: relative;
   width: 100%;
-  background-image: url("../../utils/assets/fundo-listagem.png");
   background-size: cover;
   background-position: center;
 }
