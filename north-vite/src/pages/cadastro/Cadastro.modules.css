@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.inicio {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../utils/assets/fundo-landing-page.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    height: 82%;
+    width: 37%;
+    background-color: #B2BAC5;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.conteudo-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins';
+}
+
+.conteudo-modal input:focus {
+    border: 2px solid #581C87;
+    outline: none;
+}
+
+.barra-progresso {
+    position: relative;
+    height: 10px;
+    width: 150px;
+    margin-top: 25px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+.progresso {
+    position: absolute;
+    z-index: 1;
+    height: 10px;
+    width: 33%;
+    background-color: #581C87;
+    border-radius: 8px;
+}
+
+.frase-inicial {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nome-sobrenome {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.nome-sobrenome input {
+    margin-right: 15px;
+    margin-left: 15px;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+.nome-sobrenome label {
+    margin-left: 17px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.email {
+    margin-top: 15px;
+    display: flex;
+    align-items: start;
+}
+
+.email input {
+    height: 40px;
+    width: 430px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+.email label {
+    margin-left: 1px;
+}
+
+.avancar {
+    margin-top: 60px;
+    background-color: #581C87;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    /* font-weight: bold; */
+    font-size: 18px;
+    height: 50px;
+    width: 120px;
+    cursor: pointer;
+}
+
+.avancar:hover {
+    background-color: #421564;
+    transition: ease-in 0.1s;
+}
+
+/* /////////////////////// SEGUNDA TELA /////////////////////// */
+
+.modal-2 {
+    height: 95%;
+    width: 37%;
+    background-color: #B2BAC5;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.barra-progresso-2 {
+    position: relative;
+    height: 10px;
+    width: 150px;
+    margin-top: 25px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+.progresso-2 {
+    position: absolute;
+    z-index: 1;
+    height: 10px;
+    width: 66%;
+    background-color: #581C87;
+    border-radius: 8px;
+}
+
+.linha-2 {
+    height: 1.5px;
+    width: 108%;
+    background-color: #581C87;
+    margin-top: 13px;
+    margin-bottom: 10px;
+}
+
+.input-100 {
+    margin-top: 15px;
+    display: flex;
+    /* align-items: start; */
+    flex-direction: column;
+}
+
+.input-100 input {
+    height: 40px;
+    width: 380px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+.input-100 label {
+    margin-left: 5px;
+}
+
+.endereco {
+    margin-top: 25px;
+    margin-right: 212px;
+    font-weight: bold;
+}
+
+.span-cep {
+    margin-right: 340px;
+    margin-top: 8px;
+}
+
+.ipt-cep {
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    /* margin-top: 8px; */
+    margin-right: 245px;
+}
+
+.ipt-cep input {
+    height: 40px;
+    width: 90px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+.ipt-cep svg {
+    font-size: 22px;
+    padding-left: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.ipt-cep svg:hover{
+    opacity: 1;
+}
+
+.estado-cidade {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.estado-cidade .estado,
+.estado-cidade .cidade {
+    flex-basis: 48%;
+    /* Definindo a largura de cada entrada para ocupar aproximadamente metade do espaço */
+}
+
+.estado-cidade .estado label,
+.estado-cidade .cidade label {
+    display: block;
+    margin-left: 2px;
+}
+
+.estado-cidade .estado input,
+.estado-cidade .cidade input {
+    height: 40px;
+    width: 100%;
+    /* Para que ocupem todo o espaço disponível */
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+.input-100 input:focus,
+.estado-cidade .estado input:focus,
+.estado-cidade .cidade input:focus {
+    border: 2px solid #581C87;
+    outline: none;
+}
+
+.bairro-rua {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.bairro-rua .bairro,
+.bairro-rua .rua {
+    flex-basis: 48%;
+    /* Definindo a largura de cada entrada para ocupar aproximadamente metade do espaço */
+}
+
+.bairro-rua .bairro label,
+.bairro-rua .rua label {
+    display: block;
+    margin-left: 2px;
+}
+
+.bairro-rua .bairro input,
+.bairro-rua .rua input {
+    height: 40px;
+    width: 100%;
+    /* Para que ocupem todo o espaço disponível */
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+.bairro-rua .bairro input:focus,
+.bairro-rua .rua input:focus {
+    border: 2px solid #581C87;
+    outline: none;
+}
+
+.numero-complemento {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.numero-complemento .numero {
+    flex-basis: 25%;
+    /* Definindo a largura da entrada de número */
+}
+
+.numero-complemento .complemento {
+    flex-basis: 73%;
+    /* Definindo a largura da entrada de complemento */
+}
+
+.numero-complemento .numero label,
+.numero-complemento .complemento label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.numero-complemento .numero input,
+.numero-complemento .complemento input {
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+.numero-complemento .numero input {
+    width: calc(100% - 10px);
+    /* Para que a entrada de número seja menor */
+}
+
+.numero-complemento .complemento input {
+    width: 100%;
+    /* A entrada de complemento ocupa todo o espaço disponível */
+}
+
+/* Estilo de foco */
+.numero-complemento .numero input:focus,
+.numero-complemento .complemento input:focus {
+    border: 2px solid #581C87;
+    outline: none;
+}
+
+.avancar-2 {
+    margin-top: 20px;
+    background-color: #581C87;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    /* font-weight: bold; */
+    font-size: 18px;
+    height: 50px;
+    width: 120px;
+    cursor: pointer;
+}
+
+.avancar-2:hover {
+    background-color: #421564;
+    transition: ease-in 0.1s;
+}
+
+#voltar {
+    text-decoration: none;
+    color: #747474;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.oculto {
+    display: none;
+}
+
+
+/* /////////////////////// TERCEIRA TELA /////////////////////// */
+
+
+.progresso-3 {
+    position: absolute;
+    z-index: 1;
+    height: 10px;
+    width: 100%;
+    background-color: #581C87;
+    border-radius: 8px;
+}
+
+
+.linha {
+    height: 1.5px;
+    width: 90%;
+    background-color: #581C87;
+    margin-top: 13px;
+    margin-bottom: 10px;
+}
+
+.msg-3-tela {
+    display: flex;
+    align-self: self-start;
+    margin-left: 13.5px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: row;
+}
+
+.coluna {
+    margin: 10px 20px 20px;
+}
+
+.coluna input {
+    /* margin: 10px; */
+    height: 20px;
+    width: 20px;
+}
+
+.coluna label {
+    margin-bottom: 55px;
+    font-size: medium;
+}
+
+.label-textarea {
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 12.2px;
+}
+
+.concluir {
+    margin-top: 20px;
+    background-color: #581C87;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    /* font-weight: bold; */
+    font-size: 18px;
+    height: 50px;
+    width: 120px;
+    cursor: pointer;
+}
+
+.concluir:hover {
+    background-color: #421564;
+    transition: ease-in 0.1s;
+}
