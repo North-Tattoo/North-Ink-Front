@@ -76,12 +76,22 @@ function Cadastro() {
             </div>
             <div className="nome-sobrenome">
               <div className="campo">
+                <label htmlFor="CPF">CPF</label>
+                <input placeholder="123.456.789-09" type="text" id="CPF" name="CPF" />
+              </div>
+              <div className="campo">
+                <label htmlFor="celular">Celular</label>
+                <input placeholder="(DDD) Celular" type="text" id="celular" name="celular" />
+              </div>
+            </div>
+            <div className="nome-sobrenome">
+              <div className="campo">
                 <label htmlFor="senha">Senha</label>
                 <input placeholder="Mínimo 6 caracteres" type="password" id="senha" name="senha" />
               </div>
               <div className="campo">
-                <label htmlFor="telefone">Telefone</label>
-                <input placeholder="(DDD) Telefone" type="text" id="telefone" name="telefone" />
+                <label htmlFor="repita">Repita a senha</label>
+                <input placeholder="Mínimo 6 caracteres " type="text" id="repita" name="repita" />
               </div>
             </div>
             <button className="avancar" onClick={avancarPrimeiraParaSegunda}>Avançar</button>
