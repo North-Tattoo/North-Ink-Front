@@ -36,8 +36,8 @@ function Home() {
             <section  className={styles["gradiente-site"]}>
             <section  className={styles["fotos-tatuagens"]}>
                 <div  className={styles["frase-tatuagens"]}>
-                    Nós celebramos a <span style={{ color: '#581C87' }}>arte</span> que <br /> você veste. <br />
-                    <span style={{ color: '#581C87' }}>Descubra</span> a tatuagem que eleva sua essência.
+                    Nós celebramos a <span style={{ color: '#1E1E1E' }}>arte</span> que <br /> você veste. <br />
+                    <span style={{ color: '#1E1E1E' }}>Descubra</span> a tatuagem que eleva sua essência.
                 </div>
                 <div  className={styles["row"]}>
                     <div  className={styles["column"]}>
@@ -57,9 +57,9 @@ function Home() {
                 </div>
             </section>
 
-            <article  className={styles["frase-carrossel"]}>Descubra os <span style={{ color: '#34035a' }}>artistas</span> que não apenas ouvem,
+            <article  className={styles["frase-carrossel"]}>Descubra os <span style={{ color: '#1E1E1E' }}>artistas</span> que não apenas ouvem,
                 <br />
-                mas entendem sua <span style={{ color: '#34035a' }}>história</span>.
+                mas entendem sua <span style={{ color: '#1E1E1E' }}>história</span>.
             </article>
 
             <Carrossel />

@@ -4,6 +4,7 @@
     height: 324px;
     border-radius: 12px;
     margin-top: 20px;
+    transition: box-shadow 0.3s ease;
   }
 
   .carouselContainer {
@@ -17,13 +18,26 @@
   
   .carousel-text {
     position: absolute;
-    bottom: 10px; /* Define a posição do texto em relação à parte inferior da imagem */
+    bottom: 50%; /* Define a posição do texto em relação à parte inferior da imagem */
     left: 0;
     right: 0;
     text-align: center; /* Centraliza o texto horizontalmente */
-    color: #000000; /* Define a cor do texto */
     font-family: 'Poppins';
-    font-weight: medium;
+    font-weight: bold;
+    font-size: 45px;
+    opacity: 0;
+    color: #ffffff;
+    transition: background-color 0.3s ease; 
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+.carousel-item:hover .carousel-image {
+  background-color: #353434;
+  border-radius: 12px;
+}
+
+.carousel-item:hover .carousel-text {
+  color: #fefefe; 
+  opacity: 1;/* Define a cor do texto ao passar o mouse */
 }
 
 

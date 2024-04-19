@@ -25,7 +25,7 @@ function ListagemTatuadores() {
       </div>
       <div className={styles.inicio}>
       <div className={styles.fraseInicio}>
-        <h3 className={styles.fraseBranca}>Encontre o seu artista <span className={styles.fraseRoxa}>ideal</span>.</h3>
+        <h3 className="text-gray-100">Encontre o seu artista <span className="text-gray-900">ideal</span>.</h3>
       </div>
         <div className={styles["inputs"]}>
           <input type="text" id="campo_texto" placeholder="Pesquise por tatuadores perto de você" className={styles.pesquisa} />
@@ -33,7 +33,7 @@ function ListagemTatuadores() {
         </div>
       </div>
       <span className={styles["categoria"]}>
-        <h5 className={styles.naveguePor}>Navegue por<span className={styles.porEstilo}> estilo</span>.</h5>
+        <h5 className="text-gray-100">Navegue por<span className="text-purple-600"> estilo</span>.</h5>
       </span>
       </div>
       <div className={styles.gradientFim}>
