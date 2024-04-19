@@ -6,31 +6,33 @@
 }
 
 .cardStudio {
-  height: 487px;
-  width: 343px;
+  height: 568px;
+  width: 592px;
   border-radius: 20px;
-  background-color: #FFFFFF;
+  background-color: #121212;
   margin-top: 70px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 .pointerSombra{
-  height: 130px;
-  width: 340px;
+  height: 144px;
+  width: 530px;
   cursor: pointer;
-  margin-left: 2px;
+  margin-left: 30px;
   margin-right: 2px;
   transition: background-color 0.3s ease;
+  border-radius: 10px;
 }
 .pointerSombra:hover{
-  background-color: #f1f1f1;
+  background-color: #353434;
   border-radius: 10px;
 }
 .fotosServicos {
   display: flex;
   justify-content: center;
-  margin-top: 6px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-top: 35px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 10px;
 }
 
 .imagemWrapper {
@@ -42,7 +44,7 @@
 
 .imagem {
   height: 232px;
-  width: 135px;
+  width: 176px;
   object-fit: cover;
   transition: width 0.5s ease;
 }
@@ -53,9 +55,11 @@
 
 .informacoesStudio {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: 3px;
   margin-top: 10px;
   align-items: center;
+  color: #FFFFFF;
 }
 
 .endereco {
@@ -64,28 +68,29 @@
   flex-direction: column;
 }
 
-.endereco h5 {
-  margin: 0;
+.endereco p {
+  /* margin: 0; */
+  margin-top: 3px;
+  font-size: 15px;
+}
+.endereco h5{
+  font-size: 20px;
 }
 
 .fotoPerfil {
-  margin-top: 10px;
   width: 84px;
   height: 89px;
   border-radius: 100%;
+  margin-top: 20px;
 }
 
 .botaoTenhoInteresse {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 35px;
 }
-.seta{
-  margin-top: 30px;
-  width: 15px;
-  height: 15px;
-}
+
 .tenhoInteresse {
   width: 122px;
   height: 34px;
@@ -93,34 +98,36 @@
   color: #FFFFFF;
   border: none;
   border-radius: 9px;
+  font-weight: bold;
 }
 .taxaHoraria {
   font-family: 'Poppins';
   font-weight: bold;
   font-size: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
-  margin-left: 20px;
+  margin-left: 3px;
+  color: #FFFFFF;
 }
 .iconeContainer {
   display: flex;
-  max-width: calc(100% - 20px);
+  max-width: calc(100% - 109px);
   overflow-x: auto;
-  margin-left: 10px;
-  margin-top: 15px;
+  margin-left: 50px;
+  margin-top: 30px;
+  justify-content:center;
 }
 
 .icone {
   background-color: #E6E6E6;
-  height: 16px;
+  height: 25px;
   padding: 0 5px;
   display: flex;
   align-items: center;
   white-space: nowrap;
-  margin-right: 5px;
+  margin-right: 10px;
   font-family: 'Poppins';
-  font-size: 8px;
-  font-weight: normal;
+  font-size: 13px;
   overflow: hidden;
   border-radius: 5px;
 }

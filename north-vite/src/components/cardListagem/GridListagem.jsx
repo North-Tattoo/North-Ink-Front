@@ -3,6 +3,8 @@ import styles from './GridListagem.module.css';
 import studioTatuagens from '../../utils/assets/tatuagem-grid-card.jpg'
 import fotoPerfilGrid from '../../utils/assets/tatuador-grid.png'
 import seta from '../../utils/assets/stea.png'
+import { IoIosArrowForward } from "react-icons/io";
+
 function GridListagem() {
   return (
     <div className={styles.gridListagem}>
@@ -25,7 +27,7 @@ function GridListagem() {
               <h5>King Tatto</h5>
               <p>Rua Ficticia, 1234 - Ficção</p>
             </div>
-            <img className={styles.seta} src={seta}/>
+            <IoIosArrowForward size={32}/>
           </div>
           <p className={styles.taxaHoraria}>Taxa Horária: R$ 100,00</p>
         </div>
@@ -35,12 +37,9 @@ function GridListagem() {
           <div className={styles.icone}>Anime</div>
           <div className={styles.icone}>Encobrimentos</div>
           <div className={styles.icone}>Tinta Vegana</div>
-          {/* Adicione quantos ícones quiser */}
-          <div className={styles.icone}>Traço Fino</div>
-          <div className={styles.icone}>Anime</div>
         </div>
         <div className={styles.botaoTenhoInteresse}>
-          <button className={styles.tenhoInteresse}>Tenho Interesse</button>
+          <button className={styles.tenhoInteresse}>Ver Portifólio</button>
         </div>
       </div>
     </div>

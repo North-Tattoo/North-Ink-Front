@@ -1,8 +1,6 @@
 import React from 'react';
 import logoBranca from '../../utils/assets/logo-branca.png';
 import styles from './ListagemTatuadores.module.css'
-import filtroIcone from '../../utils/assets/filtro-icone.png';
-import fundoListagem from '../../utils/assets/fundo-listagem.png';
 import GridListagem from '@/components/cardListagem/GridListagem';
 import Footer from '@/components/footer/footer';
 import Carousel from '@/components/carrosselListagem/carrosselListagem';
@@ -12,8 +10,8 @@ import { Link } from 'react-router-dom';
 
 function ListagemTatuadores() {
   return (
-
-    <div className={styles.container}>
+    <section>
+      <div className={styles.gradientInicio}>
       <div className={styles.navBar}>
         <Link to='/'>
           <div className={styles["logo"]}>
@@ -37,6 +35,8 @@ function ListagemTatuadores() {
       <span className={styles["categoria"]}>
         <h5 className={styles.naveguePor}>Navegue por<span className={styles.porEstilo}> estilo</span>.</h5>
       </span>
+      </div>
+      <div className={styles.gradientFim}>
       <Carousel />
       <div className={styles["filtro"]}>
         <GoFilter className={styles.icon} size={32} />
@@ -47,22 +47,20 @@ function ListagemTatuadores() {
         <div className={styles.cardRow}>
           <GridListagem className={styles.cardListagem} />
           <GridListagem className={styles.cardListagem} />
-          <GridListagem className={styles.cardListagem} />
         </div>
         <div className={styles.cardRow}>
           <GridListagem className={styles.cardListagem} />
           <GridListagem className={styles.cardListagem} />
-          <GridListagem className={styles.cardListagem} />
         </div>
         <div className={styles.cardRow}>
-          <GridListagem className={styles.cardListagem} />
           <GridListagem className={styles.cardListagem} />
           <GridListagem className={styles.cardListagem} />
         </div>
         {/* Adicione mais grupos de três conforme necessário */}
       </div>
       <Footer />
-    </div>
+      </div>
+    </section>
 
 
   );
