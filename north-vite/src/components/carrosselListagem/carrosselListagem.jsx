@@ -25,7 +25,7 @@ const Carousel = () => {
                 </div>
                 <div className="carousel-item">
                     <img src="https://d1kq2dqeox7x40.cloudfront.net/images/tattoo_style_examples/6bfbd840be473a7d033c5.jpeg" alt="Image 2" className="carousel-image" />
-                    <p className="carousel-text">Preto e Cinza</p>
+                    <p className="carousel-text">Preto & Cinza</p>
                 </div>
                 <div className="carousel-item">
                     <img src="https://d1kq2dqeox7x40.cloudfront.net/images/tattoo_style_examples/55c973410417fda5d6f3e.jpeg" alt="Image 3" className="carousel-image" />

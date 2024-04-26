@@ -14,6 +14,7 @@
 /* carrosselListagem.css */
 .carousel-item {
     position: relative;
+    transition: background-color 0.3s ease; 
   }
   
   .carousel-text {
@@ -27,12 +28,12 @@
     font-size: 45px;
     opacity: 0;
     color: #ffffff;
-    transition: background-color 0.3s ease; 
     transition: opacity 0.3s ease, color 0.3s ease;
 }
-.carousel-item:hover .carousel-image {
+.carousel-item:hover{
   background-color: #353434;
   border-radius: 12px;
+  
 }
 
 .carousel-item:hover .carousel-text {
