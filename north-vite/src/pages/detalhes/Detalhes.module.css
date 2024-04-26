@@ -1,81 +1,135 @@
-/* Importação de fontes do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Estilo base do corpo do documento */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #cbd5e1;
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 
-/* Seção de início */
-.inicio {
-    width: 100%;
-    height: 700px;
-    display: flex;
+.navBar { 
+  display: flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-left: 100px;
+  margin-right: 100px;
 }
-
-/* Cabeçalho */
-.logo {
-    margin-top: 8px;
-    margin-left: 4px;
+.gradientInicio{
+  height: 840px;
+  background-image: linear-gradient(180deg, #9333EA 1%, #3C3C3C 75%);
+}
+.gradientFim{
+  background-color: #3C3C3C;
 }
 
 .logo img {
-    width: 200px;
+  width: 270px;
+  height: 65px;
+  margin-top: 30px;
+} 
+
+.botao-entrar {
+  display: flex;
+  align-items: center;
+  color: #f5f5f5;
+  margin-top: 30px;
 }
 
-/* Carrossel */
-.carrossel {
-    overflow: hidden;
-    margin: 10px 0;
-    width: 100%; /* Defina a largura total */
-  }
+.botao-entrar svg {
+  margin-right: 10px; 
+  width: 46px;
+  height: 44px;
+}
+.botao-entrar a {
+  text-decoration: none;
+  font-family: 'Poppins';
+  font-size: 15px;
+}
+.fraseInicio{
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins';
+  font-size: 55px;
+  font-weight: bold;
+  margin-bottom: 90px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.inicio{
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+  flex-direction: column;
+  align-items: center;
+}
+.inputs input {
+  height: 46px;
+  width: 379px;
+  border-radius: 9px;
+  font-family: 'Poppins';
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  padding-left: 30px;
   
-  /* Wrapper do carrossel */
-  .wrapper {
-    position: relative;
-    overflow: hidden;
-    width: 100%; /* Defina a largura total */
-  }
-  
-  /* Carousel (lista de imagens) */
-  .carousel {
-    transition: transform 0.5s ease-in-out;
-    width: 80%; /* Defina a largura total */
-  }
-  
-  /* Cartão do carrossel */
-  .card {
-    flex: 0 0 auto;
-    margin-right: 10px; /* Espaçamento entre os cartões */
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #efefef;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Imagem do cartão */
-  .img {
-    width: 100%;
-    height: 360px; /* Altura da imagem */
-    overflow: hidden;
-  }
-  
-  .img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajuste da imagem */
-  }
-  
-  /* Texto no cartão */
-  .card h2 {
-    font-size: 16px; /* Tamanho do título */
-    margin-left: 8px;
-  }
-  
-  .card span {
-    font-size: 14px; /* Tamanho do texto */
-    margin-left: 8px;
-  }
-  
+}
+
+.pesquisa {
+  background-image: url('../../utils/assets/lupa.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  margin-right: 80px;
+}
+
+.onde {
+  background-image: url('../../utils/assets/localização.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 5px center;
+}
+
+.categoria {
+  margin-top: 350px;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: flex-start;
+  text-decoration: none;
+  font-family: 'Poppins';
+  font-size: 45px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.filtro {
+  display: flex;
+  margin-top: 3%;
+  margin-left: 100px;
+  color: #ececec;
+
+}
+
+.filtro a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #f9f8fa;
+  font-family: 'Poppins';
+  font-size: 20px;
+}
+
+/*******************************Card da Listagem**********************/
+
+
+.content {
+  padding-bottom: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+}
+.cardRow {
+  margin-right: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; 
+}
+.cardListagem {
+  margin-right: 30px; 
+}
