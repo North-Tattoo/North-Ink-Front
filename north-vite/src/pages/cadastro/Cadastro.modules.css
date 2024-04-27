@@ -17,12 +17,16 @@ body {
 }
 
 .modal {
-    height: 82%;
-    width: 37%;
+    height: 110%; /* Ajuste o valor conforme necessário */
+    width: 100%;
+    max-width: 600px;
     background-color: #B2BAC5;
     border-radius: 20px;
     display: flex;
     justify-content: center;
+    align-items: center; /* Centraliza verticalmente */
+    margin: 0; /* Remover margem */
+    padding: 0; /* Remover preenchimento */    
 }
 
 .conteudo-modal {
@@ -50,7 +54,7 @@ body {
     position: absolute;
     z-index: 1;
     height: 10px;
-    width: 33%;
+    width: 50%;
     background-color: #581C87;
     border-radius: 8px;
 }
@@ -65,6 +69,8 @@ body {
     display: flex;
     flex-direction: row;
     margin-top: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 
 .nome-sobrenome input {
@@ -106,6 +112,7 @@ body {
 
 .avancar {
     margin-top: 20px;
+    margin-bottom: 15px;
     background-color: #581C87;
     border: none;
     border-radius: 7px;
@@ -126,7 +133,7 @@ body {
 
 .modal-2 {
     height: 95%;
-    width: 37%;
+    width: 100%;
     background-color: #B2BAC5;
     border-radius: 20px;
     display: flex;
@@ -153,7 +160,7 @@ body {
 
 .linha-2 {
     height: 1.5px;
-    width: 108%;
+    width: 90%;
     background-color: #581C87;
     margin-top: 13px;
     margin-bottom: 10px;
@@ -223,6 +230,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 10px;
+    margin-right: 70px;
+    margin-left: 70px;
 }
 
 .estado-cidade .estado,
@@ -394,7 +403,7 @@ body {
 .msg-3-tela {
     display: flex;
     align-self: self-start;
-    margin-left: 13.5px;
+    margin-left: 30px;
     margin-top: 15px;
     font-weight: bold;
 }
@@ -415,13 +424,15 @@ body {
 }
 
 .coluna label {
-    margin-bottom: 55px;
+    /* margin-bottom: 60px; */
     font-size: medium;
 }
 
 .label-textarea {
     margin-top: 10px;
-    margin-right: 20px;
+    margin-right: 100px;
+    margin-left: 30px;
+    margin-bottom: 10px;
     font-size: 12.2px;
 }
 
