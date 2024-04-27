@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+section{
+    background-image: linear-gradient(180deg, #9333EA 1%, #3C3C3C 75%);
+    height: 950px;
+}
+.container {
+    display: flex;
+    margin-left: 40px;
+}
+.logo{
+    width: 270px;
+    height: 65px;
+    margin-top: 10px;
+} 
+.botao-entrar {
+    display: flex;
+    margin-left: 90px;
+    height: 100px;
+    align-items: center;
+    color: #f5f5f5;
+    margin-top: 30px;
+  }
+  
+  .botao-entrar svg {
+    margin-right: 10px; 
+    width: 46px;
+    height: 44px;
+  }
+  .botao-entrar a {
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-size: 15px;
+  }
+
+.menu{
+    width: 300px;
+    height: 500px;
+    background-color: #FFFFFF;
+    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.botoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    line-height: 5;
+    font-family: 'Poppins';
+    font-size: 25px;
+}
+.text{
+    margin-top: 30px;
+    margin-left: 80px;
+    font-family: 'Poppins';
+    font-size: 70px;
+}
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    /* line-height: 5; */
+    font-family: 'Poppins';
+    font-size: 20px;  
+    color: #FFFFFF; 
+}
+.profileInfo h2{
+    line-height: 2;
+}
+.profileInfo span{
+    line-height: 2;
+}
+.profileInfo p{
+    line-height: 2;
+}
