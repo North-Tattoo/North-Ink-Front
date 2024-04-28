@@ -1,0 +1,154 @@
+<!-- 
+        ESSA TELA É EM HTML PARA DEPOIS SER 
+        TRANSFORMADA EM REACT
+        DEIXEM AÍ!!!!
+
+        - murilo
+ -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+    <div id="inicio" class="inicio">
+        <div class="modal">
+            <div class="conteudo-modal">
+                <div class="barra-progresso">
+                    <div class="progresso"></div>
+                </div>
+                <span class="frase-inicial">Para as pessoas te conhecerem</span>
+                <div class="linha"></div>
+
+                <span class="msg-3-tela">Quais seus estilos preferidos para trabalhar?</span>
+
+                <div class="opcoes">
+                    <div class="coluna">
+                        <input type="checkbox" id="oldSchool" name="oldSchool" value="Old School">
+                        <label for="oldSchool">Old School</label><br>
+                
+                        <input type="checkbox" id="newSchool" name="newSchool" value="New School">
+                        <label for="newSchool">New School</label><br>
+                
+                        <input type="checkbox" id="realismo" name="realismo" value="Realismo">
+                        <label for="realismo">Realismo</label><br>
+                
+                        <input type="checkbox" id="aquarela" name="aquarela" value="Aquarela">
+                        <label for="aquarela">Aquarela</label><br>
+                    </div>
+                    <div class="coluna">
+                        <input type="checkbox" id="blackwork" name="blackwork" value="Blackwork">
+                        <label for="blackwork">Blackwork</label><br>
+                
+                        <input type="checkbox" id="minimalismo" name="minimalismo" value="Minimalismo">
+                        <label for="minimalismo">Minimalismo</label><br>
+                
+                        <input type="checkbox" id="lettering" name="lettering" value="Lettering">
+                        <label for="lettering">Lettering</label><br>
+                
+                        <input type="checkbox" id="geometrico" name="geometrico" value="Geométrico">
+                        <label for="geometrico">Geométrico</label><br>
+                    </div>
+                    <div class="coluna">
+                        <input type="checkbox" id="pontilhismo" name="pontilhismo" value="Pontilhismo">
+                        <label for="pontilhismo">Pontilhismo</label><br>
+                
+                        <input type="checkbox" id="neoTraditional" name="neoTraditional" value="Neo Traditional">
+                        <label for="neoTraditional">Neo Traditional</label><br>
+                
+                        <input type="checkbox" id="oriental" name="oriental" value="Oriental">
+                        <label for="oriental">Oriental</label><br>
+                
+                        <input type="checkbox" id="trashPolka" name="trashPolka" value="Trash Polka">
+                        <label for="trashPolka">Trash Polka</label><br>
+                    </div>
+                </div>
+                
+
+                <span class="msg-3-tela">Nos conte um pouco sobre você.</span>
+
+                <span class="label-textarea">Fale aqui sobre seu resumo profissional, tempo de atuação, história de vida...</span>
+                <textarea id="resumo" name="resumo" rows="6" cols="65"></textarea>
+
+                <button onclick="concluir()" class="concluir">Concluir</button>
+                <span id='voltar' onClick={voltar}>Voltar</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function avancar() {
+
+        inicio.innerHTML = `<div class="inicio">
+            <div class="modal-2">
+                <div class="conteudo-modal">
+                    <div class="barra-progresso-2">
+                        <div class="progresso-2"></div>
+                    </div>
+                    <span class="frase-inicial">Conte um pouco da sua história</span>
+                    <div class="linha"></div>
+    
+                    <div class="input-100">
+                        <label for="nome-estudio">Onde você trabalha?</label>
+                        <input placeholder="Nome do estúdio" type="text">
+                    </div>
+    
+                    <span class="endereco">Endereço do estúdio</span>
+    
+    
+                    <span class="span-cep">CEP</span>
+                    <div class="ipt-cep">
+                        <input id="cep" type="text">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </div>
+    
+                    <div class="estado-cidade">
+                        <div class="estado">
+                            <label for="estado">Estado</label>
+                            <input id="estado" type="text">
+                        </div>
+                        <div class="cidade">
+                            <label for="cidade">Cidade</label>
+                            <input id="cidade" type="text">
+                        </div>
+                    </div>
+    
+                    <div class="bairro-rua">
+                        <div class="bairro">
+                            <label for="bairro">Bairro</label>
+                            <input id="bairro" type="text">
+                        </div>
+                        <div class="rua">
+                            <label for="rua">Rua</label>
+                            <input id="rua" type="text">
+                        </div>
+                    </div>
+                    
+                    <div class="numero-complemento">
+                        <div class="numero">
+                            <label for="numero">Número</label>
+                            <input id="numero" type="text">
+                        </div>
+                        <div class="complemento">
+                            <label for="complemento">Complemento</label>
+                            <input id="complemento" type="text">
+                        </div>
+                    </div>
+    
+                    <button class="avancar-2">Avançar</button>
+                    <a id="voltar" href="#">Voltar</a>
+                </div>
+            </div>
+        </div>
+    `
+    }
+</script>
+
+</html>
