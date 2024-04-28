@@ -15,7 +15,7 @@ function App(){
               <Route path="/detalhes" element={<Detalhes />}/>
               <Route path="/*" element={<NotFound />} />
               <Route path="/listagem-tatuadores" element={<ListagemTatuadores/>}/>
-              {/* <Route path="/gerenciamento-conta" element={<GerenciamentoConta/>}/> */}
+              {/* <Route path="/gerenciamento-conta" element={<GerenciamentoConta/>}/> */}  
           </Routes>
       </BrowserRouter>
   )
