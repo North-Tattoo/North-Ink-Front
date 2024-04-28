@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import school.sptech.northink.projetonorthink.domain.service.usuario.UsuarioService;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioLoginDto;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioTokenDto;
-import school.sptech.northink.projetonorthink.domain.service.usuario.dto.UsuarioCriacaoDto;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioCriacaoDto;
 
 @RestController
 @RequestMapping("/usuarios")

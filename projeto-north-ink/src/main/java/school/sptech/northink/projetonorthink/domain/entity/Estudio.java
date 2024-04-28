@@ -15,10 +15,6 @@ public class Estudio {
     private String horarioFuncionamento;
     private String email;
     private String descricao;
-    private String logradouro;
-    private String numero;
-    private String complemento;
-    private String CEP;
 
     public Long getId() {
         return id;
@@ -59,50 +55,4 @@ public class Estudio {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getCEP() {
-        return CEP;
-    }
-
-    public void setCEP(String CEP) {
-        this.CEP = CEP;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    @OneToOne // indica que um usuario terá somente um estudio
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    private Usuario usuario; // Esta é a chave estrangeira que faz referência ao usuário (tatuador)
-
-
 }

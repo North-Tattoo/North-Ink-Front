@@ -13,8 +13,8 @@ import school.sptech.northink.projetonorthink.domain.entity.Usuario;
 import school.sptech.northink.projetonorthink.domain.repository.UsuarioRepository;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioLoginDto;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioTokenDto;
-import school.sptech.northink.projetonorthink.domain.service.usuario.dto.UsuarioCriacaoDto;
-import school.sptech.northink.projetonorthink.domain.service.usuario.dto.UsuarioMapper;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioCriacaoDto;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioMapper;
 
 @Service
 public class UsuarioService {

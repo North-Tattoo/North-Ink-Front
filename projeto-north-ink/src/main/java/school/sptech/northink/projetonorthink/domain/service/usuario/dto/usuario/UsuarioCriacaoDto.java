@@ -1,35 +1,47 @@
-package school.sptech.northink.projetonorthink.domain.entity;
+package school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.validation.constraints.*;
 
-@Entity
-public class Usuario {
+public class UsuarioCriacaoDto {
 
-    /*Representa o tatuador cadastrado no sistema (unico)*/
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @NotNull
+    @Size(min = 3, max = 20)
     private String nome;
+
+    @NotNull
+    @Size(min = 3, max = 30)
     private String sobrenome;
+
+    @NotNull
+    @Pattern(regexp = "^[0-9]{11}$", message = "O CPF deve conter apenas dígitos e ter 11 caracteres")
     private String cpf;
+
+    @NotNull(message = "O celular não pode ser nulo")
+    @Size(min = 8, message = "O celular deve ter no mínimo 8 dígitos")
+    @Pattern(regexp = "^[0-9]+$", message = "O celular deve conter apenas dígitos")
     private Long celular;
+
+    @Email(regexp = "^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\\.[a-zA-Z]+\\.([a-zA-Z]+)?$", message = "O email não é válido")
+    @NotNull
     private String email;
+
+    @NotNull(message = "A senha não pode ser nula")
+    @Size(min = 6, max = 20, message = "A senha deve ter entre 6 e 20 caracteres")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&()_+{}|\"?><.,]).{6,}$")
     private String senha;
+
+    @NotNull
+    @Max(500)
     private String sobreMim;
+
+    @Size(min = 3, max = 10)
     private String estilo;
+
+    @NotNull
     private Double anosExperiencia;
+
+    @NotNull
     private Double precoMin;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;

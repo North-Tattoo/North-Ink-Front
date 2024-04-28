@@ -1,10 +1,10 @@
-package school.sptech.northink.projetonorthink.domain.service.usuario.dto;
+package school.sptech.northink.projetonorthink.domain.service.usuario.dto.estudio;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class EstudioCriacao {
+public class EstudioCriacaoDto {
 
     @NotNull
     private String nome;

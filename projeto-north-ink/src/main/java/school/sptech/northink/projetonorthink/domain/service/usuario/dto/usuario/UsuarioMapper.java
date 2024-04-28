@@ -1,4 +1,4 @@
-package school.sptech.northink.projetonorthink.domain.service.usuario.dto;
+package school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario;
 
 import school.sptech.northink.projetonorthink.domain.entity.Usuario;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioTokenDto;
@@ -12,12 +12,14 @@ public class UsuarioMapper {
 
         usuario.setNome(usuarioCriacaoDto.getNome());
         usuario.setSobrenome(usuarioCriacaoDto.getSobrenome());
-        usuario.setTelefone(usuarioCriacaoDto.getTelefone());
+        usuario.setCpf(usuarioCriacaoDto.getCpf());
+        usuario.setCelular(usuarioCriacaoDto.getCelular());
         usuario.setEmail(usuarioCriacaoDto.getEmail());
         usuario.setSenha(usuarioCriacaoDto.getSenha());
+        usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
         usuario.setEstilo(usuarioCriacaoDto.getEstilo());
-        usuario.setCep(usuarioCriacaoDto.getCep());
         usuario.setAnosExperiencia(usuarioCriacaoDto.getAnosExperiencia());
+        usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
 
         return usuario;
     }
@@ -33,5 +35,7 @@ public class UsuarioMapper {
 
         return usuarioTokenDto;
     }
+
+
 
 }
