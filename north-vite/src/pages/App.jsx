@@ -4,6 +4,7 @@ import Cadastro from "./cadastro/Cadastro";
 import Detalhes from "./detalhes/Detalhes";
 import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
 import NotFound from "./notFound/NotFound"
+import Login from "./login/Login";
 // import GerenciamentoConta from "./gerenciamentoConta/GerenciamentoConta"
 
 function App(){
@@ -12,6 +13,7 @@ function App(){
           <Routes>
               <Route path="/" element={<Home />}/>
               <Route path="/cadastro" element={<Cadastro />}/>
+              <Route path="/login" element={<Login />}/>
               <Route path="/detalhes" element={<Detalhes />}/>
               <Route path="/*" element={<NotFound />} />
               <Route path="/listagem-tatuadores" element={<ListagemTatuadores/>}/>
