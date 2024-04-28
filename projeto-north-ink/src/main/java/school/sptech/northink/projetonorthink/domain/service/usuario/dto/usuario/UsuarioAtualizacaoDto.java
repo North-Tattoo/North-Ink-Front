@@ -1,9 +1,8 @@
 package school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario;
 
-public class UsuarioListagemDto {
+public class UsuarioAtualizacaoDto {
 
-    // classe resposavel por criar a dto de listagem dos tatuadores
-    private Long id;
+    // metodo com os atributos que serão atualizados, exceto o ID
     private String nome;
     private String sobrenome;
     private String cpf;
@@ -14,14 +13,6 @@ public class UsuarioListagemDto {
     private String estilo;
     private Double anosExperiencia;
     private Double precoMin;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;

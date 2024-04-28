@@ -10,4 +10,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     // UTILIZADO NO JWT
     Optional<Usuario> findByEmail(String email);
 
+
+
 }

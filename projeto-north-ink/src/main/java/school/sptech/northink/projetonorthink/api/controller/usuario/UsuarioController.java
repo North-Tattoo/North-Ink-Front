@@ -3,14 +3,14 @@ package school.sptech.northink.projetonorthink.api.controller.usuario;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import school.sptech.northink.projetonorthink.domain.entity.Usuario;
 import school.sptech.northink.projetonorthink.domain.service.usuario.UsuarioService;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioLoginDto;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioTokenDto;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioAtualizacaoDto;
 import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioCriacaoDto;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioListagemDto;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -20,17 +20,42 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    // criar usuario
     @PostMapping
-    public ResponseEntity<Void> criar(@RequestBody @Valid UsuarioCriacaoDto usuarioCriacaoDto){
+    public ResponseEntity<Void> criar(@RequestBody @Valid UsuarioCriacaoDto usuarioCriacaoDto) {
         this.usuarioService.criar(usuarioCriacaoDto);
         return ResponseEntity.status(201).build();
     }
 
+    // logar usuario
     @PostMapping("/login")
-    public ResponseEntity<UsuarioTokenDto> login(@RequestBody UsuarioLoginDto usuarioLoginDto){
+    public ResponseEntity<UsuarioTokenDto> login(@RequestBody UsuarioLoginDto usuarioLoginDto) {
         UsuarioTokenDto usuarioToken = this.usuarioService.autenticar(usuarioLoginDto);
         return ResponseEntity.status(200).body(usuarioToken);
     }
 
+    // listar todos os usuarios
+    @GetMapping("/listar")
+    public ResponseEntity<UsuarioListagemDto> listar(@RequestBody UsuarioListagemDto lista) {
+        return null;
+    }
 
+    // listar usuario pelo id
+    @GetMapping("/listar/{id}")
+    public ResponseEntity<UsuarioCriacaoDto> listarPeloId(@RequestBody UsuarioListagemDto lista) {
+        return null;
+    }
+
+    // atualizar todos os dados do usuario
+    @PatchMapping("/{id}")
+    public ResponseEntity<UsuarioAtualizacaoDto> atualizarUsuario(@PathVariable Long id, @RequestBody @Valid UsuarioAtualizacaoDto usuarioAtualizacaoDto) {
+        usuarioService.atualizarDadosUsuario(id, usuarioAtualizacaoDto);
+        return ResponseEntity.status(200).body(usuarioAtualizacaoDto);
+    }
+
+    // deletar usuario
+    @DeleteMapping("deletar/{id}")
+    public ResponseEntity<Usuario> deletar(@PathVariable Long id) {
+        return null;
+    }
 }

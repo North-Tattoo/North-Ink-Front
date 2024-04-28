@@ -3,6 +3,8 @@ package school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuari
 import school.sptech.northink.projetonorthink.domain.entity.Usuario;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioTokenDto;
 
+import java.util.List;
+
 public class UsuarioMapper {
 
 
@@ -35,6 +37,7 @@ public class UsuarioMapper {
 
         return usuarioTokenDto;
     }
+
 
 
 
