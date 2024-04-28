@@ -9,6 +9,18 @@
     justify-content: center;
 }
 
+.voltar-texto {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .login {
     height: 65%; 
     width: 50%;
