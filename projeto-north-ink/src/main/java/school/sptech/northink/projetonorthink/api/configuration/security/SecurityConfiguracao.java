@@ -46,17 +46,20 @@ public class SecurityConfiguracao {
             new AntPathRequestMatcher("/swagger-ui.html"),
             new AntPathRequestMatcher("/swagger-resources"),
             new AntPathRequestMatcher("/swagger-resources/**"),
-            new AntPathRequestMatcher("/configuration/ul"),
+            new AntPathRequestMatcher("/configuration/ui"),
             new AntPathRequestMatcher("/configuration/security"),
             new AntPathRequestMatcher("/api/public/**"),
             new AntPathRequestMatcher("/api/public/authenticate"),
             new AntPathRequestMatcher("/webjars/**"),
-            new AntPathRequestMatcher("/v3/api-ddocs/**"),
-            new AntPathRequestMatcher("/acuator/*"),
-            new AntPathRequestMatcher("/usuarios/login/**"),
+            new AntPathRequestMatcher("/v3/api-docs/**"),
+            new AntPathRequestMatcher("/actuator/*"),
             new AntPathRequestMatcher("/h2-console/**"),
-            new AntPathRequestMatcher("/error/**")
+            new AntPathRequestMatcher("/error/**"),
+            new AntPathRequestMatcher("/usuarios/login/**"),
+            new AntPathRequestMatcher("/usuarios/logout/**"),
+            new AntPathRequestMatcher("/usuarios/**", HttpMethod.POST.name())
     };
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
