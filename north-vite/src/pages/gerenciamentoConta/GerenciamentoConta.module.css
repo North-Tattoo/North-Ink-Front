@@ -34,7 +34,7 @@
   }
 
 .menu{
-    width: 300px;
+    width: 320px;
     height: 500px;
     background-color: #FFFFFF;
     border-radius: 17px;
@@ -52,11 +52,12 @@
     font-family: 'Poppins';
     font-size: 25px;
 }
+
 .text{
     margin-top: 30px;
     margin-left: 80px;
     font-family: 'Poppins';
-    font-size: 70px;
+    font-size: 60px;
 }
 .profileInfo {
     display: flex;
@@ -76,4 +77,10 @@
 }
 .profileInfo p{
     line-height: 2;
+}
+
+.hoverFixed {
+    background-color: #D1D2F9; /* Cor de fundo equivalente a hover:bg-violet-200 no Tailwind CSS */
+    border: 1px solid #6B7280; /* Cor da borda */
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); /* Sombra */
 }
