@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function NotFound() {
     return (
-        <section>
+        <section className={styles.gradientFundo}>
             <div className={styles.navBar}>
                 <Link to='/'>
                     <img className={styles.logo} src={logo} alt="logo" />
