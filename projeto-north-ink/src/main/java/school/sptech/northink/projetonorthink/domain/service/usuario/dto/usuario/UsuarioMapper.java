@@ -20,8 +20,6 @@ public class UsuarioMapper {
         usuario.setSenha(usuarioCriacaoDto.getSenha());
         usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
         usuario.setEstilo(usuarioCriacaoDto.getEstilo());
-        usuario.setAnosExperiencia(usuarioCriacaoDto.getAnosExperiencia());
-        usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
 
         return usuario;
     }
@@ -38,7 +36,62 @@ public class UsuarioMapper {
         return usuarioTokenDto;
     }
 
+    // metodo convertendo a entity em uma dto
+    public static UsuarioListagemDto toDto(Usuario usuario) {
+        if (usuario == null) return null;
+
+        UsuarioListagemDto usuarioListagemDto = new UsuarioListagemDto();
+
+        usuarioListagemDto.setId(usuario.getId());
+        usuarioListagemDto.setNome(usuario.getNome());
+        usuarioListagemDto.setSobrenome(usuario.getSobrenome());
+        usuarioListagemDto.setCpf(usuario.getCpf());
+        usuarioListagemDto.setCelular(usuario.getCelular());
+        usuarioListagemDto.setEmail(usuario.getEmail());
+        usuarioListagemDto.setSenha(usuario.getSenha());
+        usuarioListagemDto.setSobreMim(usuario.getSobreMim());
+        usuarioListagemDto.setEstilo(usuario.getEstilo());
+
+        return usuarioListagemDto;
+    }
+
+    // convertendo uma dto para um entidade
+    public static Usuario toEntity(UsuarioCriacaoDto usuarioCriacaoDto) {
+        if (usuarioCriacaoDto == null) return null;
+
+        Usuario usuario = new Usuario();
+
+        usuario.setNome(usuarioCriacaoDto.getNome());
+        usuario.setSobrenome(usuarioCriacaoDto.getSobrenome());
+        usuario.setCpf(usuarioCriacaoDto.getCpf());
+        usuario.setCelular(usuarioCriacaoDto.getCelular());
+        usuario.setEmail(usuarioCriacaoDto.getEmail());
+        usuario.setSenha(usuarioCriacaoDto.getSenha());
+        usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
+        usuario.setEstilo(usuarioCriacaoDto.getEstilo());
+
+        return usuario;
+    }
+
+    // Método sobrecarregado para mapear uma lista de entidades em uma lista de DTOs
+    public static List<UsuarioListagemDto> toDto(List<Usuario> entities) {
+        // Aqui é utilizado um método que mapea um a um e reutilizado para poder fazer a passagem de lista sem duplicar código
+        return entities.stream().map(UsuarioMapper::toDto).toList();
+    }
 
 
+    public static Usuario atualizarUsuario(Usuario usuarioExistente, UsuarioAtualizacaoDto usuarioAtualizacaoDto) {
+        // Atualize os campos do usuário existente com base nos dados do DTO de atualização
+        usuarioExistente.setNome(usuarioAtualizacaoDto.getNome());
+        usuarioExistente.setSobrenome(usuarioAtualizacaoDto.getSobrenome());
+        usuarioExistente.setCpf(usuarioAtualizacaoDto.getCpf());
+        usuarioExistente.setCelular(usuarioAtualizacaoDto.getCelular());
+        usuarioExistente.setEmail(usuarioAtualizacaoDto.getEmail());
+        usuarioExistente.setSenha(usuarioAtualizacaoDto.getSenha());
+        usuarioExistente.setSobreMim(usuarioAtualizacaoDto.getSobreMim());
+        usuarioExistente.setEstilo(usuarioAtualizacaoDto.getEstilo());
+
+        return usuarioExistente;
+    }
 
 }
