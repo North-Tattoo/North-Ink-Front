@@ -78,6 +78,7 @@ html {
   background-repeat: no-repeat;
   background-position: 5px center;
   margin-right: 80px;
+  outline: none;
 }
 
 .onde {
@@ -85,6 +86,7 @@ html {
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: 5px center;
+  outline: none;
 }
 
 .categoria {
