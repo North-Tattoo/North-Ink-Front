@@ -9,6 +9,7 @@ import { PiUserCircleLight } from "react-icons/pi";
 import { AiOutlineLeft, AiOutlineShareAlt } from "react-icons/ai";
 import { FaWhatsapp } from "react-icons/fa";
 import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
 
 function Detalhes() {
     return (
@@ -91,7 +92,7 @@ function Detalhes() {
                                 <p className="text-sm">@tatuador</p>
                             </div>
 
-                            <p className="mt-4 border-t border-violet-800 text-violet-100">____________________________________________</p>
+                            <Separator className="my-4 bg-violet-950" />
 
                             <div className="mt-2">
                                 <h2 className="text-xl font-semibold">Estilos</h2>
@@ -103,7 +104,7 @@ function Detalhes() {
                                 </div>
                             </div>
 
-                            <p className="mt-6 border-t border-violet-800 text-violet-100">____________________________________________</p>
+                            <Separator className="my-4 bg-violet-950" />
 
                             <div className="mt-2">
                                 <h2 className="text-xl font-semibold">Preços</h2>
@@ -118,7 +119,8 @@ function Detalhes() {
                                     </Button>
                                 </div>
                             </div>
-                            <p className="mt-6 border-t border-violet-800 text-violet-100">____________________________________________</p>
+
+                            <Separator className="my-4 bg-violet-950" />
 
                             <div className="">
                                 <h2 className="text-xl font-semibold">Ambiente de Trabalho</h2>
