@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 function Studio() {
     return (
         <div className="">
-            <h1 className="text-white ml-48 mb-3">Meu<span className="text-slate-900"> Studio</span>.</h1>
+            <h1 className="text-white ml-34 mb-3">Meu<span className="text-slate-900"> Studio</span>.</h1>
             <div className="text-white text-2xl font-medium mb-4">Edite seu <span className="text-slate-950">Studio</span>.</div>
             <div className="flex flex-row mt-30 gap-8 my-2 p-2">
                 <div className="flex flex-col">
