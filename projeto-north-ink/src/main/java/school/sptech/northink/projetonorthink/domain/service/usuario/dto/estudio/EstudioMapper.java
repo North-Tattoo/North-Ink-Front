@@ -12,8 +12,8 @@ import java.util.List;
 public class EstudioMapper {
 
 
-// metodo de criação do estudio no sistema
-    public static Estudio of(EstudioCriacaoDto estudioCriacaoDto){
+    // metodo de criação do estudio no sistema
+    public static Estudio of(EstudioCriacaoDto estudioCriacaoDto) {
         Estudio estudio = new Estudio();
 
 //        usuario.setNome(usuarioCriacaoDto.getNome());
@@ -73,14 +73,14 @@ public class EstudioMapper {
 
     public static Estudio atualizarEstudio(Estudio estudioExistente, EstudioAtualizacaoDto estudioAtualizacaoDto) {
         // Atualize os campos do usuário existente com base nos dados do DTO de atualização
-//        usuarioExistente.setNome(usuarioAtualizacaoDto.getNome());
-//        usuarioExistente.setSobrenome(usuarioAtualizacaoDto.getSobrenome());
-//        usuarioExistente.setCpf(usuarioAtualizacaoDto.getCpf());
-//        usuarioExistente.setCelular(usuarioAtualizacaoDto.getCelular());
-//        usuarioExistente.setEmail(usuarioAtualizacaoDto.getEmail());
-//        usuarioExistente.setSenha(usuarioAtualizacaoDto.getSenha());
-//        usuarioExistente.setSobreMim(usuarioAtualizacaoDto.getSobreMim());
-//        usuarioExistente.setEstilo(usuarioAtualizacaoDto.getEstilo());
+        //        usuarioExistente.setNome(usuarioAtualizacaoDto.getNome());
+        //        usuarioExistente.setSobrenome(usuarioAtualizacaoDto.getSobrenome());
+        //        usuarioExistente.setCpf(usuarioAtualizacaoDto.getCpf());
+        //        usuarioExistente.setCelular(usuarioAtualizacaoDto.getCelular());
+        //        usuarioExistente.setEmail(usuarioAtualizacaoDto.getEmail());
+        //        usuarioExistente.setSenha(usuarioAtualizacaoDto.getSenha());
+        //        usuarioExistente.setSobreMim(usuarioAtualizacaoDto.getSobreMim());
+        //        usuarioExistente.setEstilo(usuarioAtualizacaoDto.getEstilo());
 
         return estudioExistente;
     }

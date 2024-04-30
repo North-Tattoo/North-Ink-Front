@@ -2,7 +2,13 @@ package school.sptech.northink.projetonorthink.domain.entity;
 
 import jakarta.persistence.*;
 import jdk.jfr.Enabled;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 public class Estudio {
 
@@ -16,43 +22,4 @@ public class Estudio {
     private String email;
     private String descricao;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getHorarioFuncionamento() {
-        return horarioFuncionamento;
-    }
-
-    public void setHorarioFuncionamento(String horarioFuncionamento) {
-        this.horarioFuncionamento = horarioFuncionamento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 }

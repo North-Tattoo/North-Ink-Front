@@ -2,13 +2,14 @@ package school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuari
 
 import school.sptech.northink.projetonorthink.domain.entity.Usuario;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioTokenDto;
+
 import java.util.List;
 
 public class UsuarioMapper {
 
 
     // pegando as informações do front end - CADASTRO
-    public static Usuario of(UsuarioCriacaoDto usuarioCriacaoDto){
+    public static Usuario of(UsuarioCriacaoDto usuarioCriacaoDto) {
         Usuario usuario = new Usuario();
 
         usuario.setNome(usuarioCriacaoDto.getNome());
@@ -24,7 +25,7 @@ public class UsuarioMapper {
     }
 
     // convertendo em autenticação
-    public static UsuarioTokenDto of(Usuario usuario, String token){
+    public static UsuarioTokenDto of(Usuario usuario, String token) {
         UsuarioTokenDto usuarioTokenDto = new UsuarioTokenDto();
 
         usuarioTokenDto.setUserId(usuario.getId());
