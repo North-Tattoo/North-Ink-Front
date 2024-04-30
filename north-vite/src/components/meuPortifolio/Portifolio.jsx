@@ -5,6 +5,11 @@ import ImageUpload from '../imageUpload/ImageUpload';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 function Portifolio() {
+    const handleUpload = () => {
+        // Lógica para enviar a imagem para o backend usando Axios
+        // Exemplo: axios.post('/upload', { image: selectedImage });
+    };
+
     return (
         <>
             <section className="mb-6">
@@ -58,6 +63,7 @@ function Portifolio() {
                                     <Badge variant="default">Black Work</Badge>
                                     <Badge variant="default">Black Work</Badge>
                                     <Badge variant="default">Black Work</Badge>
+                                    <Badge variant="default">Black Work</Badge>
                                 </div>
                             </div>
 
@@ -83,9 +89,9 @@ function Portifolio() {
                         <ImageUpload />
 
                         <div className="flex justify-center mt-32">
-                            <Button className="w-48 rounded-sm bg-purple-900" >
+                            {/* <Button className="w-48 rounded-sm bg-purple-900" >
                                 Salvar
-                            </Button>
+                            </Button> */}
                         </div>
                     </div>
                 </div>
