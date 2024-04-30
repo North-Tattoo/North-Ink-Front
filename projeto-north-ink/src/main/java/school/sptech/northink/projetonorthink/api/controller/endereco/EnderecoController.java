@@ -1,2 +1,4 @@
-package school.sptech.northink.projetonorthink.api.controller.endereco;public class EnderecoController {
+package school.sptech.northink.projetonorthink.api.controller.endereco;
+
+public class EnderecoController {
 }
