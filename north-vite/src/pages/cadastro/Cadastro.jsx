@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import InputMask from 'react-input-mask';
+import api from '../../api';
 
 function Cadastro() {
   const [mostrarPrimeiraTela, setMostrarPrimeiraTela] = useState(true);
@@ -207,6 +208,8 @@ function Cadastro() {
     };
 
     console.log(jsonData);
+
+    api.post("/usuarios", jsonData)
   };
 
   const [mostrarSenha, setMostrarSenha] = useState(false);

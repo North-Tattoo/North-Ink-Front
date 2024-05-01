@@ -6,6 +6,7 @@ import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
 import NotFound from "./notFound/NotFound"
 import Login from "./login/Login";
 import GerenciamentoConta from "./gerenciamentoConta/GerenciamentoConta"
+import api from "../api";
 
 function App(){
   return (
