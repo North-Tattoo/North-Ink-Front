@@ -4,11 +4,11 @@ import styles from './Perfil.module.css';
 function Perfil() {
     return (
         <div>
-            <div className={styles.textPerfil}>
-                <h1 class="text-white">Meu<span class="text-black"> Perfil</span>.</h1>
+            <div className="flex justify-center ml-6 mb-3">
+                <h1 class="text-white ">Meu<span class="text-slate-900"> Perfil</span>.</h1>
             </div>
             <div className={styles.textEdit}>
-                <h4 class="text-white">Edite seu <span class="text-black">Perfil</span>.</h4>
+                <h4 class="text-white text-2xl font-medium">Edite seu <span class="text-slate-950">Perfil</span>.</h4>
             </div>
             <div className={styles.nomeSobrenome}>
                 <div className={styles.campo}>

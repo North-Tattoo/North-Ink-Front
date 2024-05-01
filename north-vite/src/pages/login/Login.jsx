@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Login.modules.css';
 import { Link, Navigate } from 'react-router-dom';
 import { LuEye, LuEyeOff } from "react-icons/lu";
+import { IoIosArrowBack } from "react-icons/io";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import api from "../../api";
@@ -69,6 +70,7 @@ function Login() {
                 theme="light"
                 transition:Bounce
             />
+            <Link to='/'><span className="voltar-texto"><IoIosArrowBack size={36}/>Voltar</span></Link>
             <div className="login">
                 <div className="conteudo-login">
                     <span className="frase-inicial-login">Seja bem <span className="text-black">vindo</span>.</span>

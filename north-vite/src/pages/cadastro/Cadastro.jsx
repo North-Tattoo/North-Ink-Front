@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Cadastro.modules.css';
+import { Link } from 'react-router-dom';
 import { LuEye, LuEyeOff } from "react-icons/lu";
+import { IoIosArrowBack } from "react-icons/io";
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -224,6 +226,7 @@ function Cadastro() {
 
   return (
     <div className="inicio">
+      <Link to='/'><span className="voltar-texto"><IoIosArrowBack size={36}/>Voltar</span></Link>
       <ToastContainer />
       <div>
         <div className={`modal ${mostrarPrimeiraTela ? '' : 'oculto'}`}>
