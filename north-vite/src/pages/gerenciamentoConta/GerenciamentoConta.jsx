@@ -63,13 +63,13 @@ function GerenciamentoConta() {
                             <p class="text-lg">Aqui você verá um resumo do seu perfil</p>
                         </div>
                     )}
-
+                </div>
                     <div className="text my-10 font-poppins text-6xl">
                         {activeTab === 'perfil' && <Perfil />}
                         {activeTab === 'portifolio' && <Portifolio />}
                         {activeTab === 'studio' && <Studio />}
                     </div>
-                </div>
+                
             </div>
         </div>
             );
