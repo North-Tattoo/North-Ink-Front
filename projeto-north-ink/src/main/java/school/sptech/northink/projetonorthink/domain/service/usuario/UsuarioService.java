@@ -13,8 +13,14 @@ import school.sptech.northink.projetonorthink.domain.entity.Usuario;
 import school.sptech.northink.projetonorthink.domain.repository.UsuarioRepository;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioLoginDto;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioTokenDto;
-import school.sptech.northink.projetonorthink.domain.service.usuario.dto.UsuarioCriacaoDto;
-import school.sptech.northink.projetonorthink.domain.service.usuario.dto.UsuarioMapper;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioAtualizacaoDto;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioCriacaoDto;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioListagemDto;
+import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioMapper;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -35,7 +41,7 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public void criar(UsuarioCriacaoDto usuarioCriacaoDto){
+    public void criar(UsuarioCriacaoDto usuarioCriacaoDto) {
         final Usuario novoUsuario = UsuarioMapper.of(usuarioCriacaoDto);
         String senhaCriptografada = passwordEncoder.encode(novoUsuario.getSenha());
         novoUsuario.setSenha(senhaCriptografada);
@@ -43,7 +49,7 @@ public class UsuarioService {
         this.usuarioRepository.save(novoUsuario);
     }
 
-    public UsuarioTokenDto autenticar(UsuarioLoginDto usuarioLoginDto){
+    public UsuarioTokenDto autenticar(UsuarioLoginDto usuarioLoginDto) {
 
         final UsernamePasswordAuthenticationToken credentials = new UsernamePasswordAuthenticationToken(
                 usuarioLoginDto.getEmail(), usuarioLoginDto.getSenha());
@@ -63,4 +69,46 @@ public class UsuarioService {
         return UsuarioMapper.of(usuarioAutenticado, token);
     }
 
+
+    public List<UsuarioListagemDto> listarUsuarios() {
+        return UsuarioMapper.toDto(usuarioRepository.findAll());
+    }
+
+    public UsuarioListagemDto listarUsuarioId(Long id) {
+        return UsuarioMapper.toDto(usuarioRepository.findById(id).orElseThrow(() -> new ResponseStatusException(404, "Id não localizado", null)));
+    }
+
+    public Usuario atualizarUsuario(Long id, UsuarioAtualizacaoDto usuarioAtualizacaoDto) {
+        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
+
+        if (optionalUsuario.isPresent()) {
+            Usuario usuario = optionalUsuario.get();
+
+            // Atualize os dados do usuário com base nos dados do DTO de atualização
+            Usuario usuarioAtualizado = UsuarioMapper.atualizarUsuario(usuario, usuarioAtualizacaoDto);
+
+            // Salve as mudanças no banco de dados
+            Usuario usuarioSalvo = usuarioRepository.save(usuarioAtualizado);
+
+            return usuarioSalvo;
+        } else {
+            throw new NoSuchElementException("Usuário não encontrado com o ID: " + id);
+        }
+    }
+
+    public Usuario deletarUsuario(Long id) {
+        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
+
+        if (optionalUsuario.isPresent()) {
+
+            Usuario usuario = optionalUsuario.get();
+
+            usuarioRepository.delete(usuario);
+
+        } else {
+
+            throw new NoSuchElementException("Usuário não encontrado com o ID: " + id);
+        }
+        return null;
+    }
 }
