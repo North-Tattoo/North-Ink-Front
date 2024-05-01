@@ -1,5 +1,4 @@
 import styles from '../../pages/home/Home.module.css';
-
 function Footer() {
     return (
         <footer className={styles["footer"]}>

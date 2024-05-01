@@ -1,81 +1,130 @@
-/* Importação de fontes do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Estilo base do corpo do documento */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #cbd5e1;
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 
-/* Seção de início */
-.inicio {
-    width: 100%;
-    height: 700px;
-    display: flex;
+.section-detalhes {
+  height: 100%;
+  background-color: #9333ea;
+  background-image: linear-gradient(180deg, #9333ea 1%, #3C3C3C 75%);
+  font-family: 'Poppins';
 }
 
-/* Cabeçalho */
-.logo {
-    margin-top: 8px;
-    margin-left: 4px;
+.header-detalhes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.logo img {
-    width: 200px;
+.header-detalhes img {
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 270px;
+  height: 65px;
 }
 
-/* Carrossel */
-.carrossel {
-    overflow: hidden;
-    margin: 10px 0;
-    width: 100%; /* Defina a largura total */
-  }
-  
-  /* Wrapper do carrossel */
-  .wrapper {
-    position: relative;
-    overflow: hidden;
-    width: 100%; /* Defina a largura total */
-  }
-  
-  /* Carousel (lista de imagens) */
-  .carousel {
-    transition: transform 0.5s ease-in-out;
-    width: 80%; /* Defina a largura total */
-  }
-  
-  /* Cartão do carrossel */
-  .card {
-    flex: 0 0 auto;
-    margin-right: 10px; /* Espaçamento entre os cartões */
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #efefef;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Imagem do cartão */
-  .img {
-    width: 100%;
-    height: 360px; /* Altura da imagem */
-    overflow: hidden;
-  }
-  
-  .img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajuste da imagem */
-  }
-  
-  /* Texto no cartão */
-  .card h2 {
-    font-size: 16px; /* Tamanho do título */
-    margin-left: 8px;
-  }
-  
-  .card span {
-    font-size: 14px; /* Tamanho do texto */
-    margin-left: 8px;
-  }
-  
+.header-detalhes span{
+  font-size: 48px;
+  margin-top: 20px;
+}
+
+.botao-login{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 30px;
+  font-size: 24px;
+}
+
+.botao-login svg{
+  margin-right: 10px;
+  font-size: 36px;
+}
+
+.informacoes{
+  background-color: #D9D9D9;
+  width: 25%;
+  height: 1180px;
+  border-radius: 17px;
+  margin-top: 100px;
+  margin-left: 90px;
+}
+
+.botoes-informacoes{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.instagram{
+  font-size: large;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+.instagram h2{
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.instagram svg{
+  font-size: 40px;
+  cursor: pointer;
+  /* margin-bottom: 20px; */
+}
+
+.linha-detalhes{
+  margin-top: 10px;
+  width: 101%;
+  height: 1px;
+  background-color: black;
+}
+
+.valores{
+  display: flex;
+  flex-direction: row;
+}
+
+.box-valores{
+  width: 133px;
+  height: 58px;
+  border-radius: 7px;
+  background-color: rgb(212 212 216);
+  border-color: rgb(75 85 99);
+  border: solid 1px;
+  margin-left: 20px;
+  margin-top: 24px;
+}
+
+.box-valores span{
+  font-size: small;
+  padding-left: 5px;
+}
+
+.box-valores h2{
+  font-size: large;
+  padding-left: 25%;
+  font-weight: 600;
+}
+
+.linha-detalhes-dois{
+  margin-top: 35px;
+  margin-left: 17px;
+  width: 90%;
+  height: 1px;
+  background-color: black;
+}
+
+.estudio-detalhes{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.endereco-estudio-detalhes p{
+  width: 90%;
+}

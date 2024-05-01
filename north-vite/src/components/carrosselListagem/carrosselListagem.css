@@ -1,0 +1,43 @@
+/* styles.css */
+.carousel-image {
+    width: 336px;
+    height: 324px;
+    border-radius: 12px;
+    margin-top: 20px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .carouselContainer {
+    margin: 0 100px; /* Define uma margem de 20 pixels nos lados do carrossel */
+  }
+
+/* carrosselListagem.css */
+.carousel-item {
+  position: relative;
+  transition: background-color 0.3s ease; 
+}
+
+.carousel-text {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-size: 45px;
+  opacity: 0;
+  color: #ffffff;
+  transition: opacity 0.2s ease, color 0.3s ease;
+}
+
+.carousel-item:hover img {
+  filter: brightness(0.5); /* Escurece a imagem ao passar o mouse */
+}
+
+.carousel-item:hover .carousel-text {
+  color: #fefefe; 
+  opacity: 1;/* Define a cor do texto ao passar o mouse */
+}
+
+

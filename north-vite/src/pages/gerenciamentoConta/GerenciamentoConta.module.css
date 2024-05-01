@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.fundo{
+    background-image: linear-gradient(180deg, #9333EA 1%, #3C3C3C 75%);
+    min-height: 100vh;
+}
+.container {
+    display: flex;
+}
+.logo{
+    width: 270px;
+    height: 65px;
+    margin-top: 10px;
+} 
+.botaoentrar {
+    display: flex;
+    margin-left: 90px;
+    height: 100px;
+    align-items: center;
+    color: #f5f5f5;
+    margin-top: 30px;
+  }
+  
+  .botaoentrar svg {
+    margin-right: 10px; 
+    width: 46px;
+    height: 44px;
+  }
+  .botaoentrar a {
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-size: 15px;
+  }
+
+.menu{
+    width: 320px;
+    height: 500px;
+    background-color: #FFFFFF;
+    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.botoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    line-height: 5;
+    font-family: 'Poppins';
+    font-size: 25px;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 150px;
+    font-family: 'Poppins';
+    font-size: 60px;
+}
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    /* line-height: 5; */
+    font-family: 'Poppins';
+    font-size: 20px;  
+    color: #FFFFFF; 
+}
+.profileInfo h2{
+    line-height: 2;
+}
+.profileInfo span{
+    line-height: 2;
+}
+.profileInfo p{
+    line-height: 2;
+}
+
+.hoverFixed {
+    background-color: #D1D2F9; /* Cor de fundo equivalente a hover:bg-violet-200 no Tailwind CSS */
+    border: 1px solid #6B7280; /* Cor da borda */
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); /* Sombra */
+}
