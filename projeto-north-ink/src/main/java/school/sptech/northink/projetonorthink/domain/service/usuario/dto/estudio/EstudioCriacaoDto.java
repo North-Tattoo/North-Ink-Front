@@ -16,27 +16,18 @@ public class EstudioCriacaoDto {
     @NotNull
     private String nome;
 
-    @NotNull
-    private String horarioFuncionamento;
-
     @Email
     @NotNull
     private String email;
 
-    @Size(min = 10)
+    @Size(max = 500)
     private String descricao;
 
     @NotNull
-    private String logradouro;
+    private Double precoMin;
 
     @NotNull
-    private String numero;
-
-    @NotNull
-    private String complemento;
-
-    @NotNull
-    private String CEP;
+    private Double anosExperiencia;
 
 
 }

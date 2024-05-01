@@ -16,14 +16,11 @@ public class EstudioMapper {
     public static Estudio of(EstudioCriacaoDto estudioCriacaoDto) {
         Estudio estudio = new Estudio();
 
-//        usuario.setNome(usuarioCriacaoDto.getNome());
-//        usuario.setSobrenome(usuarioCriacaoDto.getSobrenome());
-//        usuario.setCpf(usuarioCriacaoDto.getCpf());
-//        usuario.setCelular(usuarioCriacaoDto.getCelular());
-//        usuario.setEmail(usuarioCriacaoDto.getEmail());
-//        usuario.setSenha(usuarioCriacaoDto.getSenha());
-//        usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
-//        usuario.setEstilo(usuarioCriacaoDto.getEstilo());
+            estudio.setNome(estudioCriacaoDto.getNome());
+            estudio.setEmail(estudioCriacaoDto.getEmail());
+            estudio.setDescricao(estudioCriacaoDto.getDescricao());
+            estudio.setPrecoMin(estudioCriacaoDto.getPrecoMin());
+            estudio.setAnosExperiencia(estudioCriacaoDto.getAnosExperiencia());
 
         return estudio;
     }
@@ -35,16 +32,11 @@ public class EstudioMapper {
 
         EstudioListagemDto estudioListagemDto = new EstudioListagemDto();
 
-        // CORRIGIR OS DADOS ABAIXO E ADEQUAR A ENTITIDY DE ESTUDIO
-//        usuarioListagemDto.setId(usuario.getId());
-//        usuarioListagemDto.setNome(usuario.getNome());
-//        usuarioListagemDto.setSobrenome(usuario.getSobrenome());
-//        usuarioListagemDto.setCpf(usuario.getCpf());
-//        usuarioListagemDto.setCelular(usuario.getCelular());
-//        usuarioListagemDto.setEmail(usuario.getEmail());
-//        usuarioListagemDto.setSenha(usuario.getSenha());
-//        usuarioListagemDto.setSobreMim(usuario.getSobreMim());
-//        usuarioListagemDto.setEstilo(usuario.getEstilo());
+        estudioListagemDto.setId(estudio.getId());
+        estudioListagemDto.setNome(estudio.getNome());
+        estudioListagemDto.setDescricao(estudio.getDescricao());
+        estudioListagemDto.setPrecoMin(estudio.getPrecoMin());
+        estudioListagemDto.setAnosExperiencia(estudio.getAnosExperiencia());
 
         return estudioListagemDto;
     }
@@ -55,14 +47,11 @@ public class EstudioMapper {
 
         Estudio estudio = new Estudio();
 
-//        usuario.setNome(usuarioCriacaoDto.getNome());
-//        usuario.setSobrenome(usuarioCriacaoDto.getSobrenome());
-//        usuario.setCpf(usuarioCriacaoDto.getCpf());
-//        usuario.setCelular(usuarioCriacaoDto.getCelular());
-//        usuario.setEmail(usuarioCriacaoDto.getEmail());
-//        usuario.setSenha(usuarioCriacaoDto.getSenha());
-//        usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
-//        usuario.setEstilo(usuarioCriacaoDto.getEstilo());
+        estudio.setNome(estudioCriacaoDto.getNome());
+        estudio.setEmail(estudioCriacaoDto.getEmail());
+        estudio.setDescricao(estudioCriacaoDto.getDescricao());
+        estudio.setPrecoMin(estudioCriacaoDto.getPrecoMin());
+        estudio.setAnosExperiencia(estudioCriacaoDto.getAnosExperiencia());
 
         return estudio;
     }
@@ -72,15 +61,12 @@ public class EstudioMapper {
     }
 
     public static Estudio atualizarEstudio(Estudio estudioExistente, EstudioAtualizacaoDto estudioAtualizacaoDto) {
-        // Atualize os campos do usuário existente com base nos dados do DTO de atualização
-        //        usuarioExistente.setNome(usuarioAtualizacaoDto.getNome());
-        //        usuarioExistente.setSobrenome(usuarioAtualizacaoDto.getSobrenome());
-        //        usuarioExistente.setCpf(usuarioAtualizacaoDto.getCpf());
-        //        usuarioExistente.setCelular(usuarioAtualizacaoDto.getCelular());
-        //        usuarioExistente.setEmail(usuarioAtualizacaoDto.getEmail());
-        //        usuarioExistente.setSenha(usuarioAtualizacaoDto.getSenha());
-        //        usuarioExistente.setSobreMim(usuarioAtualizacaoDto.getSobreMim());
-        //        usuarioExistente.setEstilo(usuarioAtualizacaoDto.getEstilo());
+
+        estudioExistente.setNome(estudioAtualizacaoDto.getNome());
+        estudioExistente.setEmail(estudioAtualizacaoDto.getEmail());
+        estudioExistente.setDescricao(estudioAtualizacaoDto.getDescricao());
+        estudioExistente.setPrecoMin(estudioAtualizacaoDto.getPrecoMin());
+        estudioExistente.setAnosExperiencia(estudioAtualizacaoDto.getAnosExperiencia());
 
         return estudioExistente;
     }

@@ -12,8 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 public class UsuarioListagemDto {
 
-    // classe resposavel por criar a dto de listagem dos tatuadores
-    private Long id;
     private String nome;
     private String sobrenome;
     private String cpf;

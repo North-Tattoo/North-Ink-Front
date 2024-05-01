@@ -18,8 +18,12 @@ public class Estudio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String horarioFuncionamento;
     private String email;
     private String descricao;
+    private Double precoMin;
+    private Double anosExperiencia;
+
+    //private String horarioFuncionamento;
+
 
 }

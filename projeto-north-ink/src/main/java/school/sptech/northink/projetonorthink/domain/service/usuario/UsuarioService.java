@@ -70,22 +70,6 @@ public class UsuarioService {
     }
 
 
-    public void atualizarDadosUsuario(Long id, UsuarioAtualizacaoDto usuarioAtualizacaoDto) {
-        Usuario usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(404, "Id não localizado", null));
-
-        usuario.setNome(usuarioAtualizacaoDto.getNome());
-        usuario.setSobrenome(usuarioAtualizacaoDto.getSobrenome());
-        usuario.setCpf(usuarioAtualizacaoDto.getCpf());
-        usuario.setCelular(usuarioAtualizacaoDto.getCelular());
-        usuario.setEmail(usuarioAtualizacaoDto.getEmail());
-        usuario.setSenha(usuarioAtualizacaoDto.getSenha());
-        usuario.setSobreMim(usuarioAtualizacaoDto.getSobreMim());
-        usuario.setEstilo(usuarioAtualizacaoDto.getEstilo());
-
-        usuarioRepository.save(usuario);
-    }
-
     public List<UsuarioListagemDto> listarUsuarios() {
         return UsuarioMapper.toDto(usuarioRepository.findAll());
     }

@@ -42,7 +42,6 @@ public class UsuarioMapper {
 
         UsuarioListagemDto usuarioListagemDto = new UsuarioListagemDto();
 
-        usuarioListagemDto.setId(usuario.getId());
         usuarioListagemDto.setNome(usuario.getNome());
         usuarioListagemDto.setSobrenome(usuario.getSobrenome());
         usuarioListagemDto.setCpf(usuario.getCpf());
