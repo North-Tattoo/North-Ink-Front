@@ -5,6 +5,8 @@ import Detalhes from "./detalhes/Detalhes";
 import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
 import NotFound from "./notFound/NotFound"
 import Login from "./login/Login";
+// import utils from "../../src/utils/utils";
+import api from "../api";
 // import GerenciamentoConta from "./gerenciamentoConta/GerenciamentoConta"
 
 function App(){

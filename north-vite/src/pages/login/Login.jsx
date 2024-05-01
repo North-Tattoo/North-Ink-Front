@@ -4,6 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import api from "../../api";
 
 function Login() {
 
@@ -34,14 +35,19 @@ function Login() {
     }
 
     const handleLogin = () => {
-        if (email === "northink@email.com" && senha === "North$") {
-            notify(true, "Login bem sucedido!");
-            setTimeout(() => {
-                setLoggedIn(true);
-            }, 1000);
-        } else {
-            notify(false, "Email ou senha incorretos. Por favor, tente novamente.");
+        // if (email === "northink@email.com" && senha === "North$") {
+        //     notify(true, "Login bem sucedido!");
+        //     setTimeout(() => {
+        //         setLoggedIn(true);
+        //     }, 1000);
+        // } else {
+        //     notify(false, "Email ou senha incorretos. Por favor, tente novamente.");
+        // }
+        const usuario = {
+            email,
+            senha
         }
+        api.post("/usuarios/login", usuario)
     };
 
     if (loggedIn) {
