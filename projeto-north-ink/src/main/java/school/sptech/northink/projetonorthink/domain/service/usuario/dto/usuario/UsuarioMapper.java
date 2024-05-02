@@ -19,7 +19,7 @@ public class UsuarioMapper {
         usuario.setEmail(usuarioCriacaoDto.getEmail());
         usuario.setSenha(usuarioCriacaoDto.getSenha());
         usuario.setResumo(usuarioCriacaoDto.getResumo());
-        usuario.setEstilo(usuarioCriacaoDto.getEstilo());
+        usuario.setEstilos(usuarioCriacaoDto.getEstilos());
 
         return usuario;
     }
@@ -49,7 +49,7 @@ public class UsuarioMapper {
         usuarioListagemDto.setEmail(usuario.getEmail());
         usuarioListagemDto.setSenha(usuario.getSenha());
         usuarioListagemDto.setResumo(usuario.getResumo());
-        usuarioListagemDto.setEstilo(usuario.getEstilo());
+        usuarioListagemDto.setEstilos(usuario.getEstilos());
 
         return usuarioListagemDto;
     }
@@ -67,7 +67,7 @@ public class UsuarioMapper {
         usuario.setEmail(usuarioCriacaoDto.getEmail());
         usuario.setSenha(usuarioCriacaoDto.getSenha());
         usuario.setResumo(usuarioCriacaoDto.getResumo());
-        usuario.setEstilo(usuarioCriacaoDto.getEstilo());
+        usuario.setEstilos(usuarioCriacaoDto.getEstilos());
 
         return usuario;
     }
@@ -88,7 +88,7 @@ public class UsuarioMapper {
         usuarioExistente.setEmail(usuarioAtualizacaoDto.getEmail());
         usuarioExistente.setSenha(usuarioAtualizacaoDto.getSenha());
         usuarioExistente.setResumo(usuarioAtualizacaoDto.getSobreMim());
-        usuarioExistente.setEstilo(usuarioAtualizacaoDto.getEstilo());
+        usuarioExistente.setEstilos(usuarioAtualizacaoDto.getEstilos());
 
         return usuarioExistente;
     }

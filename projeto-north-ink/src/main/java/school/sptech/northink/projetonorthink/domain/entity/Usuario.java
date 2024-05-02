@@ -27,7 +27,7 @@ public class Usuario {
     private String email;
     private String senha;
     private String resumo;
-    private List<String> estilo;
+    private List<String> estilos;
 
 
 }

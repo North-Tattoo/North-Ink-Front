@@ -40,6 +40,6 @@ public class UsuarioCriacaoDto {
     @Size(min = 50, max = 500)
     private String resumo;
 
-    private List<String> estilo;
+    private List<String> estilos;
 
 }
