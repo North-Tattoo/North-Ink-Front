@@ -26,7 +26,7 @@ public class Usuario {
     private String celular;
     private String email;
     private String senha;
-    private String sobreMim;
+    private String resumo;
     private List<String> estilo;
 
 

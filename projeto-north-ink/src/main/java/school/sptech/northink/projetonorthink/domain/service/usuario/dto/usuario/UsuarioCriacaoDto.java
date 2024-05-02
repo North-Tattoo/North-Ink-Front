@@ -38,10 +38,8 @@ public class UsuarioCriacaoDto {
 
     @NotNull
     @Size(min = 50, max = 500)
-    private String sobreMim;
+    private String resumo;
 
     private List<String> estilo;
-
-
 
 }
