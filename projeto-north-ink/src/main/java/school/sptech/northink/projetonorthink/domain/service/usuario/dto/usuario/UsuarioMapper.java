@@ -18,7 +18,7 @@ public class UsuarioMapper {
         usuario.setCelular(usuarioCriacaoDto.getCelular());
         usuario.setEmail(usuarioCriacaoDto.getEmail());
         usuario.setSenha(usuarioCriacaoDto.getSenha());
-        usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
+        usuario.setResumo(usuarioCriacaoDto.getResumo());
         usuario.setEstilo(usuarioCriacaoDto.getEstilo());
 
         return usuario;
@@ -48,7 +48,7 @@ public class UsuarioMapper {
         usuarioListagemDto.setCelular(usuario.getCelular());
         usuarioListagemDto.setEmail(usuario.getEmail());
         usuarioListagemDto.setSenha(usuario.getSenha());
-        usuarioListagemDto.setSobreMim(usuario.getSobreMim());
+        usuarioListagemDto.setResumo(usuario.getResumo());
         usuarioListagemDto.setEstilo(usuario.getEstilo());
 
         return usuarioListagemDto;
@@ -66,7 +66,7 @@ public class UsuarioMapper {
         usuario.setCelular(usuarioCriacaoDto.getCelular());
         usuario.setEmail(usuarioCriacaoDto.getEmail());
         usuario.setSenha(usuarioCriacaoDto.getSenha());
-        usuario.setSobreMim(usuarioCriacaoDto.getSobreMim());
+        usuario.setResumo(usuarioCriacaoDto.getResumo());
         usuario.setEstilo(usuarioCriacaoDto.getEstilo());
 
         return usuario;
@@ -87,7 +87,7 @@ public class UsuarioMapper {
         usuarioExistente.setCelular(usuarioAtualizacaoDto.getCelular());
         usuarioExistente.setEmail(usuarioAtualizacaoDto.getEmail());
         usuarioExistente.setSenha(usuarioAtualizacaoDto.getSenha());
-        usuarioExistente.setSobreMim(usuarioAtualizacaoDto.getSobreMim());
+        usuarioExistente.setResumo(usuarioAtualizacaoDto.getSobreMim());
         usuarioExistente.setEstilo(usuarioAtualizacaoDto.getEstilo());
 
         return usuarioExistente;
