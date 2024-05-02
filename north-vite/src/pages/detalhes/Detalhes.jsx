@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './Detalhes.module.css';
-import logoPreta from '../../utils/assets/logo-preta.png';
+import logoBranca from '../../utils/assets/logo-branca.png';
 import imagemPerfil from '../../utils/assets/tatuador-grid.png';
 import { PiUserCircleLight, PiInstagramLogoThin } from "react-icons/pi";
 import { Link } from 'react-router-dom';
@@ -12,11 +12,11 @@ function Detalhes() {
     return (
         <section className={styles["section-detalhes"]}>
             <header className={styles["header-detalhes"]}>
-                <img src={logoPreta} alt="Logo" />
-                <span>Conheça o <span className="text-white">artista</span>.</span>
+                <img src={logoBranca} alt="Logo" />
+                <span className={styles.titulo}>Conheça o <span className="text-white">artista</span>.</span>
                 <div>
-                    <Link className={styles["botao-login"]} to='/cadastro'>
-                        <PiUserCircleLight /> Sou um Tatuador
+                    <Link className={styles["botao-login"]} to='/login'>
+                        <PiUserCircleLight size={40}/> Sou um Tatuador
                     </Link>
                 </div>
             </header>

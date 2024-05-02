@@ -26,7 +26,7 @@ body {
 .logo {
     position: absolute;
     top: 4%;
-    left: 40%;
+    left: 6%;
     z-index: 1;
 }
 
@@ -109,7 +109,7 @@ body {
 
 .gradiente-site {
     height: 3350px;
-    background-color: #9333ea;
+    /* background-color: #9333ea; */
     background-image: linear-gradient(180deg, #9333ea 1%, #3C3C3C 75%);
 }
 

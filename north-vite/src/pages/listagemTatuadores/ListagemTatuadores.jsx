@@ -20,7 +20,7 @@ function ListagemTatuadores() {
         </Link>
         <div className={styles["botao-entrar"]}>
           <PiUserCircleLight />
-          <Link to='/cadastro'>Sou um Tatuador</Link>
+          <Link to='/login'>Sou um Tatuador</Link>
         </div>
       </div>
       <div className={styles.inicio}>

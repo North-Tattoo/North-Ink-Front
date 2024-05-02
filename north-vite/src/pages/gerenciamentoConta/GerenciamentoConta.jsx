@@ -49,6 +49,11 @@ function GerenciamentoConta() {
                             <GrWorkshop className="inline-block ml-5 text-purple-800" />
                             Meu Studio
                         </button>
+                        <button className={`button ${activeTab === 'studio' ? 'activeButton' : ''} w-80 h-14 rounded-lg hover:bg-violet-200 hoverFixed flex items-center gap-8`}
+                            onClick={() => handleTabClick('studio')}>
+                            <GrWorkshop className="inline-block ml-5 text-purple-800" />
+                            Sair
+                        </button>
                     </div>
                 </div>
                 <div className={styles.text}>
