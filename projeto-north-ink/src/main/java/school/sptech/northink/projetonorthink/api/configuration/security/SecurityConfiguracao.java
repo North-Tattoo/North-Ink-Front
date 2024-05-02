@@ -53,9 +53,11 @@ public class SecurityConfiguracao {
             new AntPathRequestMatcher("/webjars/**"),
             new AntPathRequestMatcher("/v3/api-docs/**"),
             new AntPathRequestMatcher("/acuator/*"),
-            new AntPathRequestMatcher("/usuarios/login/**"),
             new AntPathRequestMatcher("/h2-console/**"),
-            new AntPathRequestMatcher("/error/**")
+            new AntPathRequestMatcher("/error/**"),
+            new AntPathRequestMatcher("/usuarios/login/**"),
+            new AntPathRequestMatcher("/usuarios/logout/**"),
+            new AntPathRequestMatcher("/usuarios/**", HttpMethod.POST.name())
     };
 
     @Bean

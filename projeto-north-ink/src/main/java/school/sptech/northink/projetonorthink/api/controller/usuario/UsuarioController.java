@@ -41,11 +41,6 @@ public class UsuarioController {
         return ResponseEntity.status(200).body(usuarioToken);
     }
 
-    @PostMapping("/logout")
-    public void logout(HttpServletRequest request) {
-        SecurityContextHolder.clearContext();
-    }
-
     // listar todos os usuarios
     @GetMapping
     public ResponseEntity<List<UsuarioListagemDto>>   listar() {
@@ -73,4 +68,18 @@ public class UsuarioController {
         return ResponseEntity.status(200).build();
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request) {
+        // Remove o token JWT do header Authorization
+        String authorizationHeader = request.getHeader("Authorization");
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            String token = authorizationHeader.substring(7); // Remove o prefixo "Bearer "
+            // Lógica para invalidar ou expirar o token JWT (pode variar dependendo da implementação)
+            // Exemplo: adicionar o token a uma lista de tokens inválidos
+            SecurityContextHolder.clearContext();
+            // tokenManager.invalidateToken(token);
+            return ResponseEntity.ok("Logout realizado com sucesso.");
+        }
+        return ResponseEntity.badRequest().body("Falha ao realizar logout.");
+    }
 }
