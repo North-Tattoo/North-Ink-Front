@@ -20,6 +20,6 @@ public class UsuarioAtualizacaoDto {
     private String email;
     private String senha;
     private String sobreMim;
-    private List<String> estilo;
+    private List<String> estilos;
 
 }

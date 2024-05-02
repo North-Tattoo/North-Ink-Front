@@ -204,7 +204,7 @@ function Cadastro() {
       celular: celularLimpo,
       senha: data.senha,
       resumo: data.resumo,
-      estilosTatuagens: estilosSelecionados
+      estilos: estilosSelecionados
     };
 
     console.log(jsonData);
