@@ -48,7 +48,21 @@ function Login() {
             email,
             senha
         }
-        api.post("/usuarios/login", usuario)
+        api.post("/usuarios/login", usuario).then((response) => {
+            if (response.status === 200) {
+                notify(true, "Login bem sucedido!");
+                setTimeout(() => {
+                    setLoggedIn(true);
+                }, 1000);
+            }
+        }).catch((error) => {
+            console.error(error);
+            if (error.status === 400) {
+                notify(false, "Email ou senha incorretos. Por favor, tente novamente.");
+            } else {
+                notify(false, "Erro ao fazer login. Por favor, tente novamente.");
+            }
+        });
     };
 
     if (loggedIn) {
@@ -60,7 +74,6 @@ function Login() {
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
-                hideProgressBar
                 newestOnTop={false}
                 closeOnClick
                 rtl={false}
