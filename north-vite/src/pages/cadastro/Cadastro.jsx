@@ -71,7 +71,6 @@ function Cadastro() {
     }
   }
 
-
   function validaCampos() {
     const valorNome = watch("nome");
     const valorSobrenome = watch("sobrenome");
@@ -171,10 +170,10 @@ function Cadastro() {
   function handleConcluir() {
     const valorResumo = watch("resumo");
 
-    const resumoValido = valorResumo.length <= 500;
+    const resumoValido = valorResumo.length <= 500 && valorResumo.length >= 50;
     if (!resumoValido) {
       document.getElementById("resumo").classList.add("campo-invalido");
-      notify("resumo", "O resumo deve ter menos de 500 caracteres");
+      notify("resumo", "O resumo deve ter entre 50 e 500 caracteres");
       return;
     } else {
       document.getElementById("resumo").classList.remove("campo-invalido");
@@ -209,8 +208,16 @@ function Cadastro() {
 
     console.log(jsonData);
 
-    api.post("/usuarios", jsonData)
-  };
+    api.post("/usuarios", jsonData).then((response) => {
+      console.log(response)
+      if (response.status === 201) {
+        toast.success("Cadastro realizado com sucesso!");
+      }
+  }).catch(() => {
+      toast.error("Erro ao realizar cadastro, tente novamente!");
+      console.error(response);
+  })
+}
 
   const [mostrarSenha, setMostrarSenha] = useState(false);
 

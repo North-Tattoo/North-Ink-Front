@@ -15,7 +15,7 @@ function Home() {
                 </div>
                 <div className={styles["botao-entrar"]}>
                     <PiUserCircleLight />
-                    <Link to='/cadastro'>Sou um Tatuador</Link>
+                    <Link to='/login'>Sou um Tatuador</Link>
                 </div>
                 <header className={styles["frase-titulo"]}>
                     ENCONTRE O SEU <span style={{ color: '#9333EA' }}>TATUADOR</span> IDEAL.
