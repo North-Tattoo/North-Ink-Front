@@ -54,6 +54,7 @@ function Login() {
                 setTimeout(() => {
                     setLoggedIn(true);
                 }, 1000);
+                console.log(response.data.token);
             }
         }).catch((error) => {
             console.error(error);
