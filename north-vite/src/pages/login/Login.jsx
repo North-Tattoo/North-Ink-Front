@@ -56,6 +56,7 @@ function Login() {
                     setLoggedIn(true);
                     setUserName(response.data.nome);
                 }, 1000);
+                console.log(response.data.token);
             }
         }).catch((error) => {
             console.error(error);
