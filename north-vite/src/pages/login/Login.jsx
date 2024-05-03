@@ -6,13 +6,14 @@ import { IoIosArrowBack } from "react-icons/io";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import api from "../../api";
-
+import GerenciamentoConta from "../gerenciamentoConta/GerenciamentoConta";
 function Login() {
 
     const [mostrarSenha, setMostrarSenha] = useState(false);
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
+    const [userName, setUserName] = useState('')
 
     const toggleMostrarSenha = () => {
         setMostrarSenha(!mostrarSenha);
@@ -53,6 +54,7 @@ function Login() {
                 notify(true, "Login bem sucedido!");
                 setTimeout(() => {
                     setLoggedIn(true);
+                    setUserName(response.data.nome);
                 }, 1000);
             }
         }).catch((error) => {
@@ -66,8 +68,14 @@ function Login() {
     };
 
     if (loggedIn) {
-        return <Navigate to="/" />;
+        return (
+            <>
+                <Navigate to="/gerenciamento-conta" />
+                <GerenciamentoConta userName={userName} />;
+            </>
+        );
     }
+
 
     return (
         <div className="inicio">
@@ -83,7 +91,7 @@ function Login() {
                 theme="light"
                 transition:Bounce
             />
-            <Link to='/'><span className="voltar-texto"><IoIosArrowBack size={36}/>Voltar</span></Link>
+            <Link to='/'><span className="voltar-texto"><IoIosArrowBack size={36} />Voltar</span></Link>
             <div className="login">
                 <div className="conteudo-login">
                     <span className="frase-inicial-login">Seja bem <span className="text-black">vindo</span>.</span>
