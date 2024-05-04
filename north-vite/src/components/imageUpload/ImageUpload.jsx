@@ -21,15 +21,14 @@ function ImageUpload() {
 
     return (
         <>
-            <div className="text-white border-dashed border-2 border-gray-300 p-8 rounded-lg w-96 h-52 flex flex-col items-center justify-center hover:border-gray-400 hover:shadow-md transition duration-300" >
-                <Label htmlFor="images" className="my-4 font-semibold shadow-md">Clique aqui para fazer upload de suas imagens:</Label>
+            <div className="text-white border-dashed border-2 border-gray-300 p-8 rounded-lg w-96 h-52 flex flex-col items-center justify-center hover:border-zinc-400 hover:shadow-md transition duration-300" >
+                <Label htmlFor="images" className="my-4 font-semibold hover:text-zinc-300">Clique aqui para fazer upload de suas imagens:</Label>
                 <Input id="images" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                 {selectedImage && <img src={selectedImage} alt="Uploaded Image" style={{ maxWidth: '100px' }} />}
 
             </div>
 
-            <Button onClick={handleUpload} className=" mt-18 justify-center w-48 rounded-sm bg-purple-900 hover:bg-purple-600 text-white font-bold py-2 px-4">Criar Galeria</Button>
-
+            <Button className="w-48 h-10 bg-violet-900 text-white text-lg rounded-md ml-24">Criar Galeria</Button>
         </>);
 }
 

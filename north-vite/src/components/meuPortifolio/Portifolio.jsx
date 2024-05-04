@@ -16,7 +16,7 @@ function Portifolio() {
                 <h1 className="flex text-zinc-50 mb-6 justify-center">Crie sua <span className="text-slate-900">página</span>.</h1>
 
                 <div className="flex ">
-                    <div className="rounded-2xl bg-violet-100 text-violet-950 w-96 h-auto p-4 border-r border-gray-300">
+                    <div className="rounded-2xl bg-violet-100 w-96 h-auto p-4 border-r border-gray-300">
                         <div className="flex flex-col">
                             <div className="flex">
                                 <Avatar className="w-14 h-14">
@@ -33,8 +33,8 @@ function Portifolio() {
                             </div>
 
                             <div className="mt-4">
-                                <h2 className="text-xl font-semibold">Bio</h2>
-                                <p className="text-sm">
+                                <h2 className="text-xl font-semibold text-zinc-800">Bio</h2>
+                                <p className="text-sm my-4">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora consequatur iste quisquam numquam sequi facere error!
                                 </p>
                             </div>
@@ -43,7 +43,7 @@ function Portifolio() {
 
                             <div>
                                 <div className="flex space-x-56">
-                                    <span className="text-base font-semibold">
+                                    <span className="text-base font-semibold text-zinc-800">
                                         Instagram
                                     </span>
                                     <Avatar className="w-9 h-9">
@@ -57,29 +57,54 @@ function Portifolio() {
                             <Separator className="my-2 bg-violet-950" />
 
                             <div className="mt-2">
-                                <h2 className="text-xl font-semibold">Estilos</h2>
-                                <div className="grid grid-cols-3 gap-2 p-2">
-                                    <Badge variant="default">Black Work</Badge>
-                                    <Badge variant="default">Black Work</Badge>
-                                    <Badge variant="default">Black Work</Badge>
-                                    <Badge variant="default">Black Work</Badge>
-                                    <Badge variant="default">Black Work</Badge>
+                                <h2 className="text-xl font-semibold text-zinc-800">Estilos</h2>
+                                <div className="grid grid-cols-3 gap-2 p-2 my-2">
+                                    <Badge
+                                        variant="default"
+                                        className="bg-zinc-300 border-gray-600 hover:bg-zinc-300 text-black flex items-center justify-center"
+                                    >
+                                        Black Work
+                                    </Badge>
+                                    <Badge
+                                        variant="default"
+                                        className="bg-zinc-300 border-gray-600 hover:bg-zinc-300 text-black flex items-center justify-center"
+                                    >
+                                        Black Work
+                                    </Badge>
+                                    <Badge
+                                        variant="default"
+                                        className="bg-zinc-300 border-gray-600 hover:bg-zinc-300 text-black flex items-center justify-center"
+                                    >
+                                        Black Work
+                                    </Badge>
+                                    <Badge
+                                        variant="default"
+                                        className="bg-zinc-300 border-gray-600 hover:bg-zinc-300 text-black flex items-center justify-center"
+                                    >
+                                        Black Work
+                                    </Badge>
                                 </div>
                             </div>
 
                             <Separator className="my-4 bg-violet-950" />
 
-                            <div className="">
-                                <h2 className="text-xl font-semibold">Preços</h2>
-                                <div className="flex gap-2 mt-3">
-                                    <Button className="text-ml w-18 h-14 text-violet-950 font-bold shadow-xl border-1 border-violet-900 bg-gray-400 hover:bg-zinc-400 flex flex-col mx-auto">
-                                        <span>Valor da hora</span>
-                                        <span>R$100,00</span>
-                                    </Button>
-                                    <Button className="text-ml w-18 h-14 text-violet-950 font-bold shadow-xl border-1 border-violet-900 bg-gray-400 hover:bg-zinc-400 flex flex-col mx-auto">
-                                        <span>Valor mínimo</span>
-                                        <span>R$100,00</span>
-                                    </Button>
+                            <div className="flex flex-row gap-4">
+                                <h2 className="text-xl font-semibold text-zinc-800">Preços</h2>
+                                <div className="mt-6 border-2 border-zinc-900 rounded-lg p-2 w-24 h-18">
+                                    <div className="flex justify-center">
+                                        <div className="text-center">
+                                            <p className="text-sm font-semibold ">Valor da hora:</p>
+                                            <p className="text-base font-semibold">R$ 100,00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="mt-6 border-2 border-zinc-900 rounded-lg p-2 w-24 h-18">
+                                    <div className="flex justify-center">
+                                        <div className="text-center">
+                                            <p className="text-sm font-semibold">Valor da hora:</p>
+                                            <p className="text-base font-semibold">R$ 100,00</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

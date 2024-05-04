@@ -1,60 +1,75 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
+import imagemPerfil from "../../utils/assets/tatuador-grid.png";
 
 function Studio() {
     return (
         <div className="">
-            <h1 className="text-white ml-34 mb-3">Meu<span className="text-slate-900"> Studio</span>.</h1>
-            <div className="text-white text-2xl font-medium mb-4">Edite seu <span className="text-slate-950">Studio</span>.</div>
-            <div className="flex flex-row mt-30 gap-8 my-2 p-2">
-                <div className="flex flex-col">
-                    <label htmlFor="nome" className="text-white text-sm">Nome</label>
-                    <Input type="text" id="nome" name="nome" placeholder="seu nome"
-                        className="bg-white w-72 h-10 rounded text-center text-zinc-900" />
+            <h1 className="text-white ml-36">Seu<span className="text-slate-900"> Studio</span>.</h1>
 
+            <div className="flex flex-col mt-8 justify-center items-center">
+                <img
+                    src={imagemPerfil}
+                    alt="Logo Branca"
+                    className="w-20 rounded-full"
+                />
+                <label htmlFor="nome" className="mr-64 text-white text-sm">Nome do Studio</label>
+                <Input type="text" id="nome" name="nome" placeholder="Nome do seu Studio"
+                    className="bg-white w-96 h-10 ml-4 rounded text-center text-zinc-900" />
+            </div>
+
+            <div className="flex justify-center gap-1 text-white text-2xl font-medium mb-4 mt-6">Edite seu <span className="text-slate-950">Studio</span>.</div>
+            <div className="flex flex-row justify-between mt-30 gap-6 p-2">
+                <div className="flex flex-col">
+                    <label htmlFor="cep" className="text-white text-sm">CEP</label>
+                    <Input placeholder="Insira o CEP" type="text" id="cep" name="cep"
+                        className="bg-gray-100 w-70 h-10 rounded text-center text-zinc-900" />
                 </div>
                 <div className="flex flex-col">
-                    <label htmlFor="sobrenome" className="text-white text-sm">Sobrenome</label>
-                    <Input type="text" id="sobrenome" name="sobrenome" placeholder="seu sobrenome"
-                        className="bg-white w-72 h-10 rounded text-center text-zinc-900" />
+                    <label htmlFor="numero" className="text-white text-sm">Número</label>
+                    <Input type="text" id="numero" name="numero" placeholder="Insira o Número"
+                        className="bg-white w-50 h-10 rounded text-center text-zinc-900" />
                 </div>
             </div>
-            <div className="flex flex-row gap-8 my-2 p-2">
+            <div className="flex flex-row justify-between mt-30 gap-6 p-2">
                 <div className="flex flex-col">
-                    <label htmlFor="email" className="text-white text-sm">E-mail</label>
-                    <Input placeholder="exemplo@email.com" type="text" id="email" name="email"
-                        className="bg-white w-72 h-10 rounded text-center text-zinc-900" />
+                    <label htmlFor="rua" className="text-white text-sm">Rua</label>
+                    <Input placeholder="Insira a Rua" type="text" id="rua" name="rua"
+                        className="bg-white w-70 h-10 rounded text-center text-zinc-900" />
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="bairro" className="text-white text-sm">Bairro</label>
+                    <Input type="text" id="bairro" name="bairro" placeholder="Insira o Bairro"
+                        className="bg-white w-50 h-10 rounded text-center text-zinc-900" />
                 </div>
             </div>
-            <div className="flex flex-row gap-8 my-2 p-2">
+            <div className="flex flex-row justify-between mt-30 gap-6 p-2">
                 <div className="flex flex-col">
-                    <label htmlFor="CPF" className="text-white text-sm">CPF</label>
-                    <Input placeholder="123.456.789-09" type="text" id="CPF" name="CPF"
-                        className="bg-white w-72 h-10 rounded text-center text-zinc-900" />
+                    <label htmlFor="complemento" className="text-white text-sm">Complemento</label>
+                    <Input placeholder="Insira o Complemento" type="text" id="complemento" name="complemento"
+                        className="bg-white w-70 h-10 rounded text-center text-zinc-900" />
                 </div>
                 <div className="flex flex-col">
-                    <label htmlFor="celular" className="text-white text-sm">Celular</label>
-                    <Input placeholder="(DDD) Celular" type="text" id="celular" name="celular"
-                        className="bg-white w-72 h-10 rounded text-center text-zinc-900" />
-                </div>
-            </div>
-            <div className="flex flex-row gap-8 p-2">
-                <div className="flex flex-col">
-                    <label htmlFor="senha" className="text-white text-sm">Senha</label>
-                    <Input placeholder="Mínimo 6 caracteres" type="password" id="senha" name="senha"
-                        className="bg-white w-72 h-10 rounded text-center text-zinc-900" />
-                </div>
-                <div className="flex flex-col">
-                    <label htmlFor="repita" className="text-white text-sm">Repita a senha</label>
-                    <Input placeholder="Mínimo 6 caracteres" type="text" id="repita" name="repita"
-                        className="bg-white w-72 h-10 rounded text-center text-zinc-900" />
+                    <label htmlFor="cidade" className="text-white text-sm">Cidade</label>
+                    <Input type="text" id="cidade" name="cidade" placeholder="Insira a Cidade"
+                        className="bg-white w-50 h-10 rounded text-center text-zinc-900" />
                 </div>
             </div>
-            <Button className="w-80 h-12 bg-purple-900 text-white text-lg rounded-md ml-40">Salvar</Button>
+            <div className="flex flex-row justify-between mt-30 gap-6 p-2">
+                <div className="flex flex-col">
+                    <label htmlFor="estado" className="text-white text-sm">Estado</label>
+                    <Input placeholder="Insira o Estado" type="text" id="estado" name="estado"
+                        className="bg-white w-70 h-10 rounded text-center text-zinc-900" />
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="pais" className="text-white text-sm">País</label>
+                    <Input type="text" id="pais" name="pais" placeholder="Insira o País"
+                        className="bg-white w-50 h-10 rounded text-center text-zinc-900" />
+                </div>
+            </div>
+            
+            <Button className="w-80 h-12 bg-violet-900 text-white text-lg rounded-md ml-40">Salvar</Button>
         </div>
     );
 }

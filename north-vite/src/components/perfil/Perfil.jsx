@@ -58,7 +58,7 @@ function Perfil() {
                         className="bg-white text-center text-zinc-900 focus:outline-none" />
                 </div>
             </div>
-            <Button className="w-40 h-10 bg-purple-900 text-white text-lg rounded-md ml-56">Salvar</Button>
+            <Button className="w-60 h-12 bg-violet-900 text-white text-lg rounded-md ml-48">Salvar</Button>
 
         </div>
     );
