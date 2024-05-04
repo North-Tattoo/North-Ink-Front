@@ -26,7 +26,9 @@ function Home() {
                     ideias em tinta. Explore estilos únicos e faça da sua próxima tatuagem uma <span style={{ color: '#9333EA' }}>TATUADOR</span> inesquecível.
                 </article>
                 <div className={styles["botoes-inicio"]}>
+                <Link to='/cadastro'>
                     <button style={{ backgroundColor: '#9333EA' }}>SEJA UM PARCEIRO</button>
+                    </Link>
                     <Link to='/listagem-tatuadores'>
                         <button style={{ backgroundColor: '#5B5B5B' }}>BUSCAR PROFISSIONAIS</button>
                     </Link>
