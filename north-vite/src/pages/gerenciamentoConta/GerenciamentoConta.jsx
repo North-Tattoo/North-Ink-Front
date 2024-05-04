@@ -57,7 +57,7 @@ function GerenciamentoConta({userName}) {
                     <img className="w-54 mt-2" src={logo} alt="logo" />
 
                     <div className="botoes flex flex-col w-full items-start justify-evenly space-y-12 font-poppins mt-12 text-3xl text-slate-950">
-                        <button className={`button ${activeTab === 'perfil' ? 'activeButton' : ''} w-80 h-14 rounded- hover:bg-violet-200 hover:bg-opacity-50 hoverFixed flex items-center gap-8`}
+                        <button className={`button ${activeTab === 'perfil' ? 'activeButton' : ''} w-80 h-14 rounded-lg hover:bg-violet-200 hover:bg-opacity-50 hoverFixed flex items-center gap-8`}
                             onClick={() => handleTabClick('perfil')} data-tab="perfil">
                             <CgProfile className="inline-block ml-5 w-9 h-9 text-purple-800" />
                             Meu Perfil
