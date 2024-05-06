@@ -14,7 +14,7 @@ public class GerenciadorDeArquivoCSV {
         Formatter saida = null;
         boolean deuRuim = false;
 
-        nomeArq += "Usuarios.csv";
+        nomeArq += "Tatuadores.csv";
 
         try {
             arq = new FileWriter(nomeArq);
@@ -28,7 +28,7 @@ public class GerenciadorDeArquivoCSV {
             for (int i = 0; i < lista.getTamanho(); i++) {
 
                 Usuario usuario = lista.getElemento(i);
-                saida.format("%d;%s;%s;%.2f\n",
+                saida.format("%d;%s;%s;%s\n",
                         usuario.getId(),
                         usuario.getNome(),
                         usuario.getEmail(),
@@ -54,7 +54,7 @@ public class GerenciadorDeArquivoCSV {
     public static void leArquivoCsv(String nomeArq) {
         FileReader arq = null;
         Scanner entrada = null;
-        Boolean deuRuim = false;
+        boolean deuRuim = false;
 
         nomeArq += "Usuarios.csv";
 
@@ -77,7 +77,7 @@ public class GerenciadorDeArquivoCSV {
                 String email = entrada.next();
                 String estilo = entrada.next();
 
-                System.out.printf("%4d %-15s %-9s %6.2f\n",
+                System.out.printf("%4d %-15s %-9s %-15s\n",
                         id, nome, email, estilo);
 
             }

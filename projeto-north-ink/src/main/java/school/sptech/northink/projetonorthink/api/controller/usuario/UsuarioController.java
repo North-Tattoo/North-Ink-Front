@@ -2,6 +2,7 @@ package school.sptech.northink.projetonorthink.api.controller.usuario;
 
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import jakarta.annotation.security.PermitAll;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import school.sptech.northink.projetonorthink.api.util.GerenciadorDeArquivoCSV;
+import school.sptech.northink.projetonorthink.api.util.ListaObj;
 import school.sptech.northink.projetonorthink.domain.entity.Usuario;
 import school.sptech.northink.projetonorthink.domain.service.usuario.UsuarioService;
 import school.sptech.northink.projetonorthink.domain.service.usuario.autenticacao.dto.UsuarioLoginDto;
@@ -19,6 +22,7 @@ import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario
 import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioCriacaoDto;
 import school.sptech.northink.projetonorthink.domain.service.usuario.dto.usuario.UsuarioListagemDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -78,6 +82,16 @@ public class UsuarioController {
     public ResponseEntity<Usuario> deletar(@PathVariable Long id) {
         usuarioService.deletarUsuario(id);
         return ResponseEntity.status(200).build();
+    }
+
+    @GetMapping("/gerar-csv")
+    public ResponseEntity<Void> gerarArquivoCSV() {
+        try {
+            usuarioService.gravarUsuariosOrdenadosPorNome("Tatuadores.csv");
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     // logout do usuario
