@@ -202,7 +202,10 @@ body {
     height: 50px;
     width: 50px;
     cursor: pointer;
-    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.25rem;
     position: absolute;
     text-align: center;
     line-height: 50px;
