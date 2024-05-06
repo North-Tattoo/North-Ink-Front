@@ -32,7 +32,7 @@ public class GerenciadorDeArquivoCSV {
                         usuario.getId(),
                         usuario.getNome(),
                         usuario.getEmail(),
-                        usuario.getEstilos());
+                        usuario.getCelular());
             }
         } catch (FormatterClosedException erro) {
             System.out.println("Erro ao gravar o arquivo");

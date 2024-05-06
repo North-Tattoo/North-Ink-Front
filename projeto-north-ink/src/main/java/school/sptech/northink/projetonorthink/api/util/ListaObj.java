@@ -99,4 +99,30 @@ public class ListaObj <T>{
             vetor[indMenor] = aux;
         }
     }
+
+    public int buscaBinariaRecursiva(T elementoBuscado) {
+        return buscaBinariaRecursiva(elementoBuscado, 0, nroElem - 1);
+    }
+
+    private int buscaBinariaRecursiva(T elementoBuscado, int inicio, int fim) {
+        if (inicio > fim) {
+            return -1; // Elemento não encontrado
+        }
+
+        int meio = (inicio + fim) / 2;
+
+        // Se o elemento no meio for igual ao elemento buscado, retornar o índice
+        if (vetor[meio].equals(elementoBuscado)) {
+            return meio;
+        }
+
+        // Se o elemento no meio for maior que o elemento buscado, buscar na metade esquerda
+        if (vetor[meio].toString().compareTo(elementoBuscado.toString()) > 0) {
+            return buscaBinariaRecursiva(elementoBuscado, inicio, meio - 1);
+        }
+
+        // Caso contrário, buscar na metade direita
+        return buscaBinariaRecursiva(elementoBuscado, meio + 1, fim);
+    }
+    
 }
