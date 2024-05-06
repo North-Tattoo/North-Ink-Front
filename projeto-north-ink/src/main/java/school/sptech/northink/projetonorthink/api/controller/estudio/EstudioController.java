@@ -1,5 +1,7 @@
 package school.sptech.northink.projetonorthink.api.controller.estudio;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +18,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/estudios")
+@Tag(name = "Estúdios", description = "Operações relacionadas aos estúdios")
 public class EstudioController {
 
     @Autowired
     private EstudioRepository estudioRepository;
 
+    @Operation(summary = "Criar um novo estúdio")
     @PostMapping
     public ResponseEntity<EstudioListagemDto> criar(@RequestBody @Valid EstudioCriacaoDto novoEstudio) {
 
@@ -32,6 +36,7 @@ public class EstudioController {
         return ResponseEntity.status(201).body(listagemDto);
     }
 
+    @Operation(summary = "Buscar estúdio por ID")
     @GetMapping("/{id}")
     public ResponseEntity<EstudioListagemDto> buscarPorId(@PathVariable Long id) {
         Optional<Estudio> estudioOpt = estudioRepository.findById(id);
@@ -44,6 +49,7 @@ public class EstudioController {
 
     }
 
+    @Operation(summary = "Listar todos os estúdios")
     @GetMapping
     public ResponseEntity<List<EstudioListagemDto>> listarEstudios() {
         List<Estudio> estudios = estudioRepository.findAll();
@@ -55,6 +61,7 @@ public class EstudioController {
         return ResponseEntity.status(200).body(listaAuxiliar);
     }
 
+    @Operation(summary = "Atualizar dados do estúdio pelo ID")
     @PutMapping("/{id}")
     public ResponseEntity<EstudioListagemDto> atualizarDadosEstudio(@PathVariable Long id, @RequestBody @Valid EstudioAtualizacaoDto estudioAtualizacaoDto) {
 
@@ -72,6 +79,7 @@ public class EstudioController {
         return ResponseEntity.status(200).body(estudioListagemDto);
     }
 
+    @Operation(summary = "Deletar estúdio pelo ID")
     @DeleteMapping("/{id}")
     public ResponseEntity<Estudio> deletarEstudio(@PathVariable Long id) {
         Optional<Estudio> optionalEstudio = estudioRepository.findById(id);
