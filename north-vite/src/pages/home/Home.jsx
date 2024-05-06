@@ -44,17 +44,17 @@ function Home() {
                     <div className={styles["row"]}>
                         <div className={styles["column"]}>
                             <img src='\src\utils\assets\um-homem-com-uma-tatuagem-no-braco-comprimido.jpg' alt="Tatuador com tatuagem no braço" />
-                            <img src='\src\utils\assets\antebraco-colorida-comprimida.jpg' alt="Antebraço colorida" />
+                            <img src='https://images.pexels.com/photos/2183132/pexels-photo-2183132.jpeg?auto=compress&cs=tinysrgb&w=600' alt="Antebraço colorida" />
                             <img src='\src\utils\assets\tatuagem-mulher-costas-comprimida.jpg' alt="Tatuagem mulher costas" />
                         </div>
                         <div className={styles["column"]}>
-                            <img src='\src\utils\assets\tattoo-oriental-comprimida.jpg' alt="Tattoo oriental" />
-                            <img src='\src\utils\assets\tattoo-horizontal-comprimida.jpg' alt="Tattoo horizontal" />
+                            <img src='https://images.pexels.com/photos/3214690/pexels-photo-3214690.jpeg?auto=compress&cs=tinysrgb&w=600' alt="Tattoo oriental" />
+                            <img src='https://images.pexels.com/photos/2183131/pexels-photo-2183131.jpeg?auto=compress&cs=tinysrgb&w=600' alt="Tattoo horizontal" />
                         </div>
                         <div className={styles["column"]}>
-                            <img src='\src\utils\assets\tattoo-antebraco-comprimida.jpg' alt="Tattoo antebraço" />
-                            <img src='\src\utils\assets\pescoço-comprimido.jpg' alt="Pescoço" />
-                            <img src='\src\utils\assets\ombro-comprimido.jpg' alt="Ombro" />
+                            <img src='https://images.pexels.com/photos/1433273/pexels-photo-1433273.jpeg?auto=compress&cs=tinysrgb&w=600' alt="Tattoo antebraço" />
+                            <img src='https://images.pexels.com/photos/1414401/pexels-photo-1414401.jpeg?auto=compress&cs=tinysrgb&w=600' alt="Pescoço" />
+                            <img src='https://images.pexels.com/photos/4123910/pexels-photo-4123910.jpeg?auto=compress&cs=tinysrgb&w=600' alt="Ombro" />
                         </div>
                     </div>
                 </section>
@@ -72,7 +72,7 @@ function Home() {
                     </header>
                     <article>Depoimento de um dos nossos <span style={{ color: '#9333EA' }}>parceiros.</span></article>
                     <div className={styles["depoimento-tatuador"]}>
-                        <img style={{ width: '684px', height: '608px' }} src='\src\utils\assets\foto-tatuador-depoimento.jpg' alt="Depoimento do tatuador" />
+                        <img style={{ width: '784px', height: '608px' }} src='https://img.freepik.com/free-photo/experienced-tattoo-artist-front-his-studio_23-2149479274.jpg?w=996&t=st=1714961365~exp=1714961965~hmac=1adfc35390c01de842b35ebf9b36acae743219f48f92bd66ea7c414d0b232030' alt="Depoimento do tatuador" />
                         <div className={styles["texto-depoimento"]}>
                             <header>Roberto Otávio de Paula, 45 anos</header>
                             <article>Proprietário do <span style={{ color: '#9333EA' }}>Tattoo House</span> - Santa Cecilia</article>

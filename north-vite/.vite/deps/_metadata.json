@@ -1,0 +1,139 @@
+{
+  "hash": "46cbdbfc",
+  "configHash": "79605d59",
+  "lockfileHash": "70baf355",
+  "browserHash": "51546782",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "f344cf23",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "acf3941a",
+      "needsInterop": true
+    },
+    "clsx": {
+      "src": "../../node_modules/clsx/dist/clsx.mjs",
+      "file": "clsx.js",
+      "fileHash": "8e4a4b0b",
+      "needsInterop": false
+    },
+    "tailwind-merge": {
+      "src": "../../node_modules/tailwind-merge/dist/bundle-mjs.mjs",
+      "file": "tailwind-merge.js",
+      "fileHash": "9ebfacb5",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "d7b5ec0d",
+      "needsInterop": false
+    },
+    "react-icons/pi": {
+      "src": "../../node_modules/react-icons/pi/index.mjs",
+      "file": "react-icons_pi.js",
+      "fileHash": "fd07ea1d",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "3cc58800",
+      "needsInterop": false
+    },
+    "react-icons/go": {
+      "src": "../../node_modules/react-icons/go/index.mjs",
+      "file": "react-icons_go.js",
+      "fileHash": "421a200b",
+      "needsInterop": false
+    },
+    "react-icons/ai": {
+      "src": "../../node_modules/react-icons/ai/index.mjs",
+      "file": "react-icons_ai.js",
+      "fileHash": "e10a43b1",
+      "needsInterop": false
+    },
+    "react-icons/lu": {
+      "src": "../../node_modules/react-icons/lu/index.mjs",
+      "file": "react-icons_lu.js",
+      "fileHash": "6adb9eb7",
+      "needsInterop": false
+    },
+    "react-icons/io": {
+      "src": "../../node_modules/react-icons/io/index.mjs",
+      "file": "react-icons_io.js",
+      "fileHash": "cfaf96c6",
+      "needsInterop": false
+    },
+    "react-toastify": {
+      "src": "../../node_modules/react-toastify/dist/react-toastify.esm.mjs",
+      "file": "react-toastify.js",
+      "fileHash": "38afe9c7",
+      "needsInterop": false
+    },
+    "react-icons/cg": {
+      "src": "../../node_modules/react-icons/cg/index.mjs",
+      "file": "react-icons_cg.js",
+      "fileHash": "1a680f71",
+      "needsInterop": false
+    },
+    "react-icons/im": {
+      "src": "../../node_modules/react-icons/im/index.mjs",
+      "file": "react-icons_im.js",
+      "fileHash": "2a143bd6",
+      "needsInterop": false
+    },
+    "react-icons/gr": {
+      "src": "../../node_modules/react-icons/gr/index.mjs",
+      "file": "react-icons_gr.js",
+      "fileHash": "d77b4071",
+      "needsInterop": false
+    },
+    "react-icons/hi2": {
+      "src": "../../node_modules/react-icons/hi2/index.mjs",
+      "file": "react-icons_hi2.js",
+      "fileHash": "8b3dee55",
+      "needsInterop": false
+    },
+    "react-icons/bi": {
+      "src": "../../node_modules/react-icons/bi/index.mjs",
+      "file": "react-icons_bi.js",
+      "fileHash": "8d345837",
+      "needsInterop": false
+    },
+    "react-hook-form": {
+      "src": "../../node_modules/react-hook-form/dist/index.esm.mjs",
+      "file": "react-hook-form.js",
+      "fileHash": "7c64c477",
+      "needsInterop": false
+    },
+    "react-input-mask": {
+      "src": "../../node_modules/react-input-mask/index.js",
+      "file": "react-input-mask.js",
+      "fileHash": "56b38bb6",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-TMXZRJBF": {
+      "file": "chunk-TMXZRJBF.js"
+    },
+    "chunk-PXJLUKTU": {
+      "file": "chunk-PXJLUKTU.js"
+    },
+    "chunk-NYFNUM5X": {
+      "file": "chunk-NYFNUM5X.js"
+    },
+    "chunk-FQO5W7GE": {
+      "file": "chunk-FQO5W7GE.js"
+    },
+    "chunk-ZS7NZCD4": {
+      "file": "chunk-ZS7NZCD4.js"
+    }
+  }
+}

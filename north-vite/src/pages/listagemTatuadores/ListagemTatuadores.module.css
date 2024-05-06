@@ -15,7 +15,7 @@ html {
 }
 .gradientInicio{
   height: 840px;
-  background-image: linear-gradient(180deg, #9333EA 1%, #3C3C3C 75%);
+  background-image: linear-gradient(180deg, #6d27ae 1%, #3C3C3C 75%);
 }
 .gradientFim{
   background-color: #3C3C3C;
