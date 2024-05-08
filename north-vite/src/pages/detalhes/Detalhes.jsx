@@ -42,7 +42,7 @@ function Detalhes() {
                 className="w-16 mb-4 rounded-full m-2 mt-9 ml-5"
               />
               <div className="ml-3 mt-10">
-                <h2 className="text-lg font-bold">Jeremy Barcelos</h2>
+                <h2 className="text-lg font-bold">Marco Marini</h2>
                 <div className="flex items-center">
                   <span className="bg-green-500 rounded-full block w-2 h-2 mr-1"></span>
                   <p className="text-sm">Disponível</p>
@@ -137,7 +137,7 @@ function Detalhes() {
                 src="https://d1kq2dqeox7x40.cloudfront.net/images/posts/20230812_ecLI8yrmRdacKRR.jpg?w=600"
                 alt="Tatuador com tatuagem no braço"
               />
-              <label id="texto-imagem">Entre em contato</label>
+              {/* <label id="texto-imagem">Entre em contato</label> */}
             </div>
             <img
               src="https://d1kq2dqeox7x40.cloudfront.net/images/posts/20230812_6LHcPR645dA4CNU.jpg?w=600"

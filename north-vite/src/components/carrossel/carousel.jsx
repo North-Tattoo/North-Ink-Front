@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '../../pages/home/Home.module.css';
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 function Carrossel() {
   const wrapperRef = useRef(null);
@@ -97,40 +98,44 @@ function Carrossel() {
   return (
     <section className={styles["carrossel"]}>
       <div className={styles["wrapper"]} ref={wrapperRef}>
-        <i id="left" className={styles["fa-solid fa-angle-left"]}></i>
+        <i id="left">
+        <FaAngleLeft />
+        </i>
         <ul className={styles["carousel"]} ref={carouselRef}>
           <li className={styles["card"]} ref={firstCardRef}>
-            <div className={styles["img"]}><img src="\src\utils\assets\tatuador-carrossel.jpg" alt="img" draggable="false" /></div>
+            <div className={styles["img"]}><img src="https://img.freepik.com/fotos-gratis/tatuador-experiente-trabalhando-na-tatuagem-do-cliente_23-2149479254.jpg?w=360&t=st=1714961242~exp=1714961842~hmac=4a5843dc754d63fdc2690ec5783e242a3cf75efd925670583d509c6606f2938f" alt="img" draggable="false" /></div>
             <h2>King Tattoo</h2>
             <span>Rua das Rosas, 123</span>
           </li>
           <li className={styles["card"]}>
-            <div className={styles["img"]}><img src="\src\utils\assets\tatuador-carrossel.jpg" alt="img" draggable="false" /></div>
+            <div className={styles["img"]}><img src="https://img.freepik.com/fotos-gratis/tatuador-experiente-trabalhando-na-tatuagem-do-cliente_23-2149479254.jpg?w=360&t=st=1714961242~exp=1714961842~hmac=4a5843dc754d63fdc2690ec5783e242a3cf75efd925670583d509c6606f2938f" alt="img" draggable="false" /></div>
             <h2>King Tattoo</h2>
             <span>Rua das Rosas, 123</span>
           </li>
           <li className={styles["card"]}>
-            <div className={styles["img"]}><img src="\src\utils\assets\tatuador-carrossel.jpg" alt="img" draggable="false" /></div>
+            <div className={styles["img"]}><img src="https://img.freepik.com/fotos-gratis/tatuador-experiente-trabalhando-na-tatuagem-do-cliente_23-2149479254.jpg?w=360&t=st=1714961242~exp=1714961842~hmac=4a5843dc754d63fdc2690ec5783e242a3cf75efd925670583d509c6606f2938f" alt="img" draggable="false" /></div>
             <h2>King Tattoo</h2>
             <span>Rua das Rosas, 123</span>
           </li>
           <li className={styles["card"]}>
-            <div className={styles["img"]}><img src="\src\utils\assets\tatuador-carrossel.jpg" alt="img" draggable="false" /></div>
+            <div className={styles["img"]}><img src="https://img.freepik.com/fotos-gratis/tatuador-experiente-trabalhando-na-tatuagem-do-cliente_23-2149479254.jpg?w=360&t=st=1714961242~exp=1714961842~hmac=4a5843dc754d63fdc2690ec5783e242a3cf75efd925670583d509c6606f2938f" alt="img" draggable="false" /></div>
             <h2>King Tattoo</h2>
             <span>Rua das Rosas, 123</span>
           </li>
           <li className={styles["card"]}>
-            <div className={styles["img"]}><img src="\src\utils\assets\tatuador-carrossel.jpg" alt="img" draggable="false" /></div>
+            <div className={styles["img"]}><img src="https://img.freepik.com/fotos-gratis/tatuador-experiente-trabalhando-na-tatuagem-do-cliente_23-2149479254.jpg?w=360&t=st=1714961242~exp=1714961842~hmac=4a5843dc754d63fdc2690ec5783e242a3cf75efd925670583d509c6606f2938f" alt="img" draggable="false" /></div>
             <h2>King Tattoo</h2>
             <span>Rua das Rosas, 123</span>
           </li>
           <li className={styles["card"]}>
-            <div className={styles["img"]}><img src="\src\utils\assets\tatuador-carrossel.jpg" alt="img" draggable="false" /></div>
+            <div className={styles["img"]}><img src="https://img.freepik.com/fotos-gratis/tatuador-experiente-trabalhando-na-tatuagem-do-cliente_23-2149479254.jpg?w=360&t=st=1714961242~exp=1714961842~hmac=4a5843dc754d63fdc2690ec5783e242a3cf75efd925670583d509c6606f2938f" alt="img" draggable="false" /></div>
             <h2>King Tattoo</h2>
             <span>Rua das Rosas, 123</span>
           </li>
         </ul>
-        <i id="right" className={styles["fa-solid fa-angle-right"]}></i>
+        <i id="right" >
+        <FaAngleRight />
+        </i>
       </div>
     </section>
   );
