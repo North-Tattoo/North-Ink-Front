@@ -124,5 +124,5 @@ public class ListaObj <T>{
         // Caso contrário, buscar na metade direita
         return buscaBinariaRecursiva(elementoBuscado, meio + 1, fim);
     }
-    
+
 }
