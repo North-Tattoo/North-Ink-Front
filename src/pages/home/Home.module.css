@@ -31,8 +31,8 @@ body {
 }
 
 .logo img {
-    width: 270px;
-    height: 65px;
+    width: 274px;
+    height: 93px;
     filter: brightness(1.1);
 }
 
@@ -45,7 +45,7 @@ body {
 }
 
 .botao-entrar svg {
-    color: #9333EA;
+    color: #fafafa;
     font-size: 40px;
     margin-right: 10px;
     width: 46px;
@@ -78,7 +78,8 @@ body {
     left: 10%;
     top: 60%;
     color: #FAF5FF;
-    font-weight: bold;
+    /* font-weight: bold; */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .botoes-inicio {
@@ -108,9 +109,20 @@ body {
 
 
 .gradiente-site {
-    height: 3350px;
-    /* background-color: #9333ea; */
-    background-image: linear-gradient(180deg, #9333ea 1%, #3C3C3C 75%);
+    margin: 0;
+    padding: 0;
+    height: 1700px;
+    background-image: linear-gradient(180deg, #9333EA 22%, #A962EA 100%);
+}
+
+.fundo-ondas{
+    height: 1500px;
+    background-image: url("../../utils/assets/fundo-ondas.png");
+}
+.fundo{
+    margin: 0;
+    padding: 0;
+    background-color: #F3F3F3;
 }
 
 .frase-tatuagens {
@@ -322,7 +334,7 @@ body {
 
 .secao-depoimentos>header:first-of-type {
     font-family: 'Poppins';
-    color: #FAF5FF;
+    color: #3C3C3C;
     font-size: 35px;
     padding-top: 10%;
     padding-left: 12%;
@@ -332,7 +344,7 @@ body {
 
 .secao-depoimentos>article:first-of-type {
     font-family: 'Poppins';
-    color: #FAF5FF;
+    color: #3C3C3C;
     font-size: 25px;
     padding-left: 12%;
     font-weight: bold;
@@ -346,7 +358,7 @@ body {
 .texto-depoimento {
     float: right;
     font-family: 'Poppins';
-    color: #FAF5FF;
+    color: #3C3C3C;
     width: 600px;
     padding-left: 5%;
     text-align: justify;
@@ -354,14 +366,14 @@ body {
 
 .texto-depoimento header {
     font-family: 'Poppins';
-    color: #FAF5FF;
+    color: #3C3C3C;
     font-size: 35px;
     padding-top: 23%;
 }
 
 .texto-depoimento article {
     font-family: 'Poppins';
-    color: #FAF5FF;
+    color: #3C3C3C;
     font-size: 25px;
     padding-bottom: 5%;
 }
@@ -378,53 +390,47 @@ body {
 /* ////////////////////////////  FOOTER //////////////////////////////////// */
 
 .footer {
-    /* background-color: #404040; */
-    background-color: #3C3C3C;
-    padding-left: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F3F3F3;
 }
 
 .links {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    margin-left: 30px;
+    
 }
 
 .links a {
     text-decoration: none;
     font-family: 'Poppins';
-    color: #FAF5FF;
-    margin-left: 4%;
+    color: #3C3C3C;
+    margin-left: 70px;
+
 }
 
-.barra-roxa {
-    background: rgb(168, 85, 247);
-    background: linear-gradient(90deg, rgba(168, 85, 247, 1) 0%, rgba(88, 28, 135, 1) 82%);
+.logo-direitos{
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-cinza {
+    background-color: #96989B;
     height: 1.5px;
     width: 700px;
 }
 
 .footer .logo-footer {
-    width: 320px;
-    height: 105px;
-    padding-top: 2%;
-}
-
-.google-play {
-    display: flex;
-    justify-content: end;
-    float: right;
-    width: 300px;
-    padding-top: 1.5%;
-    padding-right: 5%;
+    width: 137px;
+    height: 116px;
+    margin-bottom: 30px;
+    /* padding-top: 2%; */
 }
 
 .mensagem-direitos {
-    display: flex;
-    justify-content: center;
     font-family: 'Poppins';
     font-size: 15px;
-    color: #FAF5FF;
-    padding-top: 3%;
-    padding-bottom: 4%;
-    padding-left: 20%;
+    color: #3C3C3C;
 }
