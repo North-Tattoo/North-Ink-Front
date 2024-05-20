@@ -13,17 +13,29 @@ html {
   margin-left: 100px;
   margin-right: 100px;
 }
-.gradientInicio{
-  height: 840px;
-  background-image: linear-gradient(180deg, #6d27ae 1%, #3C3C3C 75%);
+.imagemFundo{
+  width: 100%;
+  height: 950px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../utils/assets/fundo-listagem.png");
 }
-.gradientFim{
-  background-color: #3C3C3C;
+.fundoFim{
+  background-color: #F5F5F5;
+}
+.ondas{
+  background-size: cover;
+  background-position: center;
+  height: 1300px;
+  background-repeat: no-repeat;
+  background-image: url("../../utils/assets/fundo-ondas-listagem.png");
+
 }
 
 .logo img {
-  width: 270px;
-  height: 65px;
+  width: 274px;
+  height: 93px;
   margin-top: 30px;
 } 
 
@@ -50,7 +62,7 @@ html {
   font-family: 'Poppins';
   font-size: 55px;
   font-weight: bold;
-  margin-bottom: 90px;
+  margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .inicio{
@@ -90,7 +102,6 @@ html {
 }
 
 .categoria {
-  margin-top: 350px;
   margin-bottom: 50px;
   margin-left: 100px;
   display: flex;
@@ -105,16 +116,26 @@ html {
   display: flex;
   margin-top: 3%;
   margin-left: 100px;
-  color: #ececec;
+  color: #3C3C3C;
 
 }
 
 .filtro a {
   margin-left: 10px;
   text-decoration: none;
-  color: #f9f8fa;
+  color: #3C3C3C;
   font-family: 'Poppins';
   font-size: 20px;
+}
+.titulo-listagem{
+  font-weight: bold;
+  color: #A855F7;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins';
+
 }
 
 /*******************************Card da Listagem**********************/

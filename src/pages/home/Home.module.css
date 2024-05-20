@@ -116,13 +116,13 @@ body {
 }
 
 .fundo-ondas{
-    height: 1500px;
+    height: 1157px;
     background-image: url("../../utils/assets/fundo-ondas.png");
 }
 .fundo{
     margin: 0;
     padding: 0;
-    background-color: #F3F3F3;
+    background-color: #f5f5f5;
 }
 
 .frase-tatuagens {
@@ -393,13 +393,12 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #F3F3F3;
+    background-color: #F5F5F5;
 }
 
 .links {
     display: flex;
-    margin-left: 30px;
-    
+    margin-left: 30px;   
 }
 
 .links a {
@@ -409,8 +408,12 @@ body {
     margin-left: 70px;
 
 }
+.links-barra{
+    margin-top: 100px;
+}
 
 .logo-direitos{
+    margin-top: 100px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
