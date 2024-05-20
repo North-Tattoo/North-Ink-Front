@@ -6,10 +6,14 @@ import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
 import NotFound from "./notFound/NotFound"
 import Login from "./login/Login";
 import GerenciamentoConta from "./gerenciamentoConta/GerenciamentoConta"
-import api from "../api";
+import { ProSidebarProvider } from "react-pro-sidebar";
+import Perfil from "./GerenciamentoPerfil/GerenciamentoPerfil";
+import Portfolio from "./GerenciamentoPortfolio/GerenciamentoPortfolio";
+import Estudio from "./GerenciamentoEstudio/GerenciamentoEstudio";
 
 function App(){
   return (
+    <ProSidebarProvider>
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<Home />}/>
@@ -18,9 +22,13 @@ function App(){
               <Route path="/detalhes" element={<Detalhes />}/>
               <Route path="/*" element={<NotFound />} />
               <Route path="/listagem-tatuadores" element={<ListagemTatuadores/>}/>
-              <Route path="/gerenciamento-conta" element={<GerenciamentoConta/>}/>  
+              <Route path="/gerenciamento-conta" element={<GerenciamentoConta/>}/>
+              <Route path="/gerenciamento-conta/perfil" element={<Perfil />}/>
+              <Route path="/gerenciamento-conta/portfolio" element={<Portfolio />}/>
+              <Route path="/gerenciamento-conta/estudio" element={<Estudio />}/>
           </Routes>
       </BrowserRouter>
+    </ProSidebarProvider>
   )
 }
 

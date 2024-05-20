@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .fundo{
     background-image: linear-gradient(180deg, #9333EA 1%, #3C3C3C 75%);
@@ -57,19 +57,19 @@
     display: flex;
     flex-direction: column;
     /* text-align: center; */
-    margin-top: 30px;
+    /* margin-top: 30px;
     margin-left: 200px;
     justify-content:center;
     font-family: 'Poppins';
     font-size: 60px;
-}
-.profileInfo {
+} */
+/* .profileInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 80px;
     /* line-height: 5; */
-    font-family: 'Poppins';
+    /* font-family: 'Poppins';
     font-size: 20px;  
     color: #FFFFFF; 
 }
@@ -84,7 +84,27 @@
 }
 
 .hoverFixed {
-    background-color: #D1D2F9; /* Cor de fundo equivalente a hover:bg-violet-200 no Tailwind CSS */
-    border: 1px solid #6B7280; /* Cor da borda */
+    background-color: #D1D2F9; 
+    border: 1px solid #6B7280; 
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); /* Sombra */
+/* } */
+
+/* ///////////////////////////// */
+body {
+    margin: 0;
+    font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", "Figtree", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    background: #F5F5F5;
+    font-size: 24px;
+}
+.app {
+    background: #151515;
+}
+
+.menu1 {
+    margin-bottom: 40px;
+    margin-top: 120px;
+    color: #fff;
 }
