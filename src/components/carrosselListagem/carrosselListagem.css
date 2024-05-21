@@ -7,8 +7,22 @@
     transition: box-shadow 0.3s ease;
   }
 
+  .slick-prev:before, 
+.slick-next:before {
+    font-size: 30px; 
+    margin-right: 30px;
+}
+
+.slick-prev {
+  left: -50px;
+}
+
+.slick-next {
+  right: -50px;
+}
+
   .carouselContainer {
-    margin: 0 100px; /* Define uma margem de 20 pixels nos lados do carrossel */
+    margin: 0 100px; 
   }
 
 /* carrosselListagem.css */

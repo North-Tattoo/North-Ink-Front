@@ -94,9 +94,9 @@ function Home() {
                 </div>
             </section>
 
-            <div className={styles["logo-final-do-site"]}>
+            {/* <div className={styles["logo-final-do-site"]}>
                 <img src='\src\utils\assets\logo-sem-nome.png' alt="Logo final do site" />
-            </div>
+            </div> */}
             </div>
 
 

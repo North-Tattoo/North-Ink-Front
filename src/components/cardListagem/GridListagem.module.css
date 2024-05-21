@@ -9,12 +9,13 @@
   height: 568px;
   width: 592px;
   border-radius: 20px;
-  background-color: #121212;
+  background-color: #DADADA;
   margin-top: 70px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); */
 }
 .pointerSombra{
-  height: 144px;
+  height: 120px;
+  margin-bottom: 20px;
   width: 530px;
   cursor: pointer;
   margin-left: 30px;
@@ -23,7 +24,7 @@
   border-radius: 10px;
 }
 .pointerSombra:hover{
-  background-color: #353434;
+  background-color: #c6c6c6;
   border-radius: 10px;
 }
 .fotosServicos {
@@ -55,26 +56,31 @@
 
 .informacoesStudio {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   margin-left: 3px;
-  margin-top: 10px;
+  margin-top: 50px;
   align-items: center;
-  color: #FFFFFF;
+  color: #3C3C3C;
 }
 
-.endereco {
+.informacoes {
+  margin-left: 50px;
   margin-top: 15px;
   font-family: 'Poppins';
   flex-direction: column;
 }
 
-.endereco p {
-  /* margin: 0; */
+.informacoes p {
   margin-top: 3px;
   font-size: 15px;
 }
-.endereco h5{
+.informacoes h5{
   font-size: 20px;
+}
+.line{
+  display: flex;
+  align-items: center;
+
 }
 
 .fotoPerfil {
@@ -94,32 +100,25 @@
 .tenhoInteresse {
   width: 122px;
   height: 34px;
-  background-color: #581C87;
-  color: #FFFFFF;
+  background-color: #A855F7;
+  color: #F5F5F5;
   border: none;
   border-radius: 9px;
   font-weight: bold;
+  font-size: 15px;
 }
-.taxaHoraria {
-  font-family: 'Poppins';
-  font-weight: bold;
-  font-size: 10px;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  margin-left: 3px;
-  color: #FFFFFF;
-}
+
 .iconeContainer {
   display: flex;
   max-width: calc(100% - 109px);
   overflow-x: auto;
   margin-left: 50px;
-  margin-top: 30px;
   justify-content:center;
 }
 
 .icone {
-  background-color: #E6E6E6;
+  background-color: #581C87;
+  color: #F5F5F5;
   height: 25px;
   padding: 0 5px;
   display: flex;
