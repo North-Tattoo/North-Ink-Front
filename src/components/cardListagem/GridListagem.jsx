@@ -3,10 +3,8 @@ import styles from './GridListagem.module.css';
 import studioTatuagens from '../../utils/assets/tatuagem-grid-card.jpg'
 import fotoPerfilGrid from '../../utils/assets/tatuador-grid.png'
 import { Link } from 'react-router-dom';
-import { MdLocationPin } from "react-icons/md";
-import { RiMoneyDollarCircleFill } from "react-icons/ri";
-
-
+import seta from '../../utils/assets/stea.png'
+import { IoIosArrowForward } from "react-icons/io";
 
 function GridListagem() {
   return (
@@ -24,34 +22,30 @@ function GridListagem() {
           </div>
         </div>
         <Link to='/detalhes'>
-          <div className={styles.pointerSombra}>
-            <div className={styles.informacoesStudio}>
-              <img className={styles.fotoPerfil} src={fotoPerfilGrid} alt="" />
-              <div className={styles.informacoes}>
-                <h5 class="font-bold">Marcela Aoki</h5>
-                <div className={styles.line}>
-                  <MdLocationPin style={{ color: '#A855F7' }} size={20}/>
-                  <p class="ml-4">Rua das Flores, 1234 - Vila Carrão</p>
-                </div>
-                <div className={styles.line}>
-                  <RiMoneyDollarCircleFill class="mr-4" style={{ color: '#A855F7' }} size={20}/>
-                  <p class="font-bold" >Taxa Minima: R$ 100,00</p>
-                </div>
-              </div>
+        <div className={styles.pointerSombra}>
+          <div className={styles.informacoesStudio}>
+            <img className={styles.fotoPerfil} src={fotoPerfilGrid} alt="" />
+            <div className={styles.endereco}>
+              <h5>King Tatto</h5>
+              <p>Rua Ficticia, 1234 - Ficção</p>
             </div>
+            
+            <IoIosArrowForward size={32}/>
           </div>
+          <p className={styles.taxaHoraria}>Taxa Horária: R$ 100,00</p>
+        </div>
         </Link>
         <div className={styles.iconeContainer}>
           {/* Ícones com texto */}
-          <div className={styles.icone}>Old School</div>
-          <div className={styles.icone}>Realismo</div>
-          <div className={styles.icone}>Aquarela</div>
-          <div className={styles.icone}>Pontilhismo</div>
+          <div className={styles.icone}>Traço Fino</div>
+          <div className={styles.icone}>Anime</div>
+          <div className={styles.icone}>Encobrimentos</div>
+          <div className={styles.icone}>Tinta Vegana</div>
         </div>
         <Link to='/detalhes'>
-          <div className={styles.botaoTenhoInteresse}>
-            <button className={styles.tenhoInteresse}>Ver Portifólio</button>
-          </div>
+        <div className={styles.botaoTenhoInteresse}>
+          <button className={styles.tenhoInteresse}>Ver Portifólio</button>
+        </div>
         </Link>
       </div>
     </div>

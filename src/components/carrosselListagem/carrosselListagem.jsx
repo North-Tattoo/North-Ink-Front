@@ -20,23 +20,23 @@ const Carousel = () => {
         <div className="carouselContainer">
             <Slider {...settings}>
                 <div className="carousel-item">
-                    <img src="https://img.freepik.com/psd-gratuitas/close-de-um-simples-por-tras-da-tatuagem-de-orelha-de-uma-jovem-mulher_53876-11973.jpg?t=st=1716247116~exp=1716250716~hmac=0433eb964040505d9d0ede80cf105749afdfca96d0f839c8bfd2ebe4e7855bb1&" alt="Image 1" className="carousel-image" />
-                    <p className="carousel-text">Minimalismo</p>                
+                    <img src="https://d1kq2dqeox7x40.cloudfront.net/images/tattoo_style_examples/69001375-636d-4dca-82ee-2b420e280270.webp" alt="Image 1" className="carousel-image" />
+                    <p className="carousel-text">Linha Fina</p>                
                 </div>
                 <div className="carousel-item">
-                    <img src="https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6352a968-3559-4774-9f07-0a6eb025e079/DallEGeneratedImages/dalle-70ad5950-406a-4d2f-985a-ff37b7f3973d0251686053209285110900.jpg&dcHint=BrazilSouth&fileToken=80b289fb-e83d-4e65-8771-9e26c6c8eda3" alt="Image 2" className="carousel-image" />
-                    <p className="carousel-text">Blackwork</p>
+                    <img src="https://d1kq2dqeox7x40.cloudfront.net/images/tattoo_style_examples/6bfbd840be473a7d033c5.jpeg" alt="Image 2" className="carousel-image" />
+                    <p className="carousel-text">Preto & Cinza</p>
                 </div>
                 <div className="carousel-item">
-                    <img src="https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6352a968-3559-4774-9f07-0a6eb025e079/DallEGeneratedImages/dalle-34918068-4f56-4788-bbe6-69ff0f2a47060251686053022023884800.jpg&dcHint=BrazilSouth&fileToken=80b289fb-e83d-4e65-8771-9e26c6c8eda3" alt="Image 3" className="carousel-image" />
-                    <p className="carousel-text">Pontilhismo</p>
+                    <img src="https://d1kq2dqeox7x40.cloudfront.net/images/tattoo_style_examples/55c973410417fda5d6f3e.jpeg" alt="Image 3" className="carousel-image" />
+                    <p className="carousel-text">Floral</p>
                 </div>
                 <div className="carousel-item">
-                    <img src="https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6352a968-3559-4774-9f07-0a6eb025e079/DallEGeneratedImages/dalle-e98cd2ed-f29e-459a-abd8-db0481c770310251686052835410217600.jpg&dcHint=BrazilSouth&fileToken=80b289fb-e83d-4e65-8771-9e26c6c8eda3" alt="Image 4" className="carousel-image" />
-                    <p className="carousel-text">Realismo</p>
+                    <img src="https://d1kq2dqeox7x40.cloudfront.net/images/tattoo_style_examples/0417fda5d6f3e9cd4b41b.jpeg" alt="Image 3" className="carousel-image" />
+                    <p className="carousel-text">Micro Realismo</p>
                 </div>
                 <div className="carousel-item">
-                    <img src="https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6352a968-3559-4774-9f07-0a6eb025e079/DallEGeneratedImages/dalle-d2ed4391-7415-499f-8500-030d904cfb780251686052680615239300.jpg&dcHint=BrazilSouth&fileToken=80b289fb-e83d-4e65-8771-9e26c6c8eda3" alt="Image 5" className="carousel-image" />
+                    <img src="https://d1kq2dqeox7x40.cloudfront.net/images/tattoo_style_examples/53654d7555316ae3b742a.jpeg" alt="Image 3" className="carousel-image" />
                     <p className="carousel-text">Aquarela</p>
                 </div>
                 {/* Add more images here */}
