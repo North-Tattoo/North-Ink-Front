@@ -377,6 +377,9 @@ body {
     font-size: 25px;
     padding-bottom: 5%;
 }
+.texto-depoimento span{
+    font-size: 20px;
+}
 
 .logo-final-do-site {
     display: flex;
