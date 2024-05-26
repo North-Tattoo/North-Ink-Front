@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import InputMask from 'react-input-mask';
 import api from '../../api';
+import logoFooter from '../../utils/assets/logo-footer.png'
 
 function Cadastro() {
   const [mostrarPrimeiraTela, setMostrarPrimeiraTela] = useState(true);
@@ -233,8 +234,10 @@ function Cadastro() {
 
   return (
     <div className="inicio">
-      <Link to='/'><span className="voltar-texto"><IoIosArrowBack size={36}/>Voltar</span></Link>
-      <ToastContainer />
+      <Link to='/'>
+        <span className="voltar-texto"><IoIosArrowBack size={30}/>Voltar</span>
+      </Link>
+      <ToastContainer className="toastContainer"/>
       <div>
         <div className={`modal ${mostrarPrimeiraTela ? '' : 'oculto'}`}>
           {/* Conteúdo da primeira tela */}
@@ -242,7 +245,7 @@ function Cadastro() {
             <div className="barra-progresso">
               <div className="progresso"></div>
             </div>
-            <span className="frase-inicial">Se torne um tatuador <span className="text-black">parceiro</span>.</span>
+            <span className="frase-inicial">Se torne um tatuador parceiro.</span>
             <div className="linha"></div>
             <div className="nome-sobrenome">
               <div className="campo">
@@ -303,7 +306,10 @@ function Cadastro() {
                 />
               </div>
             </div>
-            <button className="avancar" onClick={validaCampos}>Avançar</button>
+            <button className="avancar" onClick={validaCampos}>Próximo</button>
+            <Link to='/'>
+            <img src={logoFooter} className="logo-cadastro"></img>
+            </Link>
           </div>
         </div>
 
@@ -373,7 +379,7 @@ function Cadastro() {
             <div className="barra-progresso">
               <div className="progresso-3"></div>
             </div>
-            <span className="frase-inicial">Para as pessoas te <span className="text-black">conhecerem</span>.</span>
+            <span className="frase-inicial">Para as pessoas te conhecerem.</span>
             <div className="linha"></div>
             <span className="msg-3-tela">Quais seus estilos preferidos para trabalhar?</span>
             <div className="opcoes">
@@ -412,7 +418,7 @@ function Cadastro() {
             <span className="label-textarea">Fale aqui sobre seu resumo profissional, tempo de atuação, história de vida...</span>
             <textarea id="resumo" name="resumo" rows="6" cols="65" {...register("resumo")}></textarea>
             <button className="concluir" onClick={handleConcluir}>Concluir</button>
-            <span id='voltar' onClick={voltarTerceiraParaPrimeira}>Voltar</span>
+            <span className='voltar' id='voltar' onClick={voltarTerceiraParaPrimeira}>Voltar</span>
           </div>
         </div>
       </div>

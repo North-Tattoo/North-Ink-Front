@@ -35,7 +35,7 @@ function ListagemTatuadores() {
         </div>
       </div>
       <div className={styles.fundoFim}>
-      <div className={styles.ondas}>
+      <div className={styles.ondasListagem}>
         <span className={styles["categoria"]}>
           <h5 className="text-gray-100 mt-40">Navegue por estilos.</h5>
         </span>

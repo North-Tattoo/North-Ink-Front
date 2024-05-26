@@ -4,6 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { IoIosArrowBack } from "react-icons/io";
 import { ToastContainer, toast } from 'react-toastify';
+import logoBranca from '../../utils/assets/logo-preta.png'
 import 'react-toastify/dist/ReactToastify.css';
 import api from "../../api";
 import GerenciamentoConta from "../gerenciamentoConta/GerenciamentoConta";
@@ -80,7 +81,7 @@ function Login() {
 
     return (
         <div className="inicio">
-            <ToastContainer
+            <ToastContainer className="toastContainer"
                 position="top-right"
                 autoClose={5000}
                 newestOnTop={false}
@@ -95,8 +96,8 @@ function Login() {
             <Link to='/'><span className="voltar-texto"><IoIosArrowBack size={36} />Voltar</span></Link>
             <div className="login">
                 <div className="conteudo-login">
-                    <span className="frase-inicial-login">Seja bem <span className="text-black">vindo</span>.</span>
-                    <div className="linha-login"></div>
+                    <img src={logoBranca}></img>
+                    <span className="frase-inicial-login">Seja bem vindo.</span>
                     <div className="campo-login">
                         <label htmlFor="email">E-mail</label>
                         <input
@@ -123,7 +124,7 @@ function Login() {
                         />
                     </div>
                     <button className="avancar-login" onClick={handleLogin}>Entrar</button>
-                    <span>Não tem uma conta? <Link to='/cadastro' className="text-purple-600">Faça seu cadastro</Link>.</span>
+                    <span className="nao-tem-conta-login">Não tem uma conta? <Link to='/cadastro' className="text-purple-600">Faça seu cadastro</Link>.</span>
                 </div>
             </div>
         </div>

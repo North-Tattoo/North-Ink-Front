@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Detalhes.module.css";
-import logoBranca from "../../utils/assets/logo-branca.png";
+import logoPreta from "../../utils/assets/logo-preta.png";
 import imagemPerfil from "../../utils/assets/tatuador-grid.png";
 import { PiUserCircleLight, PiInstagramLogoThin } from "react-icons/pi";
 import { Link } from "react-router-dom";
@@ -8,29 +8,28 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AiOutlineLeft, AiOutlineShareAlt } from "react-icons/ai";
 import Footer from "@/components/footer/footer";
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import { RiTimerLine } from "react-icons/ri";
+import { MdLocationPin } from "react-icons/md";
+
 
 function Detalhes() {
   return (
     <section className={styles["section-detalhes"]}>
       <header className={styles["header-detalhes"]}>
-        <img src={logoBranca} alt="Logo" />
-        <span className={styles.titulo}>
-          Conheça o <span className="text-white">artista</span>.
-        </span>
-        <div>
-          <Link className={styles["botao-login"]} to="/login">
-            <PiUserCircleLight size={40} /> Sou um Tatuador
-          </Link>
-        </div>
+        <Link to='/'>
+        <img src={logoPreta} alt="Logo" />
+        </Link>
+        <span className={styles.tituloPortifolio}>Conheça o artista, explore estilos.</span>
       </header>
       <div className={styles["container-detalhes"]}>
         <article className={styles["informacoes"]}>
           <div className={styles["botoes-informacoes"]}>
-            <Button className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded-full mt-5">
+            <Button className="bg-gray-600 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded-full mt-5">
               <AiOutlineLeft className="text-xl" />
             </Button>
 
-            <Button className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded-full mt-5">
+            <Button className="bg-gray-600 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded-full mt-5">
               <AiOutlineShareAlt className="text-xl" />
             </Button>
           </div>
@@ -41,17 +40,21 @@ function Detalhes() {
                 alt="Logo Branca"
                 className="w-16 mb-4 rounded-full m-2 mt-9 ml-5"
               />
-              <div className="ml-3 mt-10">
-                <h2 className="text-lg font-bold">Marco Marini</h2>
-                <div className="flex items-center">
-                  <span className="bg-green-500 rounded-full block w-2 h-2 mr-1"></span>
-                  <p className="text-sm">Disponível</p>
-                </div>
+              <div className="ml-3 mt-16">
+                <h2 className="text-lg font-bold">Marcela Marini</h2>
               </div>
             </div>
-            <Button className="bg-purple-600 text-white mt-4 ml-5 mb-8 h-11 hover:bg-purple-700">
-              Entrar em Contato
-            </Button>
+            <div className={styles.valorTempoDetalhes}>
+              <div className={styles.valorMinimo}>
+                <RiMoneyDollarCircleFill class="mr-4" style={{ color: '#3C3C3C' }} size={20} />
+                <span >VALOR MÍNIMO: R$ 400,00</span><br />
+              </div>
+              <div className={styles.valorMinimo}>
+                <RiTimerLine class="mr-4" style={{ color: '#3C3C3C' }} size={20} />
+                <span>TEMPO DE EXPERIÊNCIA: 2 anos</span>
+              </div>
+            </div>
+
             <div className="mt-12 ml-5">
               <h3 className="text-xl font-semibold mb-6">Bio</h3>
               <p className="text-sm text-justify w-80">
@@ -61,38 +64,31 @@ function Detalhes() {
                 nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
-            <div className={styles["instagram"]}>
-              <div className="flex space-x-44">
-                <h2 className="text-ml">Instagram</h2>
-                <PiInstagramLogoThin />
-              </div>
-              <div className={styles["linha-detalhes"]}></div>
-            </div>
+            <Button className="bg-purple-600 text-white mt-16 ml-5 mb-8 h-11 hover:bg-purple-700">
+              Entrar em Contato
+            </Button>
+
+            <div className={styles["linha-detalhes"]}></div>
+
           </div>
           <div className="mt-2">
             <h2 className="text-xl ml-5 mt-10 font-semibold">Estilos</h2>
             <div className="grid grid-cols-3 gap-7 p-1 ml-4 mt-4 mr-5">
+              <Badge className={styles.estilosDetalhes}>
+                Black Work
+              </Badge>
               <Badge
-                variant="default"
-                className="bg-zinc-300 border-gray-600 hover:bg-zinc-300 text-black flex items-center justify-center"
+                className={styles.estilosDetalhes}
               >
                 Black Work
               </Badge>
               <Badge
-                variant="default"
-                className="bg-zinc-300 border-gray-600 hover:bg-zinc-300 text-black flex items-center justify-center"
+                className={styles.estilosDetalhes}
               >
                 Black Work
               </Badge>
               <Badge
-                variant="default"
-                className="bg-zinc-300 border-gray-600 hover:bg-zinc-300 text-black flex items-center justify-center"
-              >
-                Black Work
-              </Badge>
-              <Badge
-                variant="default"
-                className="bg-zinc-300 border-gray-600 hover:bg-zinc-300 text-black flex items-center justify-center"
+                className={styles.estilosDetalhes}
               >
                 Black Work
               </Badge>
@@ -100,17 +96,6 @@ function Detalhes() {
           </div>
 
           <div className="mt-2">
-            <h2 className="text-xl ml-5 mt-12 font-semibold">Preços</h2>
-            <div className={styles["valores"]}>
-              <div className={styles["box-valores"]}>
-                <span>Valor da Hora</span>
-                <h2>R$ 100</h2>
-              </div>
-              <div className={styles["box-valores"]}>
-                <span>Preço Mínimo</span>
-                <h2>R$ 900</h2>
-              </div>
-            </div>
             <div className={styles["linha-detalhes-dois"]}></div>
           </div>
           <h2 className="text-xl font-semibold mt-8 ml-5">
@@ -122,11 +107,33 @@ function Detalhes() {
               alt="Logo Branca"
               className="w-16 mb-4 rounded-full m-2 mt-8 ml-5 mr-4"
             />
-            <div className={styles["endereco-estudio-detalhes"]}>
-              <h3 className="mt-7 text-xl font-semibold">King Tatto</h3>
-              <p className="text-sm font-medium">
-                Endereço da rua, 123 - Consolação, São Paulo - SP
-              </p>
+            <div className={styles["nome-estudio-detalhes"]}>
+              <h3 className="mt-7 text-xl font-semibold">ROUTE TATTO  </h3>
+            </div>
+          </div>
+          <div className={styles.enderecoIcone}>
+            <MdLocationPin style={{ color: '#3C3C3C' }} size={20} />
+            <p className={styles.enderecoDetalhes}>
+              Endereço da rua, 123 - Consolação
+            </p>
+          </div>
+          <div className="mt-12 ml-5">
+            <h3 className="text-xl font-semibold mb-6">Descrição</h3>
+            <p className="text-sm text-justify w-80">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div className="mt-2">
+            <div className={styles["linha-detalhes-dois"]}></div>
+          </div>
+          <div className={styles["instagram"]}>
+            <h3 className="text-xl font-semibold mb-6">Redes Sociais</h3>
+            <div className="flex space-x-16">
+              <h2 className="text-ml">Me acompanhe no Instagram!</h2>
+              <PiInstagramLogoThin />
             </div>
           </div>
         </article>

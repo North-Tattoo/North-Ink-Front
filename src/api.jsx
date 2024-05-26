@@ -2,9 +2,9 @@ import axios from "axios";
 
 const api = axios.create({
     baseURL: "http://localhost:8080",
-    // headers: {
-    //     'Authorization': `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huQGRvZS5jb20iLCJpYXQiOjE3MTQ2OTU4NzUsImV4cCI6MTcxODI5NTg3NX0.jrufxj1DNGG-qE0Avjm4nBPgTKrN0H8QRkUH8sAgbJBzQfjVw7nJ9lO6HeWX0LH0C2gV7vUhLZK0GkqbHX1XAw"}`
-    //   }
+    headers: {
+        'Authorization': `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvLnNpbHZhQGV4YW1wbGUuY29tIiwiaWF0IjoxNzE2NzU4NzU2LCJleHAiOjE3MjAzNTg3NTZ9.D2c7hkJZoe-Njji1zTrWie43N9wH7vWWeyngXWtMpEnbVlpMZSA4h1S2Xt-elxSFrl7JkiKw7JJdUYTa02SKgA"}`
+      }
 })
 
 export default api;
