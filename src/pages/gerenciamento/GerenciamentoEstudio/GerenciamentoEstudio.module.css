@@ -1,0 +1,105 @@
+body{
+    font-family: 'Poppins';
+}
+
+.fora-da-sidebar {
+  height: 100vh;
+  width: 100%;
+  /* position: relative; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 10%;
+  font-size: medium;
+}
+
+.titulo {
+  font-family: "Poppins";
+  margin-top: 25%;
+  font-size: 40px;
+  color: #a855f7;
+}
+
+.fora-da-sidebar h3 {
+  font-family: "Poppins";
+  font-size: 20px;
+  color: #6b6b6b;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.fora-da-sidebar input {
+  height: 40px;
+  width: 430px;
+  border: #6b6b6b solid 1px;
+  border-radius: 6px;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.fora-da-sidebar textarea {
+  border: #6b6b6b solid 1px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.label-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-grupo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 10px;
+  margin-right: 30px;
+  font-size: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.fora-da-sidebar input {
+  height: 40px;
+  width: 430px;
+  border: #6b6b6b solid 1px;
+  border-radius: 6px;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.botao-salvar{
+    margin-top: 30px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 6px;
+    background-color: #a855f7;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.ipt-cep{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ipt-cep svg {
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.ipt-cep svg:hover{
+    opacity: 1;
+}
