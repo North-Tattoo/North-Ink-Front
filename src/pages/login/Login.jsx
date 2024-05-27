@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import logoBranca from '../../utils/assets/logo-preta.png'
 import 'react-toastify/dist/ReactToastify.css';
 import api from "../../api";
-import GerenciamentoConta from "../gerenciamentoConta/GerenciamentoConta";
+import GerenciamentoConta from "../gerenciamento/GerenciamentoConta/GerenciamentoConta";
 function Login() {
 
     const [mostrarSenha, setMostrarSenha] = useState(false);

@@ -14,6 +14,7 @@ import InsertChartIcon from "@mui/icons-material/InsertChart";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Routes, Route, Link } from "react-router-dom";
 import styles from "./Sidebar.module.css";
+import { FaHome } from "react-icons/fa";
 
 function SidebarGerenciamentoConta() {
   const { collapseSidebar } = useProSidebar();
@@ -43,9 +44,11 @@ function SidebarGerenciamentoConta() {
               icon={<MenuRoundedIcon />}
             >
               <img src="..\src\utils\assets\logo-branca.png" alt="" />
-
             </MenuItem>
-            <MenuItem component={<Link to="/gerenciamento-conta/perfil" />} icon={<PersonIcon />}>
+            <MenuItem
+              component={<Link to="/gerenciamento-conta/perfil" />}
+              icon={<PersonIcon />}
+            >
               Meu Perfil
             </MenuItem>
             <MenuItem
@@ -54,7 +57,10 @@ function SidebarGerenciamentoConta() {
             >
               Portfólio
             </MenuItem>
-            <MenuItem component={<Link to="/gerenciamento-conta/estudio" />} icon={<HomeIcon />}>
+            <MenuItem
+              component={<Link to="/gerenciamento-conta/estudio" />}
+              icon={<HomeIcon />}
+            >
               Estúdio
             </MenuItem>
             <MenuItem
@@ -67,19 +73,7 @@ function SidebarGerenciamentoConta() {
               Sair
             </MenuItem>
           </Menu>
-        </Sidebar>
-
-        <section>
-            <Routes>
-                <Route path="/perfil"/>
-                {/* <Route path="/portfolio" element={<Portfolio />} />
-                <Route path="/estudio" element={<Estudio />} />
-                <Route path="/destaques" element={<Destaques />} />
-                <Route path="/logout" element={<Logout />} /> */}
-            </Routes>
-        </section>
-
-        {/* <h1>WELCOME TO QUICKPAY</h1> */}
+        </Sidebar>        
       </div>
     </>
   );
