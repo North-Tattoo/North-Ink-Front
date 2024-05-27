@@ -5,11 +5,11 @@ import Detalhes from "./detalhes/Detalhes";
 import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
 import NotFound from "./notFound/NotFound"
 import Login from "./login/Login";
-import GerenciamentoConta from "./gerenciamentoConta/GerenciamentoConta"
+import GerenciamentoConta from "./gerenciamento/GerenciamentoConta/GerenciamentoConta"
 import { ProSidebarProvider } from "react-pro-sidebar";
-import Perfil from "./GerenciamentoPerfil/GerenciamentoPerfil";
-import Portfolio from "./GerenciamentoPortfolio/GerenciamentoPortfolio";
-import Estudio from "./GerenciamentoEstudio/GerenciamentoEstudio";
+import Perfil from "./gerenciamento/GerenciamentoPerfil/GerenciamentoPerfil";
+import Portfolio from "./gerenciamento/GerenciamentoPortfolio/GerenciamentoPortfolio";
+import Estudio from "./gerenciamento/GerenciamentoEstudio/GerenciamentoEstudio";
 
 function App(){
   return (

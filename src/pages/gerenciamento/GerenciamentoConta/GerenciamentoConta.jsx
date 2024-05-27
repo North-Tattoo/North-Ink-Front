@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./GerenciamentoConta.module.css";
 import SidebarGerenciamentoConta from "@/components/sidebar/Sidebar";
-
+import { FaHome } from "react-icons/fa";
 
 function GerenciamentoConta({ userName }) {
-//   const [activeTab, setActiveTab] = useState(null); // Initial active tab
+  //   const [activeTab, setActiveTab] = useState(null); // Initial active tab
 
   //   const handleTabClick = (tabName) => {
   //     setActiveTab(tabName);
@@ -41,14 +41,17 @@ function GerenciamentoConta({ userName }) {
   //     return <Navigate to="/login" />;
   //   }
 
+  return (
+    <div style={{ display: "flex" }}>
+      <SidebarGerenciamentoConta />
 
-
-    return (
-    <>
-        <SidebarGerenciamentoConta />
-        
-
-    </>
-    );
+      <section className={styles["fora-da-sidebar"]}>
+        <h1 className={styles["titulo"]}>Gerencie sua conta.</h1>
+        <h3>Bem-vindo(a), xxxxxx</h3>
+        <FaHome />
+        <h3>Explore sua criatividade.</h3>
+      </section>
+    </div>
+  );
 }
 export default GerenciamentoConta;
