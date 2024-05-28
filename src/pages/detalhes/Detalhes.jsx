@@ -11,6 +11,9 @@ import Footer from "@/components/footer/footer";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { RiTimerLine } from "react-icons/ri";
 import { MdLocationPin } from "react-icons/md";
+import WhatsAppButton from '@/components/whastApp/WhatsAppButton'
+import { BsWhatsapp } from "react-icons/bs";
+import InstagramButton from "@/components/instagram/InstagramButton";
 
 
 function Detalhes() {
@@ -18,7 +21,7 @@ function Detalhes() {
     <section className={styles["section-detalhes"]}>
       <header className={styles["header-detalhes"]}>
         <Link to='/'>
-        <img src={logoPreta} alt="Logo" />
+          <img src={logoPreta} alt="Logo" />
         </Link>
         <span className={styles.tituloPortifolio}>Conheça o artista, explore estilos.</span>
       </header>
@@ -65,8 +68,10 @@ function Detalhes() {
               </p>
             </div>
             <Button className="bg-purple-600 text-white mt-16 ml-5 mb-8 h-11 hover:bg-purple-700">
-              Entrar em Contato
+              <WhatsAppButton />
+              <BsWhatsapp  class="ml-2" size={20}/>
             </Button>
+
 
             <div className={styles["linha-detalhes"]}></div>
 
@@ -132,8 +137,7 @@ function Detalhes() {
           <div className={styles["instagram"]}>
             <h3 className="text-xl font-semibold mb-6">Redes Sociais</h3>
             <div className="flex space-x-16">
-              <h2 className="text-ml">Me acompanhe no Instagram!</h2>
-              <PiInstagramLogoThin />
+            <InstagramButton/>
             </div>
           </div>
         </article>

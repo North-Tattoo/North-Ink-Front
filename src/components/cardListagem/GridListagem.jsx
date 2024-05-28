@@ -42,7 +42,6 @@ function GridListagem() {
           </div>
         </Link>
         <div className={styles.iconeContainer}>
-          {/* Ícones com texto */}
           <div className={styles.icone}>Old School</div>
           <div className={styles.icone}>Realismo</div>
           <div className={styles.icone}>Aquarela</div>
