@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button } from "@/components/ui/button";
+import { BsWhatsapp } from "react-icons/bs";
 
 const WhatsAppButton = () => {
   const phoneNumber = '5511980925594'; // Substitua pelo número de telefone desejado, com código do país
@@ -10,9 +12,10 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <button onClick={handleClick} >
+    <Button onClick={handleClick} className="bg-purple-600 text-white mt-16 ml-5 mb-8 h-11 hover:bg-purple-700">
       Entrar em Contato
-    </button>
+      <BsWhatsapp class="ml-2" size={20} />
+    </Button>
   );
 };
 

@@ -12,9 +12,7 @@ import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { RiTimerLine } from "react-icons/ri";
 import { MdLocationPin } from "react-icons/md";
 import WhatsAppButton from '@/components/whastApp/WhatsAppButton'
-import { BsWhatsapp } from "react-icons/bs";
 import InstagramButton from "@/components/instagram/InstagramButton";
-
 
 function Detalhes() {
   return (
@@ -67,10 +65,7 @@ function Detalhes() {
                 nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
-            <Button className="bg-purple-600 text-white mt-16 ml-5 mb-8 h-11 hover:bg-purple-700">
-              <WhatsAppButton />
-              <BsWhatsapp  class="ml-2" size={20}/>
-            </Button>
+           <WhatsAppButton/>
 
 
             <div className={styles["linha-detalhes"]}></div>
