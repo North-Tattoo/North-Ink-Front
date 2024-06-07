@@ -14,6 +14,7 @@ import NewSchool from '../../utils/assets/New School.jpg'
 import OldSchool from '../../utils/assets/OldSchool.jpg'
 import Oriental from '../../utils/assets/Oriental.jpg'
 import TrashPolka from '../../utils/assets/TrashPolka.jpg'
+import NeoTraditional from '../../utils/assets/NeoTraditional.jpeg'
 
 const settings = {
     dots: true,
@@ -49,6 +50,10 @@ const Carousel = () => {
                 <div className="carousel-item">
                     <img src={minimalismo} alt="Image 1" className="carousel-image" />
                     <p className="carousel-text">Minimalismo</p>                
+                </div>
+                <div className="carousel-item">
+                    <img src={NeoTraditional} alt="Image 5" className="carousel-image" />
+                    <p className="carousel-text">Neo Traditional</p>
                 </div>
                 <div className="carousel-item">
                     <img src={NewSchool} alt="Image 5" className="carousel-image" />
