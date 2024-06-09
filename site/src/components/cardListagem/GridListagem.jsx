@@ -1,17 +1,77 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './GridListagem.module.css';
 import studioTatuagens from '../../utils/assets/tatuagem-grid-card.jpg'
 import fotoPerfilGrid from '../../utils/assets/tatuador-grid.png'
 import { Link } from 'react-router-dom';
 import { MdLocationPin } from "react-icons/md";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
-
+import api from '../../api';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 function GridListagem() {
+  const [tatuadores, setTatuadores] = useState([]);
+
+  useEffect(() => {
+    api.get('/tatuadores')
+    .then(response => {
+      if(Array.isArray(response.data)){
+        setTatuadores(response.data);
+      }else{
+        setTatuadores([
+          {
+            id: 1,
+            nome: "Marcela",
+            rua: "Rua Ficticia",
+            numero: "123",
+            bairro: "Ficção",
+            precoMin: "100,00",
+            estilos: ["Blackwork"]
+          },
+          {
+            id: 2,
+            nome: "João",
+            rua: "Rua Real",
+            numero: "456",
+            bairro: "Realidade",
+            precoMin: "150,00",
+            estilos: ["Realismo", "Aquarela", "Geométrico"]
+          },
+          {
+            id: 3,
+            nome: "João",
+            rua: "Rua Real",
+            numero: "456",
+            bairro: "Realidade",
+            precoMin: "150,00",
+            estilos: ["Realismo", "Aquarela", "Geométrico"]
+          },
+          {
+            id: 4,
+            nome: "João",
+            rua: "Rua Real",
+            numero: "456",
+            bairro: "Realidade",
+            precoMin: "150,00",
+            estilos: ["Realismo", "Aquarela", "Geométrico"]
+          },
+          
+        ]);
+        
+      }
+      
+    })
+    .catch(error => {
+      toast.error("Erro ao buscar os dados dos tatuadores");
+      console.error(error);
+    });
+  }, []);
+
   return (
     <div className={styles.gridListagem}>
-      <div className={styles.cardStudio}>
+      
+      {tatuadores.map(tatuador => (
+      <div key={tatuador.id} className={styles.cardStudio}>
         <div className={styles.fotosServicos}>
           <div className={styles.imagemWrapper}>
             <img className={`${styles.imagem} imagem1`} src={studioTatuagens} alt="" />
@@ -28,31 +88,32 @@ function GridListagem() {
             <div className={styles.informacoesStudio}>
               <img className={styles.fotoPerfil} src={fotoPerfilGrid} alt="" />
               <div className={styles.informacoes}>
-                <h5 class="font-bold">Marcela Aoki</h5>
+                <h5 className="font-bold">{tatuador.nome}</h5>
                 <div className={styles.line}>
                   <MdLocationPin style={{ color: '#A855F7' }} size={20}/>
-                  <p class="ml-4">Rua das Flores, 1234 - Vila Carrão</p>
+                  <p className="ml-4">{`${tatuador.rua}, ${tatuador.numero} - ${tatuador.bairro}`}</p>
                 </div>
                 <div className={styles.line}>
-                  <RiMoneyDollarCircleFill class="mr-4" style={{ color: '#A855F7' }} size={20}/>
-                  <p class="font-bold" >Taxa Minima: R$ 100,00</p>
+                  <RiMoneyDollarCircleFill className="mr-4" style={{ color: '#A855F7' }} size={20}/>
+                  <p className="font-bold" >Taxa Minima: R$ {tatuador.precoMin}</p>
                 </div>
               </div>
             </div>
           </div>
         </Link>
         <div className={styles.iconeContainer}>
-          <div className={styles.icone}>Old School</div>
-          <div className={styles.icone}>Realismo</div>
-          <div className={styles.icone}>Aquarela</div>
-          <div className={styles.icone}>Pontilhismo</div>
+          {tatuador.estilos.map(estilo => (
+            <div key={estilo} className={styles.icone}>{estilo}</div>
+          ))}
         </div>
         <Link to='/detalhes'>
           <div className={styles.botaoTenhoInteresse}>
             <button className={styles.tenhoInteresse}>Ver Portifólio</button>
           </div>
         </Link>
+        <ToastContainer />
       </div>
+      ))}
     </div>
   );
 }
