@@ -163,7 +163,7 @@ function Detalhes() {
                {tatuador.bio}
               </p>
             </div>
-           <WhatsAppButton/>
+           <WhatsAppButton phoneNumber={tatuador.phoneNumber}/>
 
 
             <div className={styles["linha-detalhes"]}></div>
@@ -197,7 +197,9 @@ function Detalhes() {
           <div className={styles.enderecoIcone}>
             <MdLocationPin style={{ color: '#3C3C3C' }} size={20} />
             <p className={styles.enderecoDetalhes}>
-            {tatuador.estudio ?  tatuador.estudio.endereco : 'Carregando...'}
+            {tatuador.estudio ?  tatuador.estudio.rua : 'Carregando...'}, 
+            {tatuador.estudio ?  tatuador.estudio.numero : 'Carregando...'}  -
+            {tatuador.estudio ?  tatuador.estudio.bairro : 'Carregando...'}
             </p>
           </div>
           <div className="mt-12 ml-5">
@@ -212,7 +214,7 @@ function Detalhes() {
           <div className={styles["instagram"]}>
             <h3 className="text-xl font-semibold mb-6">Redes Sociais</h3>
             <div className="flex space-x-16">
-            <InstagramButton/>
+            <InstagramButton username={tatuador.username}/>
             </div>
           </div>
         </article>

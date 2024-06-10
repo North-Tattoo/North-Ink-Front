@@ -42,7 +42,7 @@ function GridListagem(  ) {
   const [tatuadores, setTatuadores] = useState([]);
 
   useEffect(() => {
-    api.get('/tatuadores')
+    api.get()
       .then(response => {
         if (Array.isArray(response.data)) {
           setTatuadores(response.data);
@@ -169,7 +169,7 @@ function GridListagem(  ) {
                     <h5 className="font-bold">{tatuador.nome}</h5>
                     <div className={styles.line}>
                       <MdLocationPin style={{ color: '#A855F7' }} size={20} />
-                      <p className="ml-4">{`${tatuador.rua}, ${tatuador.numero} - ${tatuador.bairro}`}</p>
+                      <p className="ml-4">{`${tatuador.estudio.rua}, ${tatuador.estudio.numero} - ${tatuador.estudio.bairro}`}</p>
                     </div>
                     <div className={styles.line}>
                       <RiMoneyDollarCircleFill className="mr-4" style={{ color: '#A855F7' }} size={20} />
@@ -184,7 +184,7 @@ function GridListagem(  ) {
                 <div key={estilo} className={styles.icone}>{estilo}</div>
               ))}
             </div>
-            <Link to='/detalhes'>
+            <Link to={`/detalhes/${tatuador.idTatuador}`}>
               <div className={styles.botaoTenhoInteresse}>
                 <button className={styles.tenhoInteresse}>Ver Portifólio</button>
               </div>
