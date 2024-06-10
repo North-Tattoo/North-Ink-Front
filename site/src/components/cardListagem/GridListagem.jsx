@@ -3,7 +3,7 @@ import styles from './GridListagem.module.css';
 import { Link } from 'react-router-dom';
 import { MdLocationPin } from "react-icons/md";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
-import api from '../../api';
+import apiMock from '../../apiMock';
 import { ToastContainer, toast } from 'react-toastify';
 import perfilTatuador1 from '../../utils/assets/perfilTatuador1.png'
 import perfilTatuador2 from '../../utils/assets/perfilTatuador2.png'
@@ -42,7 +42,7 @@ function GridListagem(  ) {
   const [tatuadores, setTatuadores] = useState([]);
 
   useEffect(() => {
-    api.get()
+    apiMock.get()
       .then(response => {
         if (Array.isArray(response.data)) {
           setTatuadores(response.data);

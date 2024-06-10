@@ -14,7 +14,7 @@ import { MdLocationPin } from "react-icons/md";
 import WhatsAppButton from '@/components/whastApp/WhatsAppButton'
 import InstagramButton from "@/components/instagram/InstagramButton";
 import { IoChevronBackCircle } from "react-icons/io5";
-import api from '../../api';
+import apiMock from '../../apiMock';
 import {toast } from 'react-toastify';
 import perfilTatuador1 from '../../utils/assets/perfilTatuador1.png'
 import perfilTatuador2 from '../../utils/assets/perfilTatuador2.png'
@@ -91,7 +91,7 @@ function Detalhes() {
   }, []);
 
   useEffect(() => {
-    api.get(`/${idTatuador}`).then((response) => {
+    apiMock.get(`/${idTatuador}`).then((response) => {
         if(response.data){
           setTatuador(response.data);
         }else{
