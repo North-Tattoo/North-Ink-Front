@@ -42,7 +42,7 @@ function ListagemTatuadores() {
         <h5 className={styles["titulo-listagem"]}>Os melhores profissionais em um só lugar.</h5>
         <div className={styles.content}>
           <div className={styles.cardRow}>
-            <GridListagem className={styles["cardListagemTatuadores"]} />
+            <GridListagem className={styles["cardListagem"]} />
           </div>
         </div>
         <Footer />
