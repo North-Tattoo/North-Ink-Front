@@ -77,32 +77,29 @@ const images = [
 ];
 
 function getRandomImage() {
-  
   return images[Math.floor(Math.random() * images.length)];
 }
 
 function Detalhes() {
   const [randomImages, setRandomImages] = useState(Array(12).fill(''));
+  const [usuario, setUsuario] = useState([]);
   const { id } = useParams();
-  const [usuario, setUsuario] = useState({});
 
   useEffect(() => {
     setRandomImages(randomImages.map(() => getRandomImage()));
   }, []);
 
   useEffect(() => {
-    api.get(`/usuarios/${id}`).then((response) => {
-        if(response.data){
-          setUsuario(response.data);
-        }else{
-          toast.error("Erro ao buscar os dados do tatuador");
-        }
+    api.get(`/usuarios/portfolio/${id}`)
+      .then(response => {
+        setUsuario(response.data);
       })
       .catch(error => {
-        toast.error("Erro ao buscar os dados do tatuador");
-        console.error(error);
+        console.error("Erro ao buscar tatuador:", error);
       });
-  }, [id]);
+  }, []);
+
+  
 
   const perfilTatuador = [
     perfilTatuador1,
@@ -143,13 +140,13 @@ function Detalhes() {
                 className="w-16 mb-4 rounded-full m-2 mt-9 ml-5"
               />
               <div className="ml-3 mt-16">
-                <h2 className="text-lg font-bold">{usuario.nome}</h2>
+                <h2 className="text-lg font-bold">{`${usuario.nome} ${usuario.sobrenome}`}</h2>
               </div>
             </div>
             <div className={styles.valorTempoDetalhes}>
               <div className={styles.valorMinimo}>
                 <RiMoneyDollarCircleFill class="mr-4" style={{ color: '#3C3C3C' }} size={20} />
-                <span >VALOR MÍNIMO: R$ {usuario.precoMinimo}</span><br />
+                <span >VALOR MÍNIMO: R$ {usuario.valorMin}</span><br />
               </div>
               <div className={styles.valorMinimo}>
                 <RiTimerLine class="mr-4" style={{ color: '#3C3C3C' }} size={20} />
@@ -163,7 +160,7 @@ function Detalhes() {
                {usuario.resumo}
               </p>
             </div>
-           <WhatsAppButton />
+           <WhatsAppButton phoneNumber={usuario.telefone} />
 
 
             <div className={styles["linha-detalhes"]}></div>
@@ -172,8 +169,8 @@ function Detalhes() {
           <div className="mt-2">
             <h2 className="text-xl ml-5 mt-10 font-semibold">Estilos</h2>
             <div className="grid grid-cols-3 gap-7 p-1 ml-4 mt-4 mr-5">
-              {usuario.estilos && usuario.estilos.map((estilo) => (
-                <Badge key={estilo} className={styles.estilosDetalhes}>
+              {usuario && usuario.estilos && usuario.estilos.map((estilo) => (
+                <Badge key={estilo.id} className={styles.estilosDetalhes}>
                 {estilo.nome}
               </Badge>
               )
@@ -197,15 +194,14 @@ function Detalhes() {
           <div className={styles.enderecoIcone}>
             <MdLocationPin style={{ color: '#3C3C3C' }} size={20} />
             <p className={styles.enderecoDetalhes}>
-            {usuario.estudio ?  usuario.estudio.rua : 'Carregando...'}, 
-            {usuario.estudio ?  usuario.estudio.numero : 'Carregando...'}  -
-            {usuario.estudio ?  usuario.estudio.bairro : 'Carregando...'}
+            {usuario.estudio?.endereco?.rua ?? "Rua não disponível"}, {usuario.estudio?.endereco?.numero ?? "Nº não disponível"}  -
+            {usuario.estudio?.endereco?.bairro ?? "Bairro não disponível"}
             </p>
           </div>
           <div className="mt-12 ml-5">
             <h3 className="text-xl font-semibold mb-6">Descrição</h3>
             <p className="text-sm text-justify w-80">
-            {usuario.estudio ? usuario.estudio.descricao : 'Carregando..'}
+            {usuario.estudio?.descricao ?? "Descrição não disponível"}
             </p>
           </div>
           <div className="mt-2">
