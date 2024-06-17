@@ -13,6 +13,7 @@ import logoFooter from '../../utils/assets/logo-footer.png'
 import { Navigate } from 'react-router-dom';
 
 function Cadastro() {
+  const [cadastro, setCadastro] = useState(false);
   const [mostrarPrimeiraTela, setMostrarPrimeiraTela] = useState(true);
   // const [mostrarSegundaTela, setMostrarSegundaTela] = useState(false);
   const [mostrarTerceiraTela, setMostrarTerceiraTela] = useState(false);
@@ -216,6 +217,7 @@ function Cadastro() {
     api.post("/usuarios", jsonData).then((response) => {
       console.log(response);
       if (response.status === 201) {
+        setCadastro(true);
         toast.success("Cadastro realizado com sucesso!");
       }
     }).catch(() => {
@@ -236,6 +238,15 @@ function Cadastro() {
   const toggleMostrarRepitaSenha = () => {
     setMostrarRepitaSenha(!mostrarRepitaSenha);
   };
+
+  if (cadastro) {
+    return (
+        <>
+            <Navigate to="/login" />
+        </>
+    );
+}
+
 
   return (
     <div className="inicio">
