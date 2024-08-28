@@ -10,6 +10,7 @@ const api = axios.create({
 // Adiciona um interceptor para incluir o token em requisições GET, PUT, e certas requisições POST
 api.interceptors.request.use((config) => {
     const token = sessionStorage.getItem('token');
+    // console.log('Token:', token);
     if (
         (token && config.method === 'get') || 
         (token && config.method === 'put') || 

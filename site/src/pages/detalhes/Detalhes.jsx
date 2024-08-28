@@ -16,6 +16,7 @@ import InstagramButton from "@/components/instagram/InstagramButton";
 import { IoChevronBackCircle } from "react-icons/io5";
 import api from '../../api';
 import {toast } from 'react-toastify';
+
 import perfilTatuador1 from '../../utils/assets/perfilTatuador1.png'
 import perfilTatuador2 from '../../utils/assets/perfilTatuador2.png'
 import perfilTatuador3 from '../../utils/assets/perfilTatuador3.png'
@@ -48,6 +49,10 @@ import OldSchool2 from '../../utils/assets/OldSchool2.jpeg'
 import Oriental2 from '../../utils/assets/Oriental2.jpeg'
 import TrashPolka2 from '../../utils/assets/TrashPolka2.jpeg'
 import NeoTraditional2 from '../../utils/assets/NeoTraditional2.jpeg'
+import LeafletMapComponent from "@/components/leafLetMap/LeafletMapComponent";
+
+import 'leaflet/dist/leaflet.css';
+
 
 const images = [
   aquarela,
@@ -199,6 +204,10 @@ function Detalhes() {
             {usuario.estudio?.endereco?.rua ?? "Rua não disponível"}, {usuario.estudio?.endereco?.numero ?? "Nº não disponível"}  -
             {usuario.estudio?.endereco?.bairro ?? "Bairro não disponível"}
             </p>
+           
+          </div>
+          <div className="ml-4 mt-4">
+          <LeafletMapComponent/>
           </div>
           <div className="mt-12 ml-5">
             <h3 className="text-xl font-semibold mb-6">Descrição</h3>
