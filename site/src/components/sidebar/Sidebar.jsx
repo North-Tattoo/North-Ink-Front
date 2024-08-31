@@ -108,12 +108,17 @@ function SidebarGerenciamentoConta() {
             Destaques
           </MenuItem>
           <MenuItem
-            onClick={handleLogout}
+            component={<Link to="/pagamento" />}
+          >
+            Seja assinante!
+          </MenuItem>
+          <MenuItem
             component={<Link to="/login" />}
             icon={<LogoutIcon />}
           >
             Sair
           </MenuItem>
+          
         </Menu>
       </Sidebar>
     </div>
