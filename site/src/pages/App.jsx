@@ -11,6 +11,7 @@ import Perfil from "./gerenciamento/GerenciamentoPerfil/GerenciamentoPerfil";
 import Portfolio from "./gerenciamento/GerenciamentoPortfolio/GerenciamentoPortfolio";
 import Estudio from "./gerenciamento/GerenciamentoEstudio/GerenciamentoEstudio";
 import Destaques from "./gerenciamento/GerenciamentoDestaques/GerenciamentoDestaques";
+import Pagamento from "./pagamento/Pagamento";
 
 function App(){
   return (
@@ -28,6 +29,7 @@ function App(){
               <Route path="/gerenciamento-conta/portfolio" element={<Portfolio />}/>
               <Route path="/gerenciamento-conta/estudio" element={<Estudio />}/>
               <Route path="/gerenciamento-conta/destaques" element={<Destaques />}/>
+              <Route path="/pagamento" element ={<Pagamento/>}/>
           </Routes>
       </BrowserRouter>
     </ProSidebarProvider>
