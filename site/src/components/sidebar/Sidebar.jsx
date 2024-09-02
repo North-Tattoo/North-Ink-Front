@@ -108,7 +108,7 @@ function SidebarGerenciamentoConta() {
             Destaques
           </MenuItem>
           <MenuItem
-            component={<Link to="/pagamento" />}
+            component={<Link to="/assinatura" />}
           >
             Seja assinante!
           </MenuItem>
