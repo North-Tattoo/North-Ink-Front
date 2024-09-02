@@ -9,7 +9,7 @@ function Assinatura() {
   function assinar() {
     console.log('1');
     
-    navigate('/pagamento');
+    navigate('/assinatura/pagamento');
 
     console.log('2');
   }

@@ -12,6 +12,7 @@ import Portfolio from "./gerenciamento/GerenciamentoPortfolio/GerenciamentoPortf
 import Estudio from "./gerenciamento/GerenciamentoEstudio/GerenciamentoEstudio";
 import Destaques from "./gerenciamento/GerenciamentoDestaques/GerenciamentoDestaques";
 import Assinatura from "./gerenciamento/assinatura/Assinatura";
+import AssinaturaPagamento from "./AssinaturaPagamento/AssinaturaPagamento";
 import Pagamento from "./pagamento/Pagamento";
 
 function App(){
@@ -31,6 +32,7 @@ function App(){
               <Route path="/gerenciamento-conta/estudio" element={<Estudio />}/>
               <Route path="/gerenciamento-conta/destaques" element={<Destaques />}/>
               <Route path="/assinatura" element ={<Assinatura/>}/>
+              <Route path="/assinatura/pagamento" element ={<AssinaturaPagamento/>}/>
               <Route path="/pagamento" element={<Pagamento/>}/>
           </Routes>
       </BrowserRouter>
