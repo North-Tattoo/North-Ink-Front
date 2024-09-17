@@ -5,6 +5,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
 import HomeIcon from "@mui/icons-material/Home";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
+import StarIcon from '@mui/icons-material/Star';
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Sidebar.module.css";
@@ -109,8 +110,9 @@ function SidebarGerenciamentoConta() {
           </MenuItem>
           <MenuItem
             component={<Link to="/assinatura" />}
+            icon={<StarIcon />}
           >
-            Seja assinante!
+            Assinatura
           </MenuItem>
           <MenuItem
             component={<Link to="/login" />}

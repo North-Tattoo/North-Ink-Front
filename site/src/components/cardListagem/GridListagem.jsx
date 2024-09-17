@@ -118,7 +118,7 @@ function GridListagem() {
                 </div>
               ))}
             </div>
-            <Link to='/detalhes'>
+            <Link to={`/detalhes/${usuario.id}`}>
               <div className={styles.pointerSombra}>
                 <div className={styles.informacoesStudio}>
                   <img className={styles.fotoPerfil} src={sortearFotoPerfil()} alt="" />

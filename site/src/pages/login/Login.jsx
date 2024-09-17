@@ -57,7 +57,7 @@ function Login() {
             }
         }).catch((error) => {
             console.error(error);
-            if (error.response && error.response.status === 400) {
+            if (error.response && error.response.status === 401) {
                 notify(false, "Email ou senha incorretos. Por favor, tente novamente.");
             } else {
                 notify(false, "Erro ao fazer login. Por favor, tente novamente.");
