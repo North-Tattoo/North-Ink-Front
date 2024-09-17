@@ -4,8 +4,10 @@ import styles from "./GerenciamentoDestaques.module.css";
 import PieChart from "@/components/PieChart/PieChart.jsx";
 import BarChart from "@/components/BarChart/BarChart";
 import LineChart from "@/components/LineChart/LineChart";
+import api from "../../../api";
 
 function Destaques() {
+
   return (
     <div style={{ display: "flex" }}>
       <SidebarGerenciamentoConta />
