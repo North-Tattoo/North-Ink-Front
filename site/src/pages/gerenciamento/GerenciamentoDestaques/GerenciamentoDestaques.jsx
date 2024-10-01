@@ -13,7 +13,7 @@ function Destaques() {
       <SidebarGerenciamentoConta />
       <section className={styles["fora-da-sidebar"]}>
         <h1 className={styles.tituloDestaques}>Destaques.</h1>
-        <h3>Fique por dentro das tendencias no mundo da taguagem.</h3>
+        <h3>Fique por dentro das tendências no mundo da taguagem.</h3>
         <div className={styles["graficosDestaques"]}>
           <div className={styles["container-chart"]}>
             <PieChart />

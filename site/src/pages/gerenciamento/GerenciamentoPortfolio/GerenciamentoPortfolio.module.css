@@ -141,9 +141,9 @@
   border-style: dashed;
   border-width: 2px;
   border-color: #9333EA; 
-  padding: 2rem; 
+  padding: 1rem; 
   border-radius: 0.5rem; 
-  height: 350px; 
+  height: 550px; 
   width: 600px; 
   display: flex;
   /* flex-direction: column; */
