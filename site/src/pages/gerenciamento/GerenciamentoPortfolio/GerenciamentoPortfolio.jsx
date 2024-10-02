@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "./GerenciamentoPortfolio.module.css";
 import SidebarGerenciamentoConta from "@/components/sidebar/Sidebar";
-import ImageUpload from "@/components/imageUpload/ImageUpload";
 import EstilosComponent from "@/components/estilosComponent/EstilosComponent";
 import { FaSquareInstagram } from "react-icons/fa6";
-import ProfileImageUploader from "@/components/profileImageUploader/ProfileImageUploader";
 import api from "../../../api";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from "react-toastify";
+import { IoPersonAddSharp } from "react-icons/io5";
+import ImageUpload from "@/components/imageUpload/ImageUpload";
 
 function Portfolio() {
   const [precoMin, setPrecoMin] = useState("");
@@ -14,16 +14,30 @@ function Portfolio() {
   const [resumo, setResumo] = useState("");
   const [instagram, setInstagram] = useState("");
   const [userId, setUserId] = useState(null);
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
+  const [imagemPerfil, setImagemPerfil] = useState(null);
+  const [perfilImageFile, setPerfilImageFile] = useState(null); // Para armazenar a imagem do perfil
 
   useEffect(() => {
-    const storedUserId = sessionStorage.getItem('userId');
+    const storedUserId = sessionStorage.getItem("userId");
     setUserId(storedUserId);
-    const storedUserName = sessionStorage.getItem('userName');
-      if (storedUserName) {
-        setUserName(storedUserName);
-      }
+    const storedUserName = sessionStorage.getItem("userName");
+    if (storedUserName) {
+      setUserName(storedUserName);
+    }
   }, []);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagemPerfil(reader.result);
+        setPerfilImageFile(file); // Armazena o arquivo da imagem do perfil
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleSave = () => {
     const portfolioData = {
@@ -31,24 +45,45 @@ function Portfolio() {
       precoMin: parseFloat(precoMin),
       anosExperiencia: anosExperiencia,
       resumo: resumo,
-      instagram: instagram
+      instagram: instagram,
     };
 
-    // console.log(portfolioData.anosExperiencia);
-    
-
     if (userId) {
-      api.put(`/usuarios/portfolioAtualizar/${userId}`, portfolioData)
-        .then(response => {
+      // Primeiro, atualiza o portfólio
+      api
+        .put(`/usuarios/portfolioAtualizar/${userId}`, portfolioData)
+        .then((response) => {
           if (response.status === 200) {
             toast.success("Portfólio atualizado com sucesso!");
-            console.log('passou');
+            console.log("passou");
             console.log(response.data);
+
+            // Após atualizar o portfólio, faça o upload da imagem de perfil
+            if (perfilImageFile) {
+              console.log("perfilImageFile:", perfilImageFile);
+              const formData = new FormData();
+              const folderPath = `profile/${userId}_${userName}`; // Define o caminho da pasta
+              formData.append("file", perfilImageFile); // O nome do campo deve ser "file"
+              formData.append("upload_preset", "teste"); // Altere para o seu upload preset
+              formData.append("folder", folderPath); // Define a pasta onde a imagem será armazenada            
+
+              api.post(`https://api.cloudinary.com/v1_1/teste/image/upload`, formData)
+                .then((res) => {
+                  if (res.status === 200) {
+                    toast.success("Imagem de perfil atualizada com sucesso!");
+                    console.log("Imagem de perfil:", res.data);
+                  }
+                })
+                .catch((error) => {
+                  toast.error("Erro ao atualizar a imagem de perfil.");
+                  console.error("Upload error:", error);
+                });
+            }
           }
         })
-        .catch(error => {
+        .catch((error) => {
           toast.error("Erro ao atualizar portfólio. Por favor, tente novamente.");
-          console.error(error);
+          console.error("Portfolio update error:", error);
         });
     } else {
       toast.error("Erro: ID do usuário não encontrado.");
@@ -59,31 +94,55 @@ function Portfolio() {
     <div style={{ display: "flex" }}>
       <SidebarGerenciamentoConta />
       <section className={styles["fora-da-sidebar"]}>
-      <ToastContainer className="toastContainer"
-                position="top-right"
-                autoClose={5000}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-                transition:Bounce
-            />
-        <h1 className={`${styles["tituloPortifolio"]} font-poppins`}>Crie seu Portfólio.</h1>
+        <ToastContainer
+          className="toastContainer"
+          position="top-right"
+          autoClose={5000}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        <h1 className={`${styles["tituloPortifolio"]} font-poppins`}>
+          Crie seu Portfólio.
+        </h1>
         <br />
         <h3 className={`${styles["subtituloPortifolio"]} font-poppins`}>
           Sua pré-visualização de portfólio, edite crie e se inspire.
         </h3>
-        <h4 className={`${styles["subtituloIIPortifolio"]} font-poppins`}>Edite o seu portfólio.</h4>
+        <h4 className={`${styles["subtituloIIPortifolio"]} font-poppins`}>
+          Edite o seu portfólio.
+        </h4>
         <div className="flex space-x-8">
           <div className="flex">
             <div className="flex flex-col items-start bg-zinc-200 w-88 h-auto p-4 rounded-lg shadow-lg overflow-hidden border border-zinc-600">
               <div className="flex items-center mb-4">
-                <ProfileImageUploader />
+                <div>
+                  <div
+                    className={styles.fotoPerfilPortifolio}
+                    onClick={() => document.getElementById("profile-image").click()}
+                  >
+                    {imagemPerfil ? (
+                      <img src={imagemPerfil} alt="Imagem de Perfil" />
+                    ) : (
+                      <IoPersonAddSharp style={{ color: "#9333EA" }} size={50} />
+                    )}
+                  </div>
+                  <input
+                    id="profile-image"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    className={styles.hiddenInput}
+                  />
+                </div>
                 <div className="ml-8">
-                  <h2 className="text-lg font-bold font-poppins text-zinc-800">{userName}</h2>
+                  <h2 className="text-lg font-bold font-poppins text-zinc-800">
+                    {userName}
+                  </h2>
                 </div>
               </div>
               <div className="flex-col ml-2">
@@ -122,7 +181,14 @@ function Portfolio() {
                 <div className={styles.userInstaPortifolio}>
                   <div className={styles.userInstaTitulo}>
                     <p className={styles.tituloValorMin}>Instagram</p>
-                    <FaSquareInstagram style={{ color: '#9333EA', marginLeft: '10px', marginTop: '20px' }} size={20} />
+                    <FaSquareInstagram
+                      style={{
+                        color: "#9333EA",
+                        marginLeft: "10px",
+                        marginTop: "20px",
+                      }}
+                      size={20}
+                    />
                   </div>
                   <input
                     placeholder="www.instagram.com/"
@@ -134,11 +200,15 @@ function Portfolio() {
             </div>
           </div>
           <div>
-            <h2 className="font-medium font-poppins text-zinc-600">Anexe fotos para completar seu portfólio.</h2>
+            <h2 className="font-medium font-poppins text-zinc-600">
+              Anexe fotos para completar seu portfólio.
+            </h2>
             <ImageUpload />
           </div>
         </div>
-        <button className={styles.botaoPortifolioSalvar} onClick={handleSave}>Salvar</button>
+        <button className={styles.botaoPortifolioSalvar} onClick={handleSave}>
+          Salvar
+        </button>
       </section>
     </div>
   );

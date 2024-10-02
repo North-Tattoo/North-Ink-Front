@@ -26,33 +26,41 @@ function ImageUpload() {
 
     const uploadToCloudinary = async () => {
         setLoading(true);
-
+    
+        console.log("Estilos selecionados:", stylesSelected); // Loga os estilos selecionados no console
+    
         const formData = new FormData();
-        formData.append("upload_preset", "bwlrnidv");
-        formData.append("folder", `${sessionStorage.getItem('userId')}_${sessionStorage.getItem('userName')}`);
+        formData.append("upload_preset", "teste");
+        formData.append("folder", `${sessionStorage.getItem('userId')}_${sessionStorage.getItem('userName')}/tattos_images`);
 
         const uploadedImages = [];
-
+        let allUploadsSuccessful = true; // Variável para verificar se todos os uploads foram bem-sucedidos
+    
         for (const file of selectedFiles) {
-            formData.append("file", file);
-
+            formData.set("file", file); // Usa .set para garantir que apenas um arquivo seja enviado por vez
+    
             try {
                 const response = await axios.post(
-                    "https://api.cloudinary.com/v1_1/dnd0ngogh/image/upload",
+                    "https://api.cloudinary.com/v1_1/teste/image/upload",
                     formData
                 );
                 uploadedImages.push(response.data.secure_url);
-                console.log("Upload feito com sucesso:", response.data.secure_url);
-                toast.success('Imagens salvas com sucesso!');
             } catch (error) {
                 console.error("Erro ao fazer upload:", error);
-                toast.error('Erro ao salvar imagens. Tente novamente.');
+                allUploadsSuccessful = false; // Define como falso se algum upload falhar
             }
         }
-
+    
+        if (allUploadsSuccessful) {
+            toast.success('Imagens salvas com sucesso!'); // Exibe o alerta apenas uma vez
+        } else {
+            toast.error('Erro ao salvar uma ou mais imagens. Tente novamente.');
+        }
+    
         setImages([...uploadedImages]);
         setSelectedFiles([]);
         setStylesSelected([]); // Limpa estilos selecionados após upload
+        setImages([]); // Limpa as imagens após o upload
         setLoading(false);
     };
 
@@ -72,8 +80,7 @@ function ImageUpload() {
 
     return (
         <>
-            <ToastContainer 
-                className="toastContainer"
+            <ToastContainer className="toastContainer"
                 position="top-right"
                 autoClose={5000}
                 newestOnTop={false}
@@ -83,7 +90,7 @@ function ImageUpload() {
                 draggable
                 pauseOnHover
                 theme="light"
-                transition="Bounce"
+                transition:Bounce
             />
             <div className={styles.customContainer}>
                 <label htmlFor="images" className="cursor-pointer">
@@ -95,7 +102,7 @@ function ImageUpload() {
             <div className="mt-4">
                 <div className={`${styles.customContainerVisible} flex flex-wrap p-2 h-400`}>
                     {images.map((image, index) => (
-                        <div key={index} className="flex flex-col items-center mb-2 mx-3 relative w-1/5"> {/* Ajuste para 1/3 da largura */}
+                        <div key={index} className="flex flex-col items-center mb-2 mx-3 relative w-1/5">
                             <img 
                                 src={image} 
                                 alt={`preview-${index}`} 
@@ -133,7 +140,7 @@ function ImageUpload() {
                 </div>
             </div>
             <div className="mt-4">
-                <Button onClick={uploadToCloudinary} className="w-72 h-10 bg-zinc-800 hover:bg-zinc-500 text-white text-lg rounded-md">
+                <Button onClick={uploadToCloudinary} className="w-72 h-10 bg-zinc-800 hover:bg-zinc-500 text-white text-lg rounded-md" disabled={selectedFiles.length === 0}>
                     {loading ? 'Salvando...' : 'Salvar Imagens'}
                 </Button>
             </div>
