@@ -214,7 +214,7 @@ function Cadastro() {
   
     console.log(jsonData);
   
-    api.post("/usuarios", jsonData).then((response) => {
+    api.post("/api/usuarios", jsonData).then((response) => {
       console.log(response);
       if (response.status === 201) {
         toast.success("Cadastro realizado com sucesso!");

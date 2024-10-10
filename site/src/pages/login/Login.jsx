@@ -42,7 +42,7 @@ function Login() {
             email,
             senha
         };
-        api.post("/usuarios/login", usuario).then((response) => {
+        api.post("/api/usuarios/login", usuario).then((response) => {
             if (response.status === 200) {
                 notify(true, "Login bem sucedido!");
                 setTimeout(() => {

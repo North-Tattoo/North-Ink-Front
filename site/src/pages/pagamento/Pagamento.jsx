@@ -6,7 +6,7 @@ const Pagamento = () => {
 
   const handleGenerateQRCode = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/generate-qrcode');
+      const response = await axios.post('https://api-pagamento-n67l.onrender.com/api/generate-qrcode');
       setQrcodeImage(response.data.qrcodeImage);
     } catch (error) {
       console.error('Erro ao gerar QR code:', error);
