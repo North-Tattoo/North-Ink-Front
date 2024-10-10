@@ -4,7 +4,6 @@ import { IoImagesOutline } from "react-icons/io5";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import styles from "../../pages/gerenciamento/GerenciamentoPortfolio/GerenciamentoPortfolio.module.css";
-import { log } from 'console';
 
 function ImageUpload() {
     const [selectedFiles, setSelectedFiles] = useState([]);
