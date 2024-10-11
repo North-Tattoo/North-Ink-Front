@@ -130,7 +130,7 @@ function Perfil() {
 
     console.log(jsonData);
 
-    api.put(`/usuarios/${userId}`, jsonData)
+    api.put(`/api/usuarios/${userId}`, jsonData)
       .then((response) => {
         if (response.status === 200) {
           toast.success("Perfil atualizado com sucesso!");

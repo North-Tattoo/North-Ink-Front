@@ -60,7 +60,7 @@ function Estudio() {
       return notify("numero", "Número deve estar preenchido");
     }
 
-    api.post(`/estudios`, { nome: nomeEstudio, descricao, fkUsuario: userId })
+    api.post(`/api/estudios`, { nome: nomeEstudio, descricao, fkUsuario: userId })
       .then((response) => {
         if (response.status === 201) {
           const estudioData = response.data;

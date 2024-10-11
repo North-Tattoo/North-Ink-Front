@@ -45,13 +45,15 @@ function Login() {
         api.post("/api/usuarios/login", usuario).then((response) => {
             if (response.status === 200) {
                 notify(true, "Login bem sucedido!");
+                console.log('response', response);
                 setTimeout(() => {
                     setLoggedIn(true);
-                    setUserName(response.data.nome);
                     // Armazena o userId e o token no sessionStorage
                     sessionStorage.setItem('userId', response.data.userId);
                     sessionStorage.setItem('token', response.data.token);
                     sessionStorage.setItem('userName', response.data.nome);
+                    sessionStorage.setItem('userSurname', response.data.sobrenome);
+                    sessionStorage.setItem('userCpf', response.data.cpf);
                     console.log('token', response.data.token);
                 }, 1000);
             }

@@ -95,7 +95,7 @@ function Detalhes() {
   }, []);
 
   useEffect(() => {
-    api.get(`/usuarios/portfolio/${id}`)
+    api.get(`api/usuarios/portfolio/${id}`)
       .then(response => {
         setUsuario(response.data);
       })

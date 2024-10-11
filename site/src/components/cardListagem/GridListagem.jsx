@@ -42,7 +42,7 @@ function GridListagem() {
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    api.get('/usuarios/geral')
+    api.get('/api/usuarios/geral')
       .then(response => {
         setUsuarios(response.data);
       })
