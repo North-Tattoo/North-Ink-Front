@@ -95,7 +95,7 @@ function Estudio() {
       fkEstudio: estudioId || sessionStorage.getItem('estudioId') // Utiliza o ID do estúdio guardado
     };
 
-    api.post(`/enderecos`, enderecoData)
+    api.post(`/api/enderecos`, enderecoData)
       .then((response) => {
         if (response.status === 201) {
           toast.success("Endereço salvo com sucesso!");

@@ -15,7 +15,7 @@ const LeafletMapComponent = () => {
         // const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzb3BoaWEuYW1hcmFsMjgwNkBnbWFpbC5jb20iLCJpYXQiOjE3MjQ4ODM1NDcsImV4cCI6MTcyODQ4MzU0N30.5QxsfLWvm3hfIOjI1KvOWrjpMuVr6Bwed1jQ1ksyENmwaLYbJa7GfaTsyo9gs71_1uKz5eR3bLACX4VFOxgXzw";
 
         // Configurar o cabeçalho com o token do usuário
-        const response = await api.get('/enderecos');
+        const response = await api.get('/api/enderecos');
 
         const addressData = response.data[0];
         const fullAddress = `${addressData.rua}, ${addressData.cidade}, ${addressData.estado}`;

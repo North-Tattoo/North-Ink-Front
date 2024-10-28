@@ -14,8 +14,8 @@ api.interceptors.request.use((config) => {
     if (
         (token && config.method === 'get') || 
         (token && config.method === 'put') || 
-        (token && config.method === 'post' && config.url.startsWith('/estudios')) || 
-        (token && config.method === 'post' && config.url.startsWith('/enderecos'))
+        (token && config.method === 'post' && config.url.startsWith('/api/estudios')) || 
+        (token && config.method === 'post' && config.url.startsWith('/api/enderecos'))
     ) {
         config.headers['Authorization'] = `Bearer ${token}`;
     }
