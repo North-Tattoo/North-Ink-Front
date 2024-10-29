@@ -1,18 +1,44 @@
+import React, { useState } from 'react';
 import SidebarGerenciamentoConta from "@/components/sidebar/Sidebar";
 import styles from "./Assinatura.module.css";
 import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Assinatura() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  function assinar() {
-    console.log('1');
-    
-    navigate('/assinatura/pagamento');
+  const assinar = async () => {
+    setLoading(true); // Exibe o modal com spinner
+  
+    // Espera 3 segundos antes de prosseguir
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
+  
+    const nomeCompleto = `${sessionStorage.getItem('userName')} ${sessionStorage.getItem('userSurname')}`;
+    const cpf = sessionStorage.getItem('userCpf');
+  
+    try {
+      const response = await axios.post('https://api-pagamento-n67l.onrender.com/api/generate-qrcode', {
+        nome: nomeCompleto,
+        cpf: cpf
+      });
+      // const response = await axios.post('http://localhost:5000/api/generate-qrcode', {
+      //   nome: nomeCompleto,
+      //   cpf: cpf
+      // });
 
-    console.log('2');
-  }
+      console.log('response:', response);
+
+      window.open(response.data.linkVisualizacao, "_blank");
+
+    } catch (error) {
+      console.error("Erro ao gerar o QR Code Assinatura.jsx:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
 
   return (
     <div style={{ display: "flex" }}>
@@ -58,6 +84,14 @@ function Assinatura() {
           </div>
         </div>
       </section>
+
+      {/* Modal com Spinner */}
+      {loading && (
+        <div className={styles.modal}>
+          <div className={styles.spinner}></div>
+          <p>Processando sua assinatura...</p>
+        </div>
+      )}
     </div>
   );
 }
