@@ -5,19 +5,19 @@ const Pagamento = () => {
   const [qrcodeImage, setQrcodeImage] = useState('');
 
   const handleGenerateQRCode = async () => {
-    try {
+    // try {
       const nomeCompleto = `${sessionStorage.getItem('userName')} ${sessionStorage.getItem('userSurname')}`;
       const cpf = sessionStorage.getItem('userCpf');
 
       const response = await axios.post('http://localhost:5000/api/generate-qrcode', {
         nome: nomeCompleto,
-        cpf: cpf,
+        cpf: cpf
       });
       // const response = await axios.post('https://api-pagamento-n67l.onrender.com/api/generate-qrcode');
       setQrcodeImage(response.data.qrcodeImage);
-    } catch (error) {
-      console.error('Erro ao gerar QR code:', error);
-    }
+    // } catch (error) {
+    //   console.error('Erro ao gerar QR code:', error);
+    // }
   };
 
   return (
