@@ -134,3 +134,56 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 91vh;
+  min-width: 80vw;
+}
+
+.assinante-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.titulo-assinante {
+  color: #9333EA;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.mensagem-assinante {
+  font-size: 1.4rem;
+  margin: 10px 0;
+  color: #555;
+}
+
+.info-assinante {
+  background-color: #9233ea4f;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  color: #000000;
+}
+
+/* .botao-gerenciar {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.botao-gerenciar:hover {
+  background-color: #388e3c;
+} */
