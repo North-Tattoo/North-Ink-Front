@@ -30,7 +30,7 @@ function ImageUpload() {
         console.log("Estilos selecionados:", stylesSelected); // Loga os estilos selecionados no console
     
         const formData = new FormData();
-        formData.append("upload_preset", "teste");
+        formData.append("upload_preset", "qlnsrw7z");
         formData.append("folder", `${sessionStorage.getItem('userId')}_${sessionStorage.getItem('userName')}/tattos_images`);
 
         const uploadedImages = [];
@@ -41,7 +41,7 @@ function ImageUpload() {
     
             try {
                 const response = await axios.post(
-                    "https://api.cloudinary.com/v1_1/teste/image/upload",
+                    "https://api.cloudinary.com/v1_1/dyknqpmtg/image/upload",
                     formData
                 );
                 uploadedImages.push(response.data.secure_url);
