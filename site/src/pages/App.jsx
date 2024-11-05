@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./home/Home";
 import Cadastro from "./cadastro/Cadastro";
 import Detalhes from "./detalhes/Detalhes";
-import ListagemTatuadores from "./listagemTatuadores/ListagemTatuadores";
+import ListagemTatuadores from "./listagemTatuadores/listagem/ListagemTatuadores";
 import NotFound from "./notFound/NotFound"
 import Login from "./login/Login";
 import GerenciamentoConta from "./gerenciamento/GerenciamentoConta/GerenciamentoConta"
