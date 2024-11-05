@@ -16,7 +16,7 @@ function Assinatura() {
       const userId = sessionStorage.getItem("userId");
       try {
         const response = await api.get(`/api/usuarios/${userId}/assinatura`);
-        setUsuarioAssinatura(response.data); // Armazena o objeto completo retornado da API
+        setUsuarioAssinatura(response.data);
       } catch (error) {
         console.error("Erro ao buscar status de assinatura:", error);
       }
@@ -26,38 +26,31 @@ function Assinatura() {
   }, []);
 
   const assinar = async () => {
-    setLoading(true); // Exibe o modal com spinner
-    const nomeCompleto = `${sessionStorage.getItem(
-      "userName"
-    )} ${sessionStorage.getItem("userSurname")}`;
+    setLoading(true);
+    const userId = sessionStorage.getItem("userId");
+    const nomeCompleto = `${sessionStorage.getItem("userName")} ${sessionStorage.getItem("userSurname")}`;
     const cpf = sessionStorage.getItem("userCpf");
 
     try {
-      const response = await axios.post(
-        "https://api-pagamento-n67l.onrender.com/api/generate-qrcode",
-        {
-          nome: nomeCompleto,
-          cpf: cpf,
-        }
-      );
-
-      // const response = await axios.post(
-      //   "http://localhost:5000/api/generate-qrcode",
-      //   {
-      //     nome: nomeCompleto,
-      //     cpf: cpf,
-      //   }
-      // );
+      const response = await axios.post("http://localhost:5000/api/generate-qrcode", {
+        nome: nomeCompleto,
+        cpf: cpf,
+      });
 
       window.open(response.data.linkVisualizacao, "_blank");
+
+      // Atualiza o status de assinatura para assinante = true usando request param
+      await api .put(`/api/usuarios/${userId}/assinatura`, null, {
+        params: { assinante: true },
+      });
+
     } catch (error) {
-      console.error("Erro ao gerar o QR Code Assinatura.jsx:", error);
+      console.error("Erro ao gerar o QR Code ou atualizar assinatura:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  // Verifica se o usuário é assinante
   if (usuarioAssinatura && usuarioAssinatura.assinante) {
     const { diasRestantes } = usuarioAssinatura;
 
@@ -80,7 +73,6 @@ function Assinatura() {
     );
   }
 
-  // Tela de assinatura padrão
   return (
     <div style={{ display: "flex" }}>
       <SidebarGerenciamentoConta />

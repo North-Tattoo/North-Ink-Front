@@ -19,7 +19,7 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../../utils/assets/fundo-listagem.png");
+  background-image: url("../../../utils/assets/fundo-listagem.png");
 }
 .fundoFim{
   background-color: #F5F5F5;
@@ -29,7 +29,7 @@ html {
   background-position: center;
   height: 1300px;
   background-repeat: no-repeat;
-  background-image: url("../../utils/assets/fundo-ondas-listagem.png");
+  background-image: url("../../../utils/assets/fundo-ondas-listagem.png");
 
 }
 
@@ -85,7 +85,7 @@ html {
 }
 
 .pesquisa {
-  background-image: url('../../utils/assets/lupa.png');
+  background-image: url('../../../utils/assets/lupa.png');
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: 5px center;
@@ -94,7 +94,7 @@ html {
 }
 
 .onde {
-  background-image: url('../../utils/assets/localização.png');
+  background-image: url('../../../utils/assets/localização.png');
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: 5px center;
@@ -110,6 +110,24 @@ html {
   font-family: 'Poppins';
   font-size: 45px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.filtrarButton {
+  font-family: 'Poppins', sans-serif; /* Aplica a fonte Poppins */
+  font-size: 20px; /* Tamanho da fonte */
+  margin-left: 230px; /* Margem à esquerda */
+  margin-bottom: 30px; /* Margem à esquerda */
+  padding: 10px 20px; /* Adiciona preenchimento ao botão */
+  background-color: #6c63ff; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto */
+  border: none; /* Remove a borda */
+  border-radius: 5px; /* Arredonda os cantos */
+  cursor: pointer; /* Aplica o cursor de ponteiro ao passar o mouse */
+  transition: background-color 0.3s; /* Efeito de transição para a cor de fundo */
+}
+
+.filtrarButton:hover {
+  background-color: #A855F7; /* Cor do botão ao passar o mouse */
 }
 
 .filtro {
