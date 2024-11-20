@@ -51,7 +51,7 @@ function Portfolio() {
     if (userId) {
       // Primeiro, atualiza o portfólio
       api
-        .put(`/usuarios/portfolioAtualizar/${userId}`, portfolioData)
+        .put(`api/usuarios/portfolioAtualizar/${userId}`, portfolioData)
         .then((response) => {
           if (response.status === 200) {
             toast.success("Portfólio atualizado com sucesso!");
