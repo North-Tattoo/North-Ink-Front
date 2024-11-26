@@ -17,6 +17,7 @@ function Portfolio() {
   const [userName, setUserName] = useState("");
   const [imagemPerfil, setImagemPerfil] = useState(null);
   const [perfilImageFile, setPerfilImageFile] = useState(null); // Para armazenar a imagem do perfil
+  const [estilosSelecionados, setEstilosSelecionados] = useState([]); // Estado para armazenar os estilos selecionados
 
   useEffect(() => {
     const storedUserId = sessionStorage.getItem("userId");
@@ -39,6 +40,11 @@ function Portfolio() {
     }
   };
 
+  // Função para lidar com a mudança dos estilos selecionados
+  const handleEstilosChange = (newEstilos) => {
+    setEstilosSelecionados(newEstilos);
+  };
+
   const handleSave = () => {
     const portfolioData = {
       id: userId,
@@ -46,7 +52,10 @@ function Portfolio() {
       anosExperiencia: anosExperiencia,
       resumo: resumo,
       instagram: instagram,
+      estilos: estilosSelecionados, // Inclui os estilos selecionados
     };
+
+    console.log('portfolioData', portfolioData);
 
     if (userId) {
       // Primeiro, atualiza o portfólio
@@ -177,7 +186,10 @@ function Portfolio() {
                   value={resumo}
                   onChange={(e) => setResumo(e.target.value)}
                 ></textarea>
-                <EstilosComponent />
+
+                {/* Passando a função handleEstilosChange para EstilosComponent */}
+                <EstilosComponent onChange={handleEstilosChange} />
+                
                 <div className={styles.userInstaPortifolio}>
                   <div className={styles.userInstaTitulo}>
                     <p className={styles.tituloValorMin}>Instagram</p>

@@ -3,25 +3,23 @@ import { Badge } from "@/components/ui/badge";
 import styles from "../../pages/gerenciamento/GerenciamentoPortfolio/GerenciamentoPortfolio.module.css";
 import { TiDelete } from "react-icons/ti";
 
-
-const EstilosComponent = () => {
+const EstilosComponent = ({ onChange }) => {
   const [selectedStyle, setSelectedStyle] = useState('');
-  const [estilos, setEstilos] = useState([
-    'Black Work',
-    'Black Work',
-    'Black Work',
-    'Black Work',
-  ]);
+  const [estilos, setEstilos] = useState([]);
 
   const handleAddStyle = () => {
-    if (selectedStyle) {
-      setEstilos([...estilos, selectedStyle]);
+    if (selectedStyle && !estilos.some(estilo => estilo.nome === selectedStyle)) {
+      const newEstilo = { nome: selectedStyle };
+      const newEstilos = [...estilos, newEstilo];
+      setEstilos(newEstilos);
+      onChange(newEstilos); // Passa os novos estilos para o componente pai
     }
   };
 
   const handleRemoveStyle = (index) => {
     const newEstilos = estilos.filter((_, i) => i !== index);
     setEstilos(newEstilos);
+    onChange(newEstilos); // Atualiza os estilos no componente pai
   };
 
   return (
@@ -30,10 +28,12 @@ const EstilosComponent = () => {
       <div className="grid grid-cols-3">
         {estilos.map((estilo, index) => (
           <div key={index} className={styles.estiloItem}>
-            <Badge  className={styles.estilosDetalhes}>
-              {estilo}
+            <Badge className={styles.estilosDetalhes}>
+              {estilo.nome}
             </Badge>
-            <TiDelete  style={{ color: '#5B5B5B' }} size={20}
+            <TiDelete 
+              style={{ color: '#5B5B5B' }} 
+              size={20}
               onClick={() => handleRemoveStyle(index)}
             />
           </div>
