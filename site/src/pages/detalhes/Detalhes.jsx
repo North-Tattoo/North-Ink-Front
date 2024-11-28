@@ -16,83 +16,19 @@ import InstagramButton from "@/components/instagram/InstagramButton";
 import { IoChevronBackCircle } from "react-icons/io5";
 import api from '../../api';
 import {toast } from 'react-toastify';
+import axios from 'axios';
 
-import perfilTatuador1 from '../../utils/assets/perfilTatuador1.png'
-import perfilTatuador2 from '../../utils/assets/perfilTatuador2.png'
-import perfilTatuador3 from '../../utils/assets/perfilTatuador3.png'
-import perfilTatuador4 from '../../utils/assets/perfilTatuador4.png'
-import perfilTatuador5 from '../../utils/assets/perfilTatuador5.png'
-import perfilTatuador6 from '../../utils/assets/perfilTatuador6.png'
-
-import aquarela from '../../utils/assets/aquarela.jpeg'
-import blackwork from '../../utils/assets/blackwork.jpeg'
-import pontilhismo from '../../utils/assets/pontilhismo-2.jpg'
-import realismo from '../../utils/assets/realismo.jpeg'
-import minimalismo from '../../utils/assets/minimalista.jpeg'
-import geometrico from '../../utils/assets/geometrico.jpg'
-import Lettering from '../../utils/assets/Lettering.jpeg'
-import NewSchool from '../../utils/assets/New School.jpg'
-import OldSchool from '../../utils/assets/OldSchool.jpg'
-import Oriental from '../../utils/assets/Oriental.jpg'
-import TrashPolka from '../../utils/assets/TrashPolka.jpg'
-import NeoTraditional from '../../utils/assets/NeoTraditional.jpeg'
-
-import aquarela2 from '../../utils/assets/aquarela2.jpeg'
-import blackwork2 from '../../utils/assets/blackwork2.jpeg'
-import pontilhismo2 from '../../utils/assets/pontilhismo3.jpg'
-import realismo2 from '../../utils/assets/realismo2.jpeg'
-import minimalismo2 from '../../utils/assets/minimalista2.jpeg'
-import geometrico2 from '../../utils/assets/geometrico2.jpeg'
-import Lettering2 from '../../utils/assets/Lettering2.jpeg'
-import NewSchool2 from '../../utils/assets/NewSchool2.jpeg'
-import OldSchool2 from '../../utils/assets/OldSchool2.jpeg'
-import Oriental2 from '../../utils/assets/Oriental2.jpeg'
-import TrashPolka2 from '../../utils/assets/TrashPolka2.jpeg'
-import NeoTraditional2 from '../../utils/assets/NeoTraditional2.jpeg'
 import LeafletMapComponent from "@/components/leafLetMap/LeafletMapComponent";
 
 import 'leaflet/dist/leaflet.css';
 
 
-const images = [
-  aquarela,
-  blackwork,
-  pontilhismo,
-  realismo,
-  minimalismo,
-  geometrico,
-  Lettering,
-  NewSchool,
-  OldSchool,
-  Oriental,
-  TrashPolka,
-  NeoTraditional,
-  aquarela2,
-  blackwork2,
-  pontilhismo2,
-  realismo2,
-  minimalismo2,
-  geometrico2,
-  Lettering2,
-  NewSchool2,
-  OldSchool2,
-  Oriental2,
-  TrashPolka2,
-  NeoTraditional2,
-];
-
-function getRandomImage() {
-  return images[Math.floor(Math.random() * images.length)];
-}
 
 function Detalhes() {
-  const [randomImages, setRandomImages] = useState(Array(12).fill(''));
   const [usuario, setUsuario] = useState([]);
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true); // Estado para controlar o carregamento
   const { id } = useParams();
-
-  useEffect(() => {
-    setRandomImages(randomImages.map(() => getRandomImage()));
-  }, []);
 
   useEffect(() => {
     api.get(`api/usuarios/portfolio/${id}`)
@@ -103,25 +39,25 @@ function Detalhes() {
         console.error("Erro ao buscar tatuador:", error);
       });
 
-      window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, []);
 
-  
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/images", {
+          params: { folder: "2_Murilo/tattos_images" },
+        });
+        setImages(response.data);
+        setLoading(false); // Imagens carregadas, atualiza o estado
+      } catch (error) {
+        console.error("Erro ao buscar imagens:", error);
+        setLoading(false); // Caso ocorra erro, também atualiza o estado para não travar a tela
+      }
+    };
 
-  const perfilTatuador = [
-    perfilTatuador1,
-    perfilTatuador2,
-    perfilTatuador3,
-    perfilTatuador4,
-    perfilTatuador5,
-    perfilTatuador6
-  ];
-  
-  const sortearFotoPerfil = () => {
-    let numero = Math.floor(Math.random() * perfilTatuador.length);
-    return perfilTatuador[numero];
-  };
-
+    fetchImages();
+  }, []);
 
   return (
     <section className={styles["section-detalhes"]}>
@@ -131,18 +67,18 @@ function Detalhes() {
         </Link>
         <span className={styles.tituloPortifolio}>Conheça o artista, explore estilos.</span>
       </header>
+
       <div className={styles["container-detalhes"]}>
         <article className={styles["informacoes"]}>
           <div className={styles["botoes-informacoes"]}>
-          <Link to='/listagem-tatuadores'>
-          <IoChevronBackCircle style={{ color: '#121212' , marginLeft: '10px', marginTop: '10px' }} size={40} />
+            <Link to='/listagem-tatuadores'>
+              <IoChevronBackCircle style={{ color: '#121212' , marginLeft: '10px', marginTop: '10px' }} size={40} />
             </Link>
-            
           </div>
+
           <div className="flex flex-col items-start">
             <div className="flex">
               <img
-                src={sortearFotoPerfil()} 
                 alt="Logo Branca"
                 className="w-16 mb-4 rounded-full m-2 mt-9 ml-5"
               />
@@ -150,108 +86,117 @@ function Detalhes() {
                 <h2 className="text-lg font-bold">{`${usuario.nome} ${usuario.sobrenome}`}</h2>
               </div>
             </div>
+
             <div className={styles.valorTempoDetalhes}>
               <div className={styles.valorMinimo}>
-                <RiMoneyDollarCircleFill class="mr-4" style={{ color: '#3C3C3C' }} size={20} />
-                <span >VALOR MÍNIMO: R$ {usuario.valorMin}</span><br />
+                <RiMoneyDollarCircleFill className="mr-4" style={{ color: '#3C3C3C' }} size={20} />
+                <span>VALOR MÍNIMO: R$ {usuario.valorMin}</span><br />
               </div>
               <div className={styles.valorMinimo}>
-                <RiTimerLine class="mr-4" style={{ color: '#3C3C3C' }} size={20} />
-                <span>TEMPO DE EXPERIÊNCIA: {usuario.anosExperiencia} </span>
+                <RiTimerLine className="mr-4" style={{ color: '#3C3C3C' }} size={20} />
+                <span>TEMPO DE EXPERIÊNCIA: {usuario.anosExperiencia}</span>
               </div>
             </div>
 
             <div className="mt-12 ml-5">
               <h3 className="text-xl font-semibold mb-6">Bio</h3>
               <p className="text-sm text-justify w-80 break-words">
-               {usuario.resumo}
+                {usuario.resumo}
               </p>
             </div>
-           <WhatsAppButton phoneNumber={usuario.telefone} />
 
+            <WhatsAppButton phoneNumber={usuario.telefone} />
 
             <div className={styles["linha-detalhes"]}></div>
-
           </div>
+
           <div className="mt-2">
             <h2 className="text-xl ml-5 mt-10 font-semibold">Estilos</h2>
             <div className="grid grid-cols-3 gap-7 p-1 ml-4 mt-4 mr-5">
               {usuario && usuario.estilos && usuario.estilos.map((estilo) => (
                 <Badge key={estilo.id} className={styles.estilosDetalhes}>
-                {estilo.nome}
-              </Badge>
-              )
-              
-              )}
+                  {estilo.nome}
+                </Badge>
+              ))}
             </div>
           </div>
 
           <div className="mt-2">
             <div className={styles["linha-detalhes-dois"]}></div>
           </div>
-          <h2 className="text-xl font-semibold mt-8 ml-5">
-            Ambiente de Trabalho
-          </h2>
+
+          <h2 className="text-xl font-semibold mt-8 ml-5">Ambiente de Trabalho</h2>
           <div className={styles["estudio-detalhes"]}>
-            
             <div className={styles["nome-estudio-detalhes"]}>
-              <h3 className="ml-7 mt-7 text-xl font-semibold">{usuario.estudio ? usuario.estudio.nome : "Estúdio não disponível"}  </h3>
+              <h3 className="ml-7 mt-7 text-xl font-semibold">{usuario.estudio ? usuario.estudio.nome : "Estúdio não disponível"}</h3>
             </div>
           </div>
+
           <div className={styles.enderecoIcone}>
             <MdLocationPin style={{ color: '#3C3C3C' }} size={20} />
             <p className={styles.enderecoDetalhes}>
-            {usuario.estudio?.endereco?.rua ?? "Rua não disponível"}, {usuario.estudio?.endereco?.numero ?? "Nº não disponível"}  -
-            {usuario.estudio?.endereco?.bairro ?? "Bairro não disponível"}
+              {usuario.estudio?.endereco?.rua ?? "Rua não disponível"}, {usuario.estudio?.endereco?.numero ?? "Nº não disponível"} -
+              {usuario.estudio?.endereco?.bairro ?? "Bairro não disponível"}
             </p>
-           
           </div>
+
           <div className="ml-4 mt-4">
-          <LeafletMapComponent/>
+            <LeafletMapComponent />
           </div>
+
           <div className="mt-12 ml-5">
             <h3 className="text-xl font-semibold mb-6">Descrição</h3>
             <p className="text-sm text-justify w-80">
-            {usuario.estudio?.descricao ?? "Descrição não disponível"}
+              {usuario.estudio?.descricao ?? "Descrição não disponível"}
             </p>
           </div>
+
           <div className="mt-2">
             <div className={styles["linha-detalhes-dois"]}></div>
           </div>
+
           <div className={styles["instagram"]}>
             <h3 className="text-xl font-semibold mb-6">Redes Sociais</h3>
             <div className="flex space-x-16">
-            <InstagramButton username={usuario.instagram}/>
+              <InstagramButton username={usuario.instagram} />
             </div>
           </div>
         </article>
-        <div className={styles["row-detalhes"]}>
-          <div className={styles["column-detalhes"]}>
-            <div className={styles["container-imagem"]}>
-              <img id="image" src={randomImages[0]} alt="image 0"/>
+
+        {/* Exibe o spinner ou as imagens, dependendo do estado de carregamento */}
+        {loading ? (
+          <div className="spinner-container">
+            <div className="spinner"></div>
+          </div>
+        ) : (
+          <div className={styles["row-detalhes"]}>
+            <div className={styles["column-detalhes"]}>
+              <div className={styles["container-imagem"]}>
+                <img id="image" src={images[0].url} alt="image 0" />
+              </div>
+              <img src={images[1].url} alt="image 1" />
+              <img src={images[2].url} alt="image 2" />
+              <img src={images[3].url} alt="image 3" />
             </div>
-            <img src={randomImages[1]} alt="image 1" />
-            <img src={randomImages[2]} alt="image 2" />
-            <img src={randomImages[3]} alt="image 3"
-            />
+            <div className={styles["column-detalhes"]}>
+              <img src={images[4].url} alt="Tattoo oriental" />
+              <img src={images[5].url} alt="Tattoo horizontal" />
+              <img src={images[6].url} alt="Tattoo horizontal" />
+              <img src={images[7].url} alt="Tattoo horizontal" />
+            </div>
+            <div className={styles["column-detalhes"]}>
+              <img src={images[8].url} alt="Tattoo antebraço" />
+              <img src={images[9].url} alt="Pescoço" />
+              <img src={images[10].url} alt="Ombro" />
+              <img src={images[11].url} alt="Tattoo antebraço" />
+            </div>
           </div>
-          <div className={styles["column-detalhes"]}>
-            <img src={randomImages[4]} alt="Tattoo oriental" />
-            <img src={randomImages[5]} alt="Tattoo horizontal" />
-            <img src={randomImages[6]} alt="Tattoo horizontal" />
-            <img src={randomImages[7]} alt="Tattoo horizontal" />
-          </div>
-          <div className={styles["column-detalhes"]}>
-            <img src={randomImages[8]} alt="Tattoo antebraço" />
-            <img src={randomImages[9]} alt="Pescoço" />
-            <img src={randomImages[10]} alt="Ombro" />
-            <img src={randomImages[11]} alt="Tattoo antebraço" />
-          </div>
-        </div>
+        )}
       </div>
+
       <Footer />
     </section>
   );
-};
+}
 
 export default Detalhes;
