@@ -3,10 +3,11 @@ import styles from "./GerenciamentoPortfolio.module.css";
 import SidebarGerenciamentoConta from "@/components/sidebar/Sidebar";
 import EstilosComponent from "@/components/estilosComponent/EstilosComponent";
 import { FaSquareInstagram } from "react-icons/fa6";
-import api from "../../../api";
+import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { IoPersonAddSharp } from "react-icons/io5";
 import ImageUpload from "@/components/imageUpload/ImageUpload";
+import api from "../../../api";
 
 function Portfolio() {
   const [precoMin, setPrecoMin] = useState("");
@@ -55,7 +56,7 @@ function Portfolio() {
       estilos: estilosSelecionados, // Inclui os estilos selecionados
     };
 
-    console.log('portfolioData', portfolioData);
+    console.log("portfolioData", portfolioData);
 
     if (userId) {
       // Primeiro, atualiza o portfólio
@@ -71,16 +72,17 @@ function Portfolio() {
             if (perfilImageFile) {
               console.log("perfilImageFile:", perfilImageFile);
               const formData = new FormData();
-              const folderPath = `profile/${userId}_${userName}`; // Define o caminho da pasta
+              const folderPath = `${userId}_${userName}/profile_picture`; // Define o caminho da pasta
               formData.append("file", perfilImageFile); // O nome do campo deve ser "file"
-              formData.append("upload_preset", "teste"); // Altere para o seu upload preset
-              formData.append("folder", folderPath); // Define a pasta onde a imagem será armazenada            
+              formData.append("upload_preset", "a4o1v5pq"); // Altere para o seu upload preset
+              formData.append("folder", folderPath); // Define a pasta onde a imagem será armazenada
 
-              api.post(`https://api.cloudinary.com/v1_1/teste/image/upload`, formData)
+              axios
+                .post(`https://api.cloudinary.com/v1_1/dpacgzko0/image/upload`, formData)
                 .then((res) => {
                   if (res.status === 200) {
-                    toast.success("Imagem de perfil atualizada com sucesso!");
-                    console.log("Imagem de perfil:", res.data);
+                    // toast.success("Imagem de perfil atualizada com sucesso!");
+                    console.log("Imagem de perfil atualizada com sucesso!");
                   }
                 })
                 .catch((error) => {

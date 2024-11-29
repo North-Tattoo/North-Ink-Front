@@ -11,7 +11,7 @@ function PieChart() {
 
   const fetchData = async () => {
     try {
-      const response = await api.get("/dashboard/top3Estilos");
+      const response = await api.get("/api/dashboard/top3Estilos");
       const data = response.data.map((item) => [item.nome, item.count]);
       setChartData(data);
       console.log("Dados recuperados:", data);

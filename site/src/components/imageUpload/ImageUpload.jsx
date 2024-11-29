@@ -6,7 +6,20 @@ import { Button } from "@/components/ui/button";
 import styles from "../../pages/gerenciamento/GerenciamentoPortfolio/GerenciamentoPortfolio.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 
-const tattooStyles = ["Tradicional", "Realismo", "Aquarela", "Geometrico", "Minimalista"]; // Estilos de tatuagem disponíveis
+const tattooStyles = [
+    "Old School",
+    "New School",
+    "Realismo",
+    "Aquarela",
+    "Blackwork",
+    "Minimalismo",
+    "Lettering",
+    "Geométrico",
+    "Pontilhismo",
+    "Neo Traditional",
+    "Oriental",
+    "Trash Polka"
+];  
 
 function ImageUpload() {
     const [selectedFiles, setSelectedFiles] = useState([]);
