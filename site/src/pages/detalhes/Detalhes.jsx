@@ -33,7 +33,7 @@ function Detalhes() {
 
     const fetchProfileImage = async (folder) => {
       try {
-        const response = await axios.get("http://localhost:5000/api/profileImage", {
+        const response = await axios.get("https://api-pagamento-n67l.onrender.com/api/profileImage", {
           params: { folder },
         });
         if (response.data && response.data.length > 0) {
@@ -65,7 +65,7 @@ function Detalhes() {
     const fetchImages = async (usuarioData) => {
       
       try {
-        const response = await axios.get("http://localhost:5000/api/images", {
+        const response = await axios.get("https://api-pagamento-n67l.onrender.com/api/images", {
           params: { folder: `${id}_${usuarioData.nome}/tattos_images` },
         });
         if (response.data && response.data.length > 0) {

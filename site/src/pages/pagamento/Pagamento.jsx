@@ -9,7 +9,7 @@ const Pagamento = () => {
       const nomeCompleto = `${sessionStorage.getItem('userName')} ${sessionStorage.getItem('userSurname')}`;
       const cpf = sessionStorage.getItem('userCpf');
 
-      const response = await axios.post('http://localhost:5000/api/generate-qrcode', {
+      const response = await axios.post('https://api-pagamento-n67l.onrender.com/api/generate-qrcode', {
         nome: nomeCompleto,
         cpf: cpf
       });
