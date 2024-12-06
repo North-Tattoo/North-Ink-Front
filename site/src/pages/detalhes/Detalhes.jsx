@@ -28,6 +28,8 @@ function Detalhes() {
   const [profileImage, setProfileImage] = useState(null);
   const [loading, setLoading] = useState(true); // Estado para controlar o carregamento
   const { id } = useParams();
+  console.log('valorInicial de id:', id);
+  
 
   useEffect(() => {
 
@@ -48,6 +50,7 @@ function Detalhes() {
 
     const fetchUsuario = async () => {
       try {
+        console.log('id:', id);
         const response = await api.get(`api/usuarios/portfolio/${id}`);
         setUsuario(response.data);
         console.log('buscou informações do back:', response.data);
