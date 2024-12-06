@@ -51,7 +51,7 @@ function Detalhes() {
     const fetchUsuario = async () => {
       try {
         console.log('id:', id);
-        const response = await api.get(`api/usuarios/portfolio/${id}`);
+        const response = await api.get(`/api/usuarios/portfolio/${id}`);
         setUsuario(response.data);
         console.log('buscou informações do back:', response.data);
   
