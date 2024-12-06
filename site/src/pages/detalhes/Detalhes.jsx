@@ -50,7 +50,7 @@ function Detalhes() {
       try {
         const response = await api.get(`api/usuarios/portfolio/${id}`);
         setUsuario(response.data);
-        console.log(response.data);
+        console.log('buscou informações do back:', response.data);
   
         // Após carregar o usuário, busca as imagens
         await fetchImages(response.data);
