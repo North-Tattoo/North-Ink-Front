@@ -3,29 +3,44 @@ name: Deploy React to NGINX
 on:
   push:
     branches:
-    - main # A ação será acionada quando você fizer push na branch 'main'
+    - main
   pull_request:
     branches:
-    - main # Também será acionado quando um pull request para a branch 'main' for aberto ou atualizado
+    - main
 
 jobs:
-  deploy:
-    name: Deploy to EC2
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+    # Check out the code
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - name: Set up Node.js
+    # Set up Node.js (versão 20 ou 22)
+    - name: Set up Node.js 20
       uses: actions/setup-node@v3
       with:
-        node-version: '14' # Verifique qual versão do Node.js você usa
+        node-version: '20'
 
-    - name: Install Dependencies
+    # Limpar o cache do npm
+    - name: Clean npm cache
+      run: npm cache clean --force
+
+    # Instalar as dependências
+    - name: Install dependencies
       run: npm install
 
-    - name: Build React Application
+    # Verificar dependências desatualizadas
+    - name: Check outdated dependencies
+      run: npm outdated
+
+    # Rodar os testes
+    - name: Run tests
+      run: npm test
+
+    # Construir o projeto
+    - name: Build project
       run: npm run build
 
     - name: Copy files to EC2
