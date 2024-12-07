@@ -23,7 +23,7 @@ jobs:
       with:
         node-version: '22'
 
-    # Version do Node.js
+    # Exibir versão do Node.js
     - name: Node.js version
       run: node --version
 
@@ -31,17 +31,13 @@ jobs:
     - name: Clean npm cache
       run: npm cache clean --force
 
-    # Instalar as dependências
-    - name: Install dependencies
-      run: npm install
-
-    # # Rodar os testes
-    # - name: Run tests
-    #   run: npm test
-
-    # Construir o projeto
+    # Instalar dependências e construir o projeto
     - name: Build project
       run: |
+        echo "Entrando no diretório site..."
+        cd site
+        echo "Instalando dependências..."
+        npm install
         echo "Iniciando o processo de build..."
         npm run build
         echo "Build concluído com sucesso!"
@@ -50,7 +46,7 @@ jobs:
     - name: List build directory
       run: |
         echo "Arquivos no diretório de build:"
-        ls -la ./build
+        ls -la ./site/dist
 
     # Copiar arquivos para o EC2
     - name: Copy files to EC2
@@ -59,7 +55,7 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
-        source: ./build/* # Caminho do build gerado
+        source: ./site/dist/* # Caminho do build gerado
         target: /usr/share/nginx/html/dist # Diretório onde o NGINX serve a aplicação
 
     # Verificar arquivos no EC2
