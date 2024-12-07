@@ -52,7 +52,7 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        key: ${{ secrets.EC2_KEY }}
         port: 22
         source: build.tar.gz
         target: /tmp/build.tar.gz
@@ -64,7 +64,7 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        key: ${{ secrets.EC2_KEY }}
         port: 22
         debug: true
         script: |
