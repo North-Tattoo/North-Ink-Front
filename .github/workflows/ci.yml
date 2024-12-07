@@ -3,7 +3,10 @@ name: Deploy React to NGINX
 on:
   push:
     branches:
-    - main # Dispara o workflow quando há push na branch "main"
+    - main # A ação será acionada quando você fizer push na branch 'main'
+  pull_request:
+    branches:
+    - main # Também será acionado quando um pull request para a branch 'main' for aberto ou atualizado
 
 jobs:
   deploy:
@@ -11,59 +14,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Etapa 1: Fazer checkout do repositório
     - name: Checkout Repository
       uses: actions/checkout@v3
-      with:
-        fetch-depth: 2 # Garantir que todo o histórico do repositório seja trazido
 
-    # Etapa 2: Instalar Node.js
-    - name: Install Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 22.11.0 # Substitua pela versão que sua aplicação usa
+        node-version: '14' # Verifique qual versão do Node.js você usa
 
-    # Etapa 3: Instalar dependências
     - name: Install Dependencies
-      run: |
-        echo "Instalando dependências..."
-        npm install
+      run: npm install
 
-    # Etapa 4: Verificar se o script 'build' existe
-    - name: Verify Build Script
-      run: |
-        echo "Verificando os scripts do package.json..."
-        npm run
-
-    # Etapa 5: Build da aplicação React
     - name: Build React Application
-      run: |
-        echo "Iniciando o build da aplicação React..."
-        npm run build
+      run: npm run build
 
-    # Etapa 6: Copiar os arquivos de build para o servidor EC2
-    - name: Deploy to EC2
-      run: |
-        echo "Copiando os arquivos do build para o servidor EC2..."
+    - name: Copy files to EC2
       uses: appleboy/scp-action@v0.1.5
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
-        source: ./build/* # Copia os arquivos do build gerado
-        target: /usr/share/nginx/html/dist # Substitua com o diretório correto no servidor onde o NGINX está servindo a aplicação
+        source: ./build/* # Caminho do build gerado
+        target: /usr/share/nginx/html/dist # Diretório onde o NGINX serve a aplicação
 
-    # Etapa 7: Reiniciar o NGINX para que a nova versão seja servida
     - name: Restart NGINX
-      run: |
-        echo "Reiniciando o NGINX no servidor EC2..."
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
-          echo "Verificando a configuração do NGINX..."
           sudo nginx -t
-          echo "Reiniciando o NGINX..."
           sudo systemctl restart nginx
