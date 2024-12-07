@@ -46,7 +46,22 @@ jobs:
         echo "Compactando os arquivos de build..."
         tar -czf build.tar.gz -C ./site/dist .
 
-    # Passo 7: Copiar os arquivos diretamente para o diretório onde o NGINX serve os arquivos
+    # Passo 7: Criar o diretório no servidor se não existir e ajustar permissões
+    - name: Preparar o diretório de destino no servidor
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.EC2_HOST }} # IP do servidor EC2
+        username: ${{ secrets.EC2_USER }} # Usuário do servidor
+        key: ${{ secrets.EC2_KEY }} # Chave SSH para autenticação
+        port: 22 # Porta de SSH
+        script: |
+          echo "Verificando e criando diretório de destino..."
+          sudo mkdir -p /usr/share/nginx/html/dist/  # Cria o diretório se não existir
+          sudo chown -R www-data:www-data /usr/share/nginx/html/dist/  # Garantir que o nginx tenha permissões
+          sudo chmod -R 755 /usr/share/nginx/html/dist/  # Ajustar permissões
+          echo "Diretório preparado com sucesso!"
+
+    # Passo 8: Copiar os arquivos diretamente para o diretório onde o NGINX serve os arquivos
     - name: Copiar arquivos de build para o servidor EC2
       uses: appleboy/scp-action@v0.1.5
       with:
@@ -58,7 +73,7 @@ jobs:
         target: /usr/share/nginx/html/dist/ # Destino no servidor EC2
         debug: true # Habilitar debug para verificar detalhes
 
-    # Passo 8: Reiniciar o NGINX no servidor EC2 para que ele recarregue os novos arquivos
+    # Passo 9: Reiniciar o NGINX no servidor EC2 para que ele recarregue os novos arquivos
     - name: Reiniciar o NGINX
       uses: appleboy/ssh-action@v0.1.5
       with:
@@ -68,12 +83,12 @@ jobs:
         port: 22 # Porta de SSH
         script: |
           echo "Testando configuração do NGINX..."
-          sudo nginx -t                       # Testa se a configuração do NGINX está correta
+          sudo nginx -t  # Testa se a configuração do NGINX está correta
           echo "Reiniciando NGINX..."
-          sudo systemctl restart nginx         # Reinicia o serviço do NGINX
+          sudo systemctl restart nginx  # Reinicia o serviço do NGINX
           echo "NGINX reiniciado com sucesso!"
 
-    # Passo 9: Verificar o status do NGINX após o reinício
+    # Passo 10: Verificar o status do NGINX após o reinício
     - name: Verificar status do NGINX
       uses: appleboy/ssh-action@v0.1.5
       with:
@@ -83,4 +98,4 @@ jobs:
         port: 22 # Porta de SSH
         script: |
           echo "Status do NGINX:"
-          sudo systemctl status nginx | head -n 20   # Mostra as 20 primeiras linhas do status do NGINX
+          sudo systemctl status nginx | head -n 20  # Mostra as 20 primeiras linhas do status do NGINX
