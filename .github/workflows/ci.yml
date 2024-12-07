@@ -42,32 +42,38 @@ jobs:
         npm run build
         echo "Build concluído com sucesso!"
 
-    # Verificar arquivos construídos
-    - name: List build directory
+    # Compactar os arquivos de build
+    - name: Compress build files
       run: |
-        echo "Arquivos no diretório de build:"
-        ls -la ./site/dist
+        echo "Compactando os arquivos de build..."
+        tar -czf build.tar.gz -C ./site/dist .
 
-    # Copiar arquivos para o EC2
-    - name: Copy files to EC2
+    # Copiar o arquivo compactado para o EC2
+    - name: Copy build to EC2
       uses: appleboy/scp-action@v0.1.5
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
-        source: ./site/dist/* # Caminho do build gerado
-        target: /usr/share/nginx/html/dist # Diretório onde o NGINX serve a aplicação
+        port: 22
+        source: build.tar.gz
+        target: /tmp/build.tar.gz
 
-    # Verificar arquivos no EC2
-    - name: Check files on EC2
+    # Extrair arquivos no EC2
+    - name: Extract files on EC2
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
+        port: 22
         script: |
-          echo "Verificando arquivos no servidor..."
-          ls -la /usr/share/nginx/html/dist
+          echo "Extraindo arquivos no servidor..."
+          sudo rm -rf /usr/share/nginx/html/dist
+          sudo mkdir -p /usr/share/nginx/html/dist
+          sudo tar -xzf /tmp/build.tar.gz -C /usr/share/nginx/html/dist
+          sudo rm -f /tmp/build.tar.gz
+          echo "Arquivos extraídos com sucesso!"
 
     # Reiniciar o NGINX
     - name: Restart NGINX
@@ -76,6 +82,7 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
+        port: 22
         script: |
           echo "Testando configuração do NGINX..."
           sudo nginx -t
@@ -90,6 +97,7 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
+        port: 22
         script: |
           echo "Status do NGINX:"
           sudo systemctl status nginx | head -n 20
