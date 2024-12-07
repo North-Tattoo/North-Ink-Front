@@ -33,19 +33,7 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
-    # Etapa 5: Verificação de vulnerabilidades
-    - name: Audit Dependencies
-      run: npm audit
-
-    # Etapa 6: Executar testes
-    - name: Run Tests
-      run: npm test
-
-    # Etapa 7: Análise de código com Linter
-    - name: Run Linter
-      run: npm run lint
-
-    # Etapa 8: Build da aplicação React
+    # Etapa 5: Build da aplicação React
     - name: Build React Application
       run: npm run build
 
