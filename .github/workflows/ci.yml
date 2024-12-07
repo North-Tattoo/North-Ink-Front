@@ -16,20 +16,26 @@ jobs:
     # Check out the code
     - name: Checkout code
       uses: actions/checkout@v2
+      run: echo "Código fonte baixado com sucesso!"
 
     # Set up Node.js
     - name: Set up Node.js 22
       uses: actions/setup-node@v3
       with:
         node-version: '22'
+      run: echo "Node.js 22 configurado com sucesso!"
 
     # Exibir versão do Node.js
     - name: Node.js version
-      run: node --version
+      run: |
+        echo "Versão do Node.js:"
+        node --version
 
     # Limpar o cache do npm
     - name: Clean npm cache
-      run: npm cache clean --force
+      run: |
+        echo "Limpando o cache do npm..."
+        npm cache clean --force
 
     # Instalar dependências e construir o projeto
     - name: Build project
@@ -38,6 +44,7 @@ jobs:
         cd site
         echo "Instalando dependências..."
         npm install
+        echo "Dependências instaladas com sucesso!"
         echo "Iniciando o processo de build..."
         npm run build
         echo "Build concluído com sucesso!"
@@ -47,6 +54,7 @@ jobs:
       run: |
         echo "Compactando os arquivos de build..."
         tar -czf build.tar.gz -C ./site/dist .
+        echo "Arquivos compactados com sucesso!"
 
     # Copiar o arquivo compactado para o EC2
     - name: Copy build to EC2
@@ -54,23 +62,26 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         source: build.tar.gz
         target: /tmp/build.tar.gz
         debug: true
+      run: echo "Arquivo compactado enviado com sucesso para o EC2!"
 
     # Extrair arquivos no EC2
     - name: Extrair arquivos no servidor
       uses: appleboy/ssh-action@v0.1.5
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
+        debug: true
         script: |
-          echo "Extraindo arquivos no servidor..."
+          echo "Iniciando a extração de arquivos no servidor..."
           if [ -f /tmp/build.tar.gz ]; then
+              echo "Arquivo encontrado. Extraindo..."
               sudo rm -rf /usr/share/nginx/html/dist
               sudo mkdir -p /usr/share/nginx/html/dist
               sudo tar -xzf /tmp/build.tar.gz -C /usr/share/nginx/html/dist
@@ -81,21 +92,26 @@ jobs:
               exit 1
           fi
 
-
     # Reiniciar o NGINX
     - name: Restart NGINX
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }} # Corrigido para usar a chave SSH correta
         port: 22
         script: |
           echo "Testando configuração do NGINX..."
           sudo nginx -t
-          echo "Reiniciando NGINX..."
-          sudo systemctl restart nginx
-          echo "NGINX reiniciado com sucesso!"
+          if [ $? -eq 0 ]; then
+              echo "Configuração do NGINX válida."
+              echo "Reiniciando o NGINX..."
+              sudo systemctl restart nginx
+              echo "NGINX reiniciado com sucesso!"
+          else
+              echo "Erro na configuração do NGINX. Não é possível reiniciar."
+              exit 1
+          fi
 
     # Verificar status do NGINX
     - name: Check NGINX status
@@ -103,8 +119,9 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }} # Corrigido para usar a chave SSH correta
         port: 22
         script: |
-          echo "Status do NGINX:"
-          sudo systemctl status nginx | head -n 20
+          echo "Verificando status do NGINX..."
+          sudo systemctl status nginx --no-pager
+          echo "Status do NGINX obtido com sucesso!"
