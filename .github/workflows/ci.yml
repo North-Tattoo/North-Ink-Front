@@ -17,11 +17,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Set up Node.js (versão 20 ou 22)
-    - name: Set up Node.js 20
+    # Set up Node.js
+    - name: Set up Node.js 22
       uses: actions/setup-node@v3
       with:
-        node-version: '20'
+        node-version: '22'
+
+    # Version do Node.js
+    - name: Node.js version
+      run: node --version    
 
     # Limpar o cache do npm
     - name: Clean npm cache
@@ -43,6 +47,7 @@ jobs:
     - name: Build project
       run: npm run build
 
+    # Copiar arquivos para o EC2
     - name: Copy files to EC2
       uses: appleboy/scp-action@v0.1.5
       with:
@@ -52,6 +57,7 @@ jobs:
         source: ./build/* # Caminho do build gerado
         target: /usr/share/nginx/html/dist # Diretório onde o NGINX serve a aplicação
 
+    # Reiniciar o NGINX
     - name: Restart NGINX
       uses: appleboy/ssh-action@v0.1.5
       with:
