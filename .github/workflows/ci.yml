@@ -3,49 +3,90 @@ name: Deploy React to NGINX
 on:
   push:
     branches:
-      - main # Dispara o workflow quando há push na branch "main"
+    - main # Dispara o workflow quando há push na branch "main"
 
 jobs:
+  build:
+    name: Build React Application
+    runs-on: ubuntu-latest
+    steps:
+    # Etapa 1: Fazer checkout do repositório
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    # Etapa 2: Cache para dependências
+    - name: Cache Node Modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    # Etapa 3: Instalar Node.js
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22.11.0 # Substitua pela versão que sua aplicação usa
+
+    # Etapa 4: Instalar dependências
+    - name: Install Dependencies
+      run: npm install
+
+    # Etapa 5: Verificação de vulnerabilidades
+    - name: Audit Dependencies
+      run: npm audit
+
+    # Etapa 6: Executar testes
+    - name: Run Tests
+      run: npm test
+
+    # Etapa 7: Análise de código com Linter
+    - name: Run Linter
+      run: npm run lint
+
+    # Etapa 8: Build da aplicação React
+    - name: Build React Application
+      run: npm run build
+
   deploy:
     name: Deploy to EC2
+    needs: build # Garante que o build finalize antes de iniciar o deploy
     runs-on: ubuntu-latest
 
     steps:
-      # Etapa 1: Fazer checkout do repositório
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+    # Etapa 1: Enviar o build para a EC2
+    - name: Deploy to EC2 with rsync
+      uses: appleboy/rsync-action@v0.1.5
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        user: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        source: ./build/
+        target: ${{ secrets.DIST_PATH }}
+        args: --archive --compress --delete
 
-      # Etapa 2: Instalar Node.js
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 22.11.0 # Substitua pela versão que sua aplicação usa
+    # Etapa 2: Backup do Build Anterior
+    - name: Backup Previous Build
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        script: |
+          tar -czf /tmp/backup-$(date +%F-%T).tar.gz -C ${{ secrets.DIST_PATH }} .
 
-      # Etapa 3: Instalar dependências
-      - name: Install Dependencies
-        run: npm install
+    # Etapa 3: Reiniciar NGINX
+    - name: Restart NGINX
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        script: |
+          sudo nginx -t
+          sudo systemctl reload nginx
 
-      # Etapa 4: Build da aplicação React
-      - name: Build React Application
-        run: npm run build
-
-      # Etapa 5: Enviar o build para a EC2
-      - name: Deploy to EC2
-        uses: appleboy/scp-action@v0.1.5
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_KEY }}
-          source: ./build/ # Caminho local
-          target: ${{ secrets.DIST_PATH }} # Caminho no servidor
-
-      # Etapa 6: Reiniciar o NGINX na EC2
-      - name: Restart NGINX
-        uses: appleboy/ssh-action@v0.1.5
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_KEY }}
-          script: |
-            sudo nginx -t
-            sudo systemctl restart nginx
+    # Etapa 4: Verificar o deployment
+    - name: Verify Deployment
+      run: curl -sSf http://${{ secrets.EC2_HOST }}
