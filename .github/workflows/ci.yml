@@ -68,6 +68,8 @@ jobs:
         port: 22
         debug: true
         script: |
+          echo "Conteúdo do diretório /tmp:"
+          ls -l /tmp/
           echo "Extraindo arquivos no servidor..."
           if [ -f /tmp/build.tar.gz ]; then
               sudo rm -rf /usr/share/nginx/html/dist
