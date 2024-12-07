@@ -82,7 +82,7 @@ function SidebarGerenciamentoConta() {
             className={styles["menu1"]}
             icon={<MenuRoundedIcon />}
           >
-            <img src="..\src\utils\assets\logo-branca.png" alt="" />
+            <img src="https://res.cloudinary.com/dpacgzko0/image/upload/v1733606488/imagens_web/logo_branca.png" alt="" />
           </MenuItem>
           <MenuItem
             component={<Link to="/gerenciamento-conta/perfil" />}

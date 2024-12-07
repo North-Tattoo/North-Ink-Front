@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./NotFound.module.css";
-import logo from "../../utils/assets/logo-branca.png";
+// import logo from "../../utils/assets/logo-branca.png";
 import imgNotFound from "../../utils/assets/notFound.png";
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ function NotFound() {
         <section className={styles.gradientFundo}>
             <div className={styles.navBar}>
                 <Link to='/'>
-                    <img className={styles.logo} src={logo} alt="logo" />
+                    <img className={styles.logo} src="https://res.cloudinary.com/dpacgzko0/image/upload/v1733606488/imagens_web/logo_branca.png" alt="logo" />
                 </Link>
             </div>
             <div className={styles.content}>

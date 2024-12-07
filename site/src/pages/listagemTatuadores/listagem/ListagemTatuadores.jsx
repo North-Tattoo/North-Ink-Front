@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logoBranca from '../../../utils/assets/logo-branca.png';
+// import logoBranca from '../../../utils/assets/logo-branca.png';
 import styles from './ListagemTatuadores.module.css';
 import GridListagem from '@/components/cardListagem/GridListagem';
 import Footer from '@/components/footer/footer';
@@ -25,7 +25,7 @@ function ListagemTatuadores() {
         <div className={styles.navBar}>
           <Link to='/'>
             <div className={styles.logo}>
-              <img src={logoBranca} alt="Logo Branca" />
+              <img src="https://res.cloudinary.com/dpacgzko0/image/upload/v1733606488/imagens_web/logo_branca.png" alt="Logo Branca" />
             </div>
           </Link>
           <div className={styles["botao-entrar"]}>

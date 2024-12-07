@@ -21,7 +21,7 @@ function Footer() {
 
 function LogoImagem() {
     return (
-        <img className={styles["logo-footer"]} src="src\utils\assets\logo-footer.png" alt="" />
+        <img className={styles["logo-footer"]} src="https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/99e8c70a0e372a1bbf26566b75fde331/detailed" alt="" />
     )
 }
 

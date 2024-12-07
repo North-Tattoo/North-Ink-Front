@@ -44,9 +44,9 @@ function Home() {
                     </div>
                     <div className={styles["row"]}>
                         <div className={styles["column"]}>
-                            <img src='\src\utils\assets\um-homem-com-uma-tatuagem-no-braco-comprimido.jpg' alt="Tatuador com tatuagem no braço" />
+                            <img src='https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/06b37b2f35f93e1bff96525a2b356df9/detailed' alt="Tatuador com tatuagem no braço" />
                             <img src='https://images.pexels.com/photos/2183132/pexels-photo-2183132.jpeg?auto=compress&cs=tinysrgb&w=600' alt="Antebraço colorida" />
-                            <img src='\src\utils\assets\tatuagem-mulher-costas-comprimida.jpg' alt="Tatuagem mulher costas" />
+                            <img src='https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/4d58ff8ea0f41896cece411585626bdb/detailed' alt="Tatuagem mulher costas" />
                         </div>
                         <div className={styles["column"]}>
                             <img src='https://images.pexels.com/photos/3214690/pexels-photo-3214690.jpeg?auto=compress&cs=tinysrgb&w=600' alt="Tattoo oriental" />
@@ -109,7 +109,7 @@ function Home() {
 
 function LogoImagem() {
     return (
-        <img src="\src\utils\assets\logo-branca.png" alt="" />
+        <img src="https://res.cloudinary.com/dpacgzko0/image/upload/v1733606488/imagens_web/logo_branca.png" alt="" />
     )
 }
 
