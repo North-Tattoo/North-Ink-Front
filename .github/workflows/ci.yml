@@ -1,10 +1,10 @@
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
   build:
@@ -30,87 +30,62 @@ jobs:
       run: npm cache clean --force
 
     # Passo 5: Instalar dependências e construir o projeto
-    - name: Build project
+    - name: Install dependencies and build project
       run: |
-        echo "Entrando no diretório site..."
         cd site
-        echo "Instalando dependências..."
         npm install
-        echo "Iniciando o processo de build..."
         npm run build
-        echo "Build concluído com sucesso!"
 
-    # Passo 6: Compactar os arquivos de build (essa etapa é útil se você for transferir como arquivo .tar.gz)
+    # Passo 6: Compactar os arquivos de build
     - name: Compress build files
       run: |
-        echo "Compactando os arquivos de build..."
-        tar -czf build.tar.gz -C ./site/dist .
+        cd site
+        tar -czf build.tar.gz -C ./dist .
 
-    # Passo 7: Criar o diretório no servidor se não existir e ajustar permissões
-    - name: Preparar o diretório de destino no servidor
+    # Passo 7: Preparar o diretório de destino no servidor EC2
+    - name: Prepare target directory on EC2 server
       uses: appleboy/ssh-action@v0.1.5
       with:
-        host: ${{ secrets.EC2_HOST }} # IP do servidor EC2
-        username: ${{ secrets.EC2_USER }} # Usuário do servidor
-        key: ${{ secrets.EC2_KEY }} # Chave SSH para autenticação
-        port: 22 # Porta de SSH
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22
         script: |
-          echo "Verificando e criando diretório de destino..."
           sudo mkdir -p /usr/share/nginx/html/dist/
           sudo chown -R www-data:www-data /usr/share/nginx/html/dist/
           sudo chmod -R 755 /usr/share/nginx/html/dist/
-          echo "Diretório preparado com sucesso!"
 
-    # Passo 8: Criar diretório de destino no servidor EC2
-    - name: Criar diretório de destino no servidor EC2
-      run: |
-        # Criar um arquivo temporário para a chave privada
-        echo "${{ secrets.EC2_KEY }}" > myssh.pem
-
-        # Definir permissões adequadas para a chave privada
-        chmod 600 myssh.pem
-
-        # Conectar via SSH e criar o diretório de destino
-        ssh -i myssh.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "mkdir -p /usr/share/nginx/html/dist/"
-
-        # Limpar o arquivo da chave privada após o uso
-        rm -f myssh.pem
-
-    # Passo 9: Copiar os arquivos diretamente para o diretório onde o NGINX serve os arquivos
-    - name: Copiar arquivos de build para o servidor EC2
+    # Passo 8: Transferir os arquivos para o servidor EC2
+    - name: Transfer build files to EC2 server
       uses: appleboy/scp-action@v0.1.5
       with:
-        host: ${{ secrets.EC2_HOST }} # IP do servidor EC2
-        username: ${{ secrets.EC2_USER }} # Usuário do servidor
-        key: ${{ secrets.EC2_KEY }} # Chave SSH para autenticação
-        port: 22 # Porta de SSH
-        source: ./site/dist/* # Arquivos a serem copiados (conteúdo do build)
-        target: /usr/share/nginx/html/dist/ # Destino no servidor EC2
-        debug: true # Habilitar debug para verificar detalhes
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22
+        source: ./site/dist/* # Conteúdo do build
+        target: /usr/share/nginx/html/dist/
+        debug: true
 
-    # Passo 10: Reiniciar o NGINX no servidor EC2 para que ele recarregue os novos arquivos
-    - name: Reiniciar o NGINX
+    # Passo 9: Reiniciar o NGINX
+    - name: Restart NGINX on EC2
       uses: appleboy/ssh-action@v0.1.5
       with:
-        host: ${{ secrets.EC2_HOST }} # IP do servidor EC2
-        username: ${{ secrets.EC2_USER }} # Usuário do servidor
-        key: ${{ secrets.EC2_KEY }} # Chave SSH para autenticação
-        port: 22 # Porta de SSH
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22
         script: |
-          echo "Testando configuração do NGINX..."
-          sudo nginx -t 
-          echo "Reiniciando NGINX..."
-          sudo systemctl restart nginx  
-          echo "NGINX reiniciado com sucesso!"
+          sudo nginx -t
+          sudo systemctl restart nginx
 
-    # Passo 11: Verificar o status do NGINX após o reinício
-    - name: Verificar status do NGINX
+    # Passo 10: Verificar o status do NGINX após o reinício
+    - name: Check NGINX status
       uses: appleboy/ssh-action@v0.1.5
       with:
-        host: ${{ secrets.EC2_HOST }} # IP do servidor EC2
-        username: ${{ secrets.EC2_USER }} # Usuário do servidor
-        key: ${{ secrets.EC2_KEY }} # Chave SSH para autenticação
-        port: 22 # Porta de SSH
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22
         script: |
-          echo "Status do NGINX:"
           sudo systemctl status nginx | head -n 20
