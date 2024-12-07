@@ -61,7 +61,12 @@ jobs:
           sudo chmod -R 755 /usr/share/nginx/html/dist/
           echo "Diretório preparado com sucesso!"
 
-    # Passo 8: Copiar os arquivos diretamente para o diretório onde o NGINX serve os arquivos
+    # Passo 8: Criar diretório de destino no servidor EC2
+    - name: Criar diretório de destino no servidor EC2
+      run: |
+        ssh -i ${{ secrets.EC2_KEY }} -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "mkdir -p /usr/share/nginx/html/dist/"
+
+    # Passo 9: Copiar os arquivos diretamente para o diretório onde o NGINX serve os arquivos
     - name: Copiar arquivos de build para o servidor EC2
       uses: appleboy/scp-action@v0.1.5
       with:
@@ -73,7 +78,7 @@ jobs:
         target: /usr/share/nginx/html/dist/ # Destino no servidor EC2
         debug: true # Habilitar debug para verificar detalhes
 
-    # Passo 9: Reiniciar o NGINX no servidor EC2 para que ele recarregue os novos arquivos
+    # Passo 10: Reiniciar o NGINX no servidor EC2 para que ele recarregue os novos arquivos
     - name: Reiniciar o NGINX
       uses: appleboy/ssh-action@v0.1.5
       with:
@@ -88,7 +93,7 @@ jobs:
           sudo systemctl restart nginx  
           echo "NGINX reiniciado com sucesso!"
 
-    # Passo 10: Verificar o status do NGINX após o reinício
+    # Passo 11: Verificar o status do NGINX após o reinício
     - name: Verificar status do NGINX
       uses: appleboy/ssh-action@v0.1.5
       with:
