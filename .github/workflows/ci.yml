@@ -82,4 +82,4 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         port: 22
         script: |
-          sudo systemctl status nginx | head -n 20
+          sudo systemctl status nginx | head -n 20 
