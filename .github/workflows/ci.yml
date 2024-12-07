@@ -70,11 +70,16 @@ jobs:
         port: 22
         script: |
           echo "Extraindo arquivos no servidor..."
-          sudo rm -rf /usr/share/nginx/html/dist
-          sudo mkdir -p /usr/share/nginx/html/dist
-          sudo tar -xzf /tmp/build.tar.gz -C /usr/share/nginx/html/dist
-          sudo rm -f /tmp/build.tar.gz
-          echo "Arquivos extraídos com sucesso!"
+          if [ -f /tmp/build.tar.gz ]; then
+              sudo rm -rf /usr/share/nginx/html/dist
+              sudo mkdir -p /usr/share/nginx/html/dist
+              sudo tar -xzf /tmp/build.tar.gz -C /usr/share/nginx/html/dist
+              sudo rm -f /tmp/build.tar.gz
+              echo "Arquivos extraídos com sucesso!"
+          else
+              echo "Erro: /tmp/build.tar.gz não encontrado!"
+              exit 1
+          fi
 
     # Reiniciar o NGINX
     - name: Restart NGINX
