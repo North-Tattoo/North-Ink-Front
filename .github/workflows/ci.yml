@@ -11,25 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Check out the code
+    # Passo 1: Verificar o código
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Set up Node.js
+    # Passo 2: Configurar o Node.js
     - name: Set up Node.js 22
       uses: actions/setup-node@v3
       with:
         node-version: '22'
 
-    # Exibir versão do Node.js
+    # Passo 3: Exibir a versão do Node.js
     - name: Node.js version
       run: node --version
 
-    # Limpar o cache do npm
+    # Passo 4: Limpar o cache do npm
     - name: Clean npm cache
       run: npm cache clean --force
 
-    # Instalar dependências e construir o projeto
+    # Passo 5: Instalar dependências e construir o projeto
     - name: Build project
       run: |
         echo "Entrando no diretório site..."
@@ -40,47 +40,47 @@ jobs:
         npm run build
         echo "Build concluído com sucesso!"
 
-    # Compactar os arquivos de build
+    # Passo 6: Compactar os arquivos de build (essa etapa é útil se você for transferir como arquivo .tar.gz)
     - name: Compress build files
       run: |
         echo "Compactando os arquivos de build..."
         tar -czf build.tar.gz -C ./site/dist .
 
-    # Copiar os arquivos diretamente para o diretório onde o NGINX serve os arquivos
+    # Passo 7: Copiar os arquivos diretamente para o diretório onde o NGINX serve os arquivos
     - name: Copiar arquivos de build para o servidor EC2
       uses: appleboy/scp-action@v0.1.5
       with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
-        port: 22
-        source: ./site/dist/*    # Copiar todos os arquivos da pasta dist
-        target: /usr/share/nginx/html/dist/
-        debug: true
+        host: ${{ secrets.EC2_HOST }} # IP do servidor EC2
+        username: ${{ secrets.EC2_USER }} # Usuário do servidor
+        key: ${{ secrets.EC2_KEY }} # Chave SSH para autenticação
+        port: 22 # Porta de SSH
+        source: ./site/dist/* # Arquivos a serem copiados (conteúdo do build)
+        target: /usr/share/nginx/html/dist/ # Destino no servidor EC2
+        debug: true # Habilitar debug para verificar detalhes
 
-    # Reiniciar o NGINX
+    # Passo 8: Reiniciar o NGINX no servidor EC2 para que ele recarregue os novos arquivos
     - name: Reiniciar o NGINX
       uses: appleboy/ssh-action@v0.1.5
       with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
-        port: 22
+        host: ${{ secrets.EC2_HOST }} # IP do servidor EC2
+        username: ${{ secrets.EC2_USER }} # Usuário do servidor
+        key: ${{ secrets.EC2_KEY }} # Chave SSH para autenticação
+        port: 22 # Porta de SSH
         script: |
           echo "Testando configuração do NGINX..."
-          sudo nginx -t
+          sudo nginx -t                       # Testa se a configuração do NGINX está correta
           echo "Reiniciando NGINX..."
-          sudo systemctl restart nginx
+          sudo systemctl restart nginx         # Reinicia o serviço do NGINX
           echo "NGINX reiniciado com sucesso!"
 
-    # Verificar status do NGINX
+    # Passo 9: Verificar o status do NGINX após o reinício
     - name: Verificar status do NGINX
       uses: appleboy/ssh-action@v0.1.5
       with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
-        port: 22
+        host: ${{ secrets.EC2_HOST }} # IP do servidor EC2
+        username: ${{ secrets.EC2_USER }} # Usuário do servidor
+        key: ${{ secrets.EC2_KEY }} # Chave SSH para autenticação
+        port: 22 # Porta de SSH
         script: |
           echo "Status do NGINX:"
-          sudo systemctl status nginx | head -n 20
+          sudo systemctl status nginx | head -n 20   # Mostra as 20 primeiras linhas do status do NGINX
