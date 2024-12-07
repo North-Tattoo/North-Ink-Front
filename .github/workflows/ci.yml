@@ -6,75 +6,64 @@ on:
     - main # Dispara o workflow quando há push na branch "main"
 
 jobs:
-  build:
-    name: Build React Application
+  deploy:
+    name: Deploy to EC2
     runs-on: ubuntu-latest
+
     steps:
     # Etapa 1: Fazer checkout do repositório
     - name: Checkout Repository
       uses: actions/checkout@v3
-
-    # Etapa 2: Cache para dependências
-    - name: Cache Node Modules
-      uses: actions/cache@v3
       with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+        fetch-depth: 2 # Garantir que todo o histórico do repositório seja trazido
 
-    # Etapa 3: Instalar Node.js
+    # Etapa 2: Instalar Node.js
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 22.11.0 # Substitua pela versão que sua aplicação usa
 
-    # Etapa 4: Instalar dependências
+    # Etapa 3: Instalar dependências
     - name: Install Dependencies
-      run: npm install
+      run: |
+        echo "Instalando dependências..."
+        npm install
+
+    # Etapa 4: Verificar se o script 'build' existe
+    - name: Verify Build Script
+      run: |
+        echo "Verificando os scripts do package.json..."
+        npm run
 
     # Etapa 5: Build da aplicação React
     - name: Build React Application
-      run: npm run build
+      run: |
+        echo "Iniciando o build da aplicação React..."
+        npm run build
 
-  deploy:
-    name: Deploy to EC2
-    needs: build # Garante que o build finalize antes de iniciar o deploy
-    runs-on: ubuntu-latest
-
-    steps:
-    # Etapa 1: Enviar o build para a EC2
-    - name: Deploy to EC2 with rsync
-      uses: appleboy/rsync-action@v0.1.5
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        user: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
-        source: ./build/
-        target: ${{ secrets.DIST_PATH }}
-        args: --archive --compress --delete
-
-    # Etapa 2: Backup do Build Anterior
-    - name: Backup Previous Build
-      uses: appleboy/ssh-action@v0.1.5
+    # Etapa 6: Copiar os arquivos de build para o servidor EC2
+    - name: Deploy to EC2
+      run: |
+        echo "Copiando os arquivos do build para o servidor EC2..."
+      uses: appleboy/scp-action@v0.1.5
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
-        script: |
-          tar -czf /tmp/backup-$(date +%F-%T).tar.gz -C ${{ secrets.DIST_PATH }} .
+        source: ./build/* # Copia os arquivos do build gerado
+        target: /usr/share/nginx/html/dist # Substitua com o diretório correto no servidor onde o NGINX está servindo a aplicação
 
-    # Etapa 3: Reiniciar NGINX
+    # Etapa 7: Reiniciar o NGINX para que a nova versão seja servida
     - name: Restart NGINX
+      run: |
+        echo "Reiniciando o NGINX no servidor EC2..."
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
+          echo "Verificando a configuração do NGINX..."
           sudo nginx -t
-          sudo systemctl reload nginx
-
-    # Etapa 4: Verificar o deployment
-    - name: Verify Deployment
-      run: curl -sSf http://${{ secrets.EC2_HOST }}
+          echo "Reiniciando o NGINX..."
+          sudo systemctl restart nginx
