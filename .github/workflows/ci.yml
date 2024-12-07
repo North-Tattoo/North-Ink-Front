@@ -58,6 +58,7 @@ jobs:
         port: 22
         source: build.tar.gz
         target: /tmp/build.tar.gz
+        debug: true
 
     # Extrair arquivos no EC2
     - name: Extract files on EC2
