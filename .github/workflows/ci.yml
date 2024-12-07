@@ -56,9 +56,9 @@ jobs:
         port: 22 # Porta de SSH
         script: |
           echo "Verificando e criando diretório de destino..."
-          sudo mkdir -p /usr/share/nginx/html/dist/  # Cria o diretório se não existir
-          sudo chown -R www-data:www-data /usr/share/nginx/html/dist/  # Garantir que o nginx tenha permissões
-          sudo chmod -R 755 /usr/share/nginx/html/dist/  # Ajustar permissões
+          sudo mkdir -p /usr/share/nginx/html/dist/
+          sudo chown -R www-data:www-data /usr/share/nginx/html/dist/
+          sudo chmod -R 755 /usr/share/nginx/html/dist/
           echo "Diretório preparado com sucesso!"
 
     # Passo 8: Copiar os arquivos diretamente para o diretório onde o NGINX serve os arquivos
@@ -83,9 +83,9 @@ jobs:
         port: 22 # Porta de SSH
         script: |
           echo "Testando configuração do NGINX..."
-          sudo nginx -t  # Testa se a configuração do NGINX está correta
+          sudo nginx -t 
           echo "Reiniciando NGINX..."
-          sudo systemctl restart nginx  # Reinicia o serviço do NGINX
+          sudo systemctl restart nginx  
           echo "NGINX reiniciado com sucesso!"
 
     # Passo 10: Verificar o status do NGINX após o reinício
@@ -98,4 +98,4 @@ jobs:
         port: 22 # Porta de SSH
         script: |
           echo "Status do NGINX:"
-          sudo systemctl status nginx | head -n 20  # Mostra as 20 primeiras linhas do status do NGINX
+          sudo systemctl status nginx | head -n 20
