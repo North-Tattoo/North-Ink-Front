@@ -69,7 +69,7 @@ function Home() {
                 <Carrossel />
             </div>
             <section className={styles["secao-depoimentos"]}>
-                <header>Na <span style={{ color: '#9333EA' }}>North Ink.</span>, sua melhor escolha! <br />
+                <header>Na <span style={{ color: '#4533EA' }}>North Ink.</span>, sua melhor escolha! <br />
                     Profissionais, preço e proximidade em um só lugar.
                 </header>
                 <article>Depoimento de um dos nossos <span style={{ color: '#9333EA' }}>parceiros.</span></article>
