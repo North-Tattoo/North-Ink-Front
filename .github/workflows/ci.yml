@@ -1,72 +1,86 @@
 on:
   push:
     branches:
-      - main
+    - main
   pull_request:
     branches:
-      - main
+    - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Passo 1: Checkout do código
-      - name: Checkout code
-        uses: actions/checkout@v2
+    # Passo 1: Checkout do código
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      # Passo 2: Configurar o Node.js
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
+    # Passo 2: Configurar o Node.js
+    - name: Set up Node.js 22
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
 
-      # Passo 3: Instalar dependências e construir o projeto
-      - name: Install dependencies and build project
-        run: |
+    # Passo 3: Instalar dependências e construir o projeto
+    - name: Install dependencies and build project
+      run: |
+        cd site
+        npm install
+        npm run build
+
+    # Passo 4: Conectar ao servidor EC2 e executar a atualização
+    - name: Deploy to EC2 server
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22
+        script: |
+          # Variáveis para reutilização
+          BUILD_PATH="/home/ubuntu/North-Ink-Front/site/dist"
+          NGINX_PATH="/usr/share/nginx/html/dist"
+          REPO_PATH="/home/ubuntu/North-Ink-Front"
+
+          echo "==== INICIANDO DEPLOYMENT ===="
+
+          echo "1. Verificando o usuário conectado..."
+          whoami
+
+          echo "2. Navegando para o repositório..."
+          cd $REPO_PATH
+          pwd
+
+          echo "3. Garantindo sincronização com a branch main..."
+          git fetch origin
+          git reset --hard origin/main
+          git clean -fd
+          echo "Sincronização concluída."
+
+          echo "4. Instalando dependências e construindo o projeto..."
           cd site
           npm install
           npm run build
+          echo "Build concluído."
 
-      # Passo 4: Conectar ao servidor EC2 e executar a atualização
-      - name: Deploy to EC2 server
-        uses: appleboy/ssh-action@v0.1.5
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_KEY }}
-          port: 22
-          script: |
-            # Variáveis para reutilização
-            BUILD_PATH="/home/ubuntu/North-Ink-Front/site/dist"
-            NGINX_PATH="/usr/share/nginx/html/dist"
+          echo "5. Verificando se o diretório de build existe..."
+          if [ ! -d "$BUILD_PATH" ]; then
+            echo "Erro: O diretório de build $BUILD_PATH não foi encontrado!"
+            exit 1
+          fi
 
-            echo "Preparando servidor para atualização..."
-            
-            # Acessar projeto e atualizar dependências
-            cd /home/ubuntu/North-Ink-Front/site
-            npm install
-            npm run build
+          echo "6. Atualizando arquivos no NGINX..."
+          sudo rm -rf $NGINX_PATH
+          sudo mkdir -p $NGINX_PATH
+          sudo mv $BUILD_PATH/* $NGINX_PATH/
+          sudo chown -R www-data:www-data $NGINX_PATH
+          sudo chmod -R 755 $NGINX_PATH
 
-            # Verificar se o diretório de build existe
-            if [ ! -d "$BUILD_PATH" ]; then
-              echo "Erro: O diretório de build $BUILD_PATH não foi encontrado!"
-              exit 1
-            fi
+          echo "7. Reiniciando o NGINX..."
+          sudo nginx -t
+          sudo systemctl restart nginx
 
-            # Limpar o diretório atual do NGINX e mover novos arquivos
-            echo "Atualizando arquivos no servidor..."
-            sudo rm -rf $NGINX_PATH
-            sudo mkdir -p $NGINX_PATH
-            sudo mv $BUILD_PATH/* $NGINX_PATH/
-            sudo chown -R www-data:www-data $NGINX_PATH
-            sudo chmod -R 755 $NGINX_PATH
+          echo "8. Verificando o status do NGINX..."
+          sudo systemctl status nginx | head -n 10
 
-            # Reiniciar o NGINX
-            echo "Reiniciando o servidor NGINX..."
-            sudo nginx -t
-            sudo systemctl restart nginx
-
-            # Verificar status do NGINX
-            echo "Verificando status do NGINX..."
-            sudo systemctl status nginx | head -n 10
+          echo "==== DEPLOYMENT CONCLUÍDO ===="
