@@ -9,11 +9,11 @@ const options = {
 
   },
   slices: [
-    { color: 0 , label: 'Blackwork', value: 30 },
-    { color: 0 , label: 'Anime', value: 50 },
-    { color: 0 , label: 'Realismo', value: 10 },
-    { color: 0 , label: 'Mandala', value: 20 },
-    { color: 0 , label: 'Dark', value: 35 },
+    { color: 0 , label: 'Blackwork', value: 2 },
+    { color: 0 , label: 'Anime', value: 4 },
+    { color: 0 , label: 'Realismo', value: 1 },
+    { color: 0 , label: 'Mandala', value: 2 },
+    { color: 0 , label: 'Dark', value: 3 },
   ],
   titleTextStyle: {
     fontSize: 18, 
