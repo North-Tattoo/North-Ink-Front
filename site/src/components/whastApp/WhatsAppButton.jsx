@@ -14,7 +14,7 @@ const WhatsAppButton = ({phoneNumber}) => {
   return (
     <Button onClick={handleClick} className="bg-purple-600 text-white mt-16 ml-5 mb-8 h-11 hover:bg-purple-700">
       Entrar em Contato
-      <BsWhatsapp class="ml-2" size={20} />
+      <BsWhatsapp className="ml-2 bg-purple-600" size={20} />
     </Button>
   );
 };
