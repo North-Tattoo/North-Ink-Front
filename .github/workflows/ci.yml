@@ -1,85 +1,72 @@
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Passo 1: Verificar o código
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # Passo 1: Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    # Passo 2: Configurar o Node.js
-    - name: Set up Node.js 22
-      uses: actions/setup-node@v3
-      with:
-        node-version: '22'
+      # Passo 2: Configurar o Node.js
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
 
-    # Passo 3: Exibir a versão do Node.js
-    - name: Node.js version
-      run: node --version
+      # Passo 3: Instalar dependências e construir o projeto
+      - name: Install dependencies and build project
+        run: |
+          cd site
+          npm install
+          npm run build
 
-    # Passo 4: Limpar o cache do npm
-    - name: Clean npm cache
-      run: npm cache clean --force
+      # Passo 4: Conectar ao servidor EC2 e executar a atualização
+      - name: Deploy to EC2 server
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          port: 22
+          script: |
+            # Variáveis para reutilização
+            BUILD_PATH="/home/ubuntu/North-Ink-Front/site/dist"
+            NGINX_PATH="/usr/share/nginx/html/dist"
 
-    # Passo 5: Instalar dependências e construir o projeto
-    - name: Install dependencies and build project
-      run: |
-        cd site
-        npm install
-        npm run build
+            echo "Preparando servidor para atualização..."
+            
+            # Acessar projeto e atualizar dependências
+            cd /home/ubuntu/North-Ink-Front/site
+            npm install
+            npm run build
 
-    # Passo 6: Preparar o diretório de destino no servidor EC2
-    - name: Prepare target directory on EC2 server
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
-        port: 22
-        script: |
-          sudo mkdir -p /usr/share/nginx/html/dist/
-          sudo chown -R www-data:www-data /usr/share/nginx/html/dist/
-          sudo chmod -R 755 /usr/share/nginx/html/dist/
+            # Verificar se o diretório de build existe
+            if [ ! -d "$BUILD_PATH" ]; then
+              echo "Erro: O diretório de build $BUILD_PATH não foi encontrado!"
+              exit 1
+            fi
 
-    # Passo 7: Transferir os arquivos para o servidor EC2
-    - name: Transfer build files to EC2 server
-      uses: appleboy/scp-action@v0.1.5
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
-        port: 22
-        source: ./site/dist/* # Conteúdo do build
-        target: /usr/share/nginx/html/dist/
-        debug: true
+            # Limpar o diretório atual do NGINX e mover novos arquivos
+            echo "Atualizando arquivos no servidor..."
+            sudo rm -rf $NGINX_PATH
+            sudo mkdir -p $NGINX_PATH
+            sudo mv $BUILD_PATH/* $NGINX_PATH/
+            sudo chown -R www-data:www-data $NGINX_PATH
+            sudo chmod -R 755 $NGINX_PATH
 
-    # Passo 8: Reiniciar o NGINX no servidor EC2
-    - name: Restart NGINX on EC2
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
-        port: 22
-        script: |
-          sudo nginx -t
-          sudo systemctl restart nginx
+            # Reiniciar o NGINX
+            echo "Reiniciando o servidor NGINX..."
+            sudo nginx -t
+            sudo systemctl restart nginx
 
-    # Passo 9: Verificar o status do NGINX após o reinício
-    - name: Check NGINX status
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_KEY }}
-        port: 22
-        script: |
-          sudo systemctl status nginx | head -n 20 
+            # Verificar status do NGINX
+            echo "Verificando status do NGINX..."
+            sudo systemctl status nginx | head -n 10
