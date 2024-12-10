@@ -96,16 +96,16 @@ function GridListagem() {
     'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/66fc4d8486970fc3e34be92d374a3505/hover?v=1733784174',
     'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/58bcbc3de5f4824fa0b56f95dd297493/hover?v=1733446349',
     'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/06c100f8c9df991c27c7edad610b1864/hover?v=1733532970',
-    perfilTatuador5,
+    'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/a99c50be3180d9936d18cd14b5e6fb8e/hover?v=1733863636',
     'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/6f8ececffd5a458578db0e3b3bd6719a/hover?v=1733785178',
-    perfilTatuador1,
     perfilTatuador2,
+    'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/1f89ca0b076a584655f28beb483ec540/detailed'
   ];
 
-  const sortearFotoPerfil = () => {
-    let numero = Math.floor(Math.random() * perfilTatuador.length);
-    return perfilTatuador[numero];
-  };
+  // const sortearFotoPerfil = () => {
+  //   let numero = Math.floor(Math.random() * perfilTatuador.length);
+  //   return perfilTatuador[numero];
+  // };
 
   return (
     <div className={styles.gridListagem}>
