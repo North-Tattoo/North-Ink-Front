@@ -92,12 +92,14 @@ function GridListagem() {
   };
 
   const perfilTatuador = [
+    'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/92a9c930e69e4625a220ca5898baa58b/hover?v=1733446395',
+    'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/66fc4d8486970fc3e34be92d374a3505/hover?v=1733784174',
+    'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/58bcbc3de5f4824fa0b56f95dd297493/hover?v=1733446349',
+    'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/06c100f8c9df991c27c7edad610b1864/hover?v=1733532970',
+    perfilTatuador5,
+    'https://res-console.cloudinary.com/dpacgzko0/media_explorer_thumbnails/6f8ececffd5a458578db0e3b3bd6719a/hover?v=1733785178',
     perfilTatuador1,
     perfilTatuador2,
-    perfilTatuador3,
-    perfilTatuador4,
-    perfilTatuador5,
-    perfilTatuador6
   ];
 
   const sortearFotoPerfil = () => {
@@ -121,7 +123,7 @@ function GridListagem() {
             <Link to={`/detalhes/${usuario.id}`}>
               <div className={styles.pointerSombra}>
                 <div className={styles.informacoesStudio}>
-                  <img className={styles.fotoPerfil} src={sortearFotoPerfil()} alt="" />
+                  <img className={styles.fotoPerfil} src={perfilTatuador[usuario.id - 1]} alt="" />
                   <div className={styles.informacoes}>
                     <h5 className="font-bold">{`${usuario.nome} ${usuario.sobrenome}`}</h5>
                     <div className={styles.line}>
